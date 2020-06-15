@@ -1,0 +1,6 @@
+framework module Pods_MINISNS_MINISNSUITests {
+  umbrella header "Pods-MINISNS-MINISNSUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

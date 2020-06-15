@@ -3,17 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69F26C6569210731687EFF92 /* Pods_MINISNS_MINISNSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A743B0CCC95601B1DDF1279 /* Pods_MINISNS_MINISNSUITests.framework */; };
 		D6C4D80E2497AA280087C4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D80D2497AA280087C4B4 /* AppDelegate.swift */; };
 		D6C4D8102497AA280087C4B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D80F2497AA280087C4B4 /* SceneDelegate.swift */; };
-		D6C4D8122497AA280087C4B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8112497AA280087C4B4 /* ViewController.swift */; };
+		D6C4D8122497AA280087C4B4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8112497AA280087C4B4 /* MainVC.swift */; };
 		D6C4D8152497AA280087C4B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C4D8132497AA280087C4B4 /* Main.storyboard */; };
 		D6C4D8172497AA290087C4B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6C4D8162497AA290087C4B4 /* Assets.xcassets */; };
 		D6C4D81A2497AA290087C4B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C4D8182497AA290087C4B4 /* LaunchScreen.storyboard */; };
 		D6C4D8252497AA2A0087C4B4 /* MINISNSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8242497AA2A0087C4B4 /* MINISNSUITests.swift */; };
+		D6C4D8352497B2640087C4B4 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8342497B2640087C4B4 /* RegisterVC.swift */; };
+		D6C4D8372497B2A40087C4B4 /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8362497B2A40087C4B4 /* FindVC.swift */; };
+		D6C4D8392497B2E30087C4B4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8382497B2E30087C4B4 /* LoginVC.swift */; };
+		EBBBDE920391C29AC50A1B76 /* Pods_MINISNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFB111EF58628E6DE9589B6 /* Pods_MINISNS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +32,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D0D2B255B481BC0C2F76D7F /* Pods-MINISNS-MINISNSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MINISNS-MINISNSUITests.release.xcconfig"; path = "Target Support Files/Pods-MINISNS-MINISNSUITests/Pods-MINISNS-MINISNSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3078517030492769CA61203A /* Pods-MINISNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MINISNS.debug.xcconfig"; path = "Target Support Files/Pods-MINISNS/Pods-MINISNS.debug.xcconfig"; sourceTree = "<group>"; };
+		6A743B0CCC95601B1DDF1279 /* Pods_MINISNS_MINISNSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MINISNS_MINISNSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EFB111EF58628E6DE9589B6 /* Pods_MINISNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MINISNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D245C9F102D9E6F8E7446797 /* Pods-MINISNS-MINISNSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MINISNS-MINISNSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MINISNS-MINISNSUITests/Pods-MINISNS-MINISNSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D6C4D80A2497AA270087C4B4 /* MINISNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MINISNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C4D80D2497AA280087C4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6C4D80F2497AA280087C4B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D6C4D8112497AA280087C4B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D6C4D8112497AA280087C4B4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		D6C4D8142497AA280087C4B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6C4D8162497AA290087C4B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6C4D8192497AA290087C4B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +48,10 @@
 		D6C4D8202497AA2A0087C4B4 /* MINISNSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MINISNSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C4D8242497AA2A0087C4B4 /* MINISNSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MINISNSUITests.swift; sourceTree = "<group>"; };
 		D6C4D8262497AA2A0087C4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6C4D8342497B2640087C4B4 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		D6C4D8362497B2A40087C4B4 /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
+		D6C4D8382497B2E30087C4B4 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		DF2C2B2FD864F82BD43AE151 /* Pods-MINISNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MINISNS.release.xcconfig"; path = "Target Support Files/Pods-MINISNS/Pods-MINISNS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBBBDE920391C29AC50A1B76 /* Pods_MINISNS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +67,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F26C6569210731687EFF92 /* Pods_MINISNS_MINISNSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A6D87FA9CB98EDD859D0CB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3078517030492769CA61203A /* Pods-MINISNS.debug.xcconfig */,
+				DF2C2B2FD864F82BD43AE151 /* Pods-MINISNS.release.xcconfig */,
+				D245C9F102D9E6F8E7446797 /* Pods-MINISNS-MINISNSUITests.debug.xcconfig */,
+				0D0D2B255B481BC0C2F76D7F /* Pods-MINISNS-MINISNSUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		63DD128E9B9DFE611B2981C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7EFB111EF58628E6DE9589B6 /* Pods_MINISNS.framework */,
+				6A743B0CCC95601B1DDF1279 /* Pods_MINISNS_MINISNSUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D6C4D8012497AA270087C4B4 = {
 			isa = PBXGroup;
 			children = (
 				D6C4D80C2497AA280087C4B4 /* MINISNS */,
 				D6C4D8232497AA2A0087C4B4 /* MINISNSUITests */,
 				D6C4D80B2497AA270087C4B4 /* Products */,
+				0A6D87FA9CB98EDD859D0CB2 /* Pods */,
+				63DD128E9B9DFE611B2981C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +117,10 @@
 		D6C4D80C2497AA280087C4B4 /* MINISNS */ = {
 			isa = PBXGroup;
 			children = (
-				D6C4D80D2497AA280087C4B4 /* AppDelegate.swift */,
-				D6C4D80F2497AA280087C4B4 /* SceneDelegate.swift */,
-				D6C4D8112497AA280087C4B4 /* ViewController.swift */,
-				D6C4D8132497AA280087C4B4 /* Main.storyboard */,
-				D6C4D8162497AA290087C4B4 /* Assets.xcassets */,
-				D6C4D8182497AA290087C4B4 /* LaunchScreen.storyboard */,
 				D6C4D81B2497AA290087C4B4 /* Info.plist */,
+				D6C4D82F2497B1F80087C4B4 /* Supporting */,
+				D6C4D8312497B2320087C4B4 /* VC */,
+				D6C4D8302497B2240087C4B4 /* Base */,
 			);
 			path = MINISNS;
 			sourceTree = "<group>";
@@ -99,6 +134,36 @@
 			path = MINISNSUITests;
 			sourceTree = "<group>";
 		};
+		D6C4D82F2497B1F80087C4B4 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				D6C4D8162497AA290087C4B4 /* Assets.xcassets */,
+				D6C4D80D2497AA280087C4B4 /* AppDelegate.swift */,
+				D6C4D80F2497AA280087C4B4 /* SceneDelegate.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		D6C4D8302497B2240087C4B4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D6C4D8132497AA280087C4B4 /* Main.storyboard */,
+				D6C4D8182497AA290087C4B4 /* LaunchScreen.storyboard */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D6C4D8312497B2320087C4B4 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				D6C4D8112497AA280087C4B4 /* MainVC.swift */,
+				D6C4D8342497B2640087C4B4 /* RegisterVC.swift */,
+				D6C4D8362497B2A40087C4B4 /* FindVC.swift */,
+				D6C4D8382497B2E30087C4B4 /* LoginVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6C4D8292497AA2A0087C4B4 /* Build configuration list for PBXNativeTarget "MINISNS" */;
 			buildPhases = (
+				9C8A7BC2A3447AC278745F78 /* [CP] Check Pods Manifest.lock */,
 				D6C4D8062497AA270087C4B4 /* Sources */,
 				D6C4D8072497AA270087C4B4 /* Frameworks */,
 				D6C4D8082497AA270087C4B4 /* Resources */,
+				949F002A13A2848A30B2B580 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,9 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6C4D82C2497AA2A0087C4B4 /* Build configuration list for PBXNativeTarget "MINISNSUITests" */;
 			buildPhases = (
+				B32F094B75190F14E55219BA /* [CP] Check Pods Manifest.lock */,
 				D6C4D81C2497AA2A0087C4B4 /* Sources */,
 				D6C4D81D2497AA2A0087C4B4 /* Frameworks */,
 				D6C4D81E2497AA2A0087C4B4 /* Resources */,
+				DEA321E418A3CD9E101DDAD9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,14 +264,98 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		949F002A13A2848A30B2B580 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MINISNS/Pods-MINISNS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MINISNS/Pods-MINISNS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MINISNS/Pods-MINISNS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C8A7BC2A3447AC278745F78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MINISNS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B32F094B75190F14E55219BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MINISNS-MINISNSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEA321E418A3CD9E101DDAD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MINISNS-MINISNSUITests/Pods-MINISNS-MINISNSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MINISNS-MINISNSUITests/Pods-MINISNS-MINISNSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MINISNS-MINISNSUITests/Pods-MINISNS-MINISNSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D6C4D8062497AA270087C4B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6C4D8122497AA280087C4B4 /* ViewController.swift in Sources */,
+				D6C4D8122497AA280087C4B4 /* MainVC.swift in Sources */,
 				D6C4D80E2497AA280087C4B4 /* AppDelegate.swift in Sources */,
+				D6C4D8392497B2E30087C4B4 /* LoginVC.swift in Sources */,
 				D6C4D8102497AA280087C4B4 /* SceneDelegate.swift in Sources */,
+				D6C4D8352497B2640087C4B4 /* RegisterVC.swift in Sources */,
+				D6C4D8372497B2A40087C4B4 /* FindVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +513,7 @@
 		};
 		D6C4D82A2497AA2A0087C4B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3078517030492769CA61203A /* Pods-MINISNS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -378,6 +532,7 @@
 		};
 		D6C4D82B2497AA2A0087C4B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF2C2B2FD864F82BD43AE151 /* Pods-MINISNS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -396,6 +551,7 @@
 		};
 		D6C4D82D2497AA2A0087C4B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D245C9F102D9E6F8E7446797 /* Pods-MINISNS-MINISNSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -416,6 +572,7 @@
 		};
 		D6C4D82E2497AA2A0087C4B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D0D2B255B481BC0C2F76D7F /* Pods-MINISNS-MINISNSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
