@@ -1,30 +1,28 @@
-//
-//  FindVC.swift
-//  MINISNS
-//
-//  Created by 이현욱 on 2020/06/15.
-//  Copyright © 2020 이현욱. All rights reserved.
-//
-
 import UIKit
+import Alamofire
+
+// MARK: FindVC
 
 class FindVC: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var findEmailTextField: UITextField!
+    @IBOutlet weak var findIdPwBtn: UIButton!
+    @IBOutlet weak var setIdPwSegment: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        findEmailTextField.isHidden = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func changeIdPwView(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            findEmailTextField.isHidden = true
+        default:
+            findEmailTextField.isHidden = false
+        }
     }
-    */
-
+    
 }

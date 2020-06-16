@@ -1,12 +1,7 @@
-//
-//  LoginVC.swift
-//  MINISNS
-//
-//  Created by 이현욱 on 2020/06/15.
-//  Copyright © 2020 이현욱. All rights reserved.
-//
-
 import UIKit
+import Alamofire
+
+// MARK: LoginVC
 
 class LoginVC: UIViewController {
 
@@ -17,8 +12,40 @@ class LoginVC: UIViewController {
     @IBOutlet weak var registerBtn: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() 
+        }
+    
+    @IBAction func logIn(_ sender: UIButton) {
+        if idTextField.text!.isEmpty || pwTextField.text!.isEmpty {
+            presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비었습니다.")
+            return
+        } else {
+            
+        }
     }
     
+    
+    
 
+}
+
+extension LoginVC {
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Show the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 }
