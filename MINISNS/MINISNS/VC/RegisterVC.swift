@@ -5,6 +5,7 @@ import Alamofire
 
 class RegisterVC: UIViewController {
     
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -14,29 +15,29 @@ class RegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let newWork = Network(baseUrl: "10.156.145.141:3000")
+        newWork.post(endPoint: "/register")
     }
     
     @IBAction func getRegister(_ sender: UIButton) {
         
-        var param = ["id":nameTextField.text!,
-                     "num":phoneNumberTextField.text!,
-                     "email":emailTextField.text!,
-                     "pw":pwTextField.text!
-        ]
+        let url = "10.156.145.141:3000"
+        let param : Parameters = ["id":nameTextField.text!,
+                                 "num":phoneNumberTextField.text!,
+                                 "email":emailTextField.text!,
+                                 "pw":pwTextField.text!
+                                ]
         
-        var url = "10.156.145.141:3000/register"
-        
-        AF.request(url, method: .post, parameters: param as! Parameters, encoding: JSONEncoding.default, headers: ["Content-Type":"application/json"]).responseJSON {(response) in
-            
-                switch response. {
-                case <#pattern#>:
-                    <#code#>
-                default:
-                    <#code#>
-                }
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: ["Content-Type":"application/json"]).responseJSON {(response) in
+            if let error = response.value.
+            if let status = response.response?.statusCode {
+//                switch status {
+//                case <#pattern#>:
+//                    <#code#>
+//                default:
+//                    <#code#>
+//                }
             }
         }
     }
-    
-    
 }
