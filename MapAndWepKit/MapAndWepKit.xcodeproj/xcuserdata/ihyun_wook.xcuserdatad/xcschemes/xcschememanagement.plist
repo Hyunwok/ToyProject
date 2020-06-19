@@ -4,20 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MINISNS.xcscheme_^#shared#^_</key>
+		<key>MapAndWepKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>D6C4D8092497AA270087C4B4</key>
+		<key>D6543436249C4A2400320FA4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D6C4D81F2497AA2A0087C4B4</key>
+		<key>D654344C249C4A2700320FA4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

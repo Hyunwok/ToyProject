@@ -3,15 +3,27 @@ import Alamofire
 
 class Network {
 
-    fileprivate var baseUrl = ""
+    fileprivate var baseUrl = "10.156.145.141:3000"
     
-    init(baseUrl: String) {
-        self.baseUrl = baseUrl
+    func post(endPoint: String, param: [String:String?]) {
+        let header: HTTPHeaders = ["Content-Type":"application/json"]
+        AF.request(self.baseUrl + endPoint, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            print(response)
+            print(1)
+        }
     }
     
-    func post(endPoint: String) {
-        AF.request(baseUrl + endPoint, method: .post).validate()
+    func get(endPont: String) {
+        AF.request(endPont, method: .get,encoding: URLEncoding.default).response { (data) in
+            guard let cleanData = data.data else { return }
+            do {
+                let json = try JSONDecoder().decode([FindIdModel].self, from: cleanData)
+                print(json)
+            } catch {
+                print(error)
+    
+            }
+        }
     }
-   
 }
 

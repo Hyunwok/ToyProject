@@ -5,7 +5,9 @@ import Alamofire
 
 class LoginVC: UIViewController {
     
+    var autoLogin : Bool!
     let ud = UserDefaults.standard
+    let netWork = Network()
 
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
@@ -16,6 +18,8 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func logIn(_ sender: UIButton) {
@@ -23,12 +27,11 @@ class LoginVC: UIViewController {
             presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비었습니다.")
             return
         } else {
-            serverLogin()
+      //      netWork.post(endPoint: "/logIn", param: ["id":idTextField.text,"passwd":pwTextField.text] )
         }
     }
     
-    @IBAction func autoLogin(_ sender: UIButton) {
-        if idTextField.text!.isEmpty || pwTextField.text!.isEmpty {return }
+    @IBAction func autoLogin(_ sender: UIButton) { // textField 값 없으면 체크 안되게
         if sender.isSelected == true {
             ud.set(idTextField.text, forKey: "id")
             ud.set(pwTextField.text, forKey: "pw")
@@ -38,23 +41,11 @@ class LoginVC: UIViewController {
         }
         sender.isSelected = !sender.isSelected
     }
-    
-    func serverLogin() {
-        let param = ["id":idTextField.text,"passwd":pwTextField.text] 
-        AF.request("https://jsonplaceholder.typicode.com/posts", method: .post , parameters: param).responseJSON {
-            (response) in
-            switch response.result {
-            case .success(_): self.presentVC()
-            default: self.presentAlert(title: "error", message:"")
-            }
-        }
-    }
 }
 
 // MARK: Extension
 
-extension LoginVC {
-    
+extension LoginVC : UITextFieldDelegate {
     func presentAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
@@ -73,10 +64,21 @@ extension LoginVC {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // Show the Navigation Bar
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -150
+    }
+    
+    @objc func keyboardWillDisa(_ sender: Notification) {
+        self.view.frame.origin.y = 0
     }
 }
 

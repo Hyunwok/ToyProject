@@ -17,3 +17,4 @@ struct FindIdModel: Codable {
     let email: String?
     let num: String?
 }
+
