@@ -15,6 +15,7 @@ class FindVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         findEmailTextField.isHidden = true
     }
     
@@ -23,6 +24,7 @@ class FindVC: UIViewController {
         case 0:
             findEmailTextField.isHidden = true
             let param = ["name":nameTextField!.text, "phone":phoneNumberTextField!.text]
+    //        AF.request(netWork, method: <#T##HTTPMethod#>, parameters: <#T##Encodable?#>, encoder: <#T##ParameterEncoder#>, headers: <#T##HTTPHeaders?#>, interceptor: <#T##RequestInterceptor?#>, requestModifier: <#T##Session.RequestModifier?##Session.RequestModifier?##(inout URLRequest) throws -> Void#>)
         //    netWork.post(endPoint: "/find", param: param)
         default:
             findEmailTextField.isHidden = false

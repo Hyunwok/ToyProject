@@ -57,13 +57,13 @@ extension LoginVC : UITextFieldDelegate {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the Navigation Bar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
+        
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
