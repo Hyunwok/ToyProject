@@ -7,9 +7,8 @@ class LoginVC: UIViewController {
     
     var autoLogin : Bool!
     let ud = UserDefaults.standard
-    let netWork = Network()
 
-    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var findIdBtn: UIButton!
@@ -18,22 +17,47 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.string(forKey: "token") != nil {
+            guard let vc = storyboard?.instantiateViewController(identifier: "MainVC") else { return }
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil )
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        autoLoginBtn.isEnabled = false
     }
     
     @IBAction func logIn(_ sender: UIButton) {
-        if idTextField.text!.isEmpty || pwTextField.text!.isEmpty {
+        if userNameTextField.text!.isEmpty || pwTextField.text!.isEmpty {
             presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비었습니다.")
             return
         } else {
-      //      netWork.post(endPoint: "/logIn", param: ["id":idTextField.text,"passwd":pwTextField.text] )
+            let url = "http://13.209.77.9:3000/api/auth/login"
+            let param = ["username":userNameTextField.text!, "password":pwTextField.text!]
+            let header : HTTPHeaders = ["Content-Type":"application/json; charset=utf-8"]
+            AF.request(url, method: .post, parameters: param,encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+                guard let value = response.value as? [String:Any] else { return }
+                guard let token = value["token"] as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                let status = response.response?.statusCode
+                switch status {
+                case 200 : self.presentAlert(title: "성공!", message: "로그인 성공!")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.presentVC()
+                    }
+                default : self.presentAlert(title: "실패", message: "로그인 실패")
+                }
+            }
         }
     }
     
+    
     @IBAction func autoLogin(_ sender: UIButton) { // textField 값 없으면 체크 안되게
+        if userNameTextField.text!.isEmpty || pwTextField.text!.isEmpty { sender.isEnabled = false }
+        if !userNameTextField.text!.isEmpty || !pwTextField.text!.isEmpty { sender.isEnabled = true }
+        
         if sender.isSelected == true {
-            ud.set(idTextField.text, forKey: "id")
+            ud.set(userNameTextField.text, forKey: "id")
             ud.set(pwTextField.text, forKey: "pw")
         } else {
             ud.removeObject(forKey: "id")
@@ -60,7 +84,6 @@ extension LoginVC : UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Hide the Navigation Bar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
         
@@ -81,4 +104,3 @@ extension LoginVC : UITextFieldDelegate {
         self.view.frame.origin.y = 0
     }
 }
-
