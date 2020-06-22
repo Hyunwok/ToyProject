@@ -5,8 +5,6 @@ import Alamofire
 
 class FindVC: UIViewController {
     
-    let netWork = Network()
-
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var findEmailTextField: UITextField!
@@ -25,12 +23,9 @@ class FindVC: UIViewController {
             findEmailTextField.isHidden = true
             let param = ["name":nameTextField!.text, "phone":phoneNumberTextField!.text]
     //        AF.request(netWork, method: <#T##HTTPMethod#>, parameters: <#T##Encodable?#>, encoder: <#T##ParameterEncoder#>, headers: <#T##HTTPHeaders?#>, interceptor: <#T##RequestInterceptor?#>, requestModifier: <#T##Session.RequestModifier?##Session.RequestModifier?##(inout URLRequest) throws -> Void#>)
-        //    netWork.post(endPoint: "/find", param: param)
         default:
             findEmailTextField.isHidden = false
             let param = ["email":findEmailTextField!.text, "name":nameTextField!.text, "phone":phoneNumberTextField!.text]
-      //      let status = netWork.post(endPoint: "/find", param: param)
-            
         }
     }
 }
