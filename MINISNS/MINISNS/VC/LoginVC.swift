@@ -17,14 +17,8 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.string(forKey: "token") != nil {
-            guard let vc = storyboard?.instantiateViewController(identifier: "MainVC") else { return }
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true, completion: nil )
-        }
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        autoLoginBtn.isEnabled = false
     }
     
     @IBAction func logIn(_ sender: UIButton) {
@@ -38,7 +32,7 @@ class LoginVC: UIViewController {
             AF.request(url, method: .post, parameters: param,encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
                 guard let value = response.value as? [String:Any] else { return }
                 guard let token = value["token"] as? String else { return }
-                UserDefaults.standard.set(token, forKey: "token")
+                self.ud.set(token, forKey: "token")
                 let status = response.response?.statusCode
                 switch status {
                 case 200 : self.presentAlert(title: "성공!", message: "로그인 성공!")
@@ -53,13 +47,12 @@ class LoginVC: UIViewController {
     
     
     @IBAction func autoLogin(_ sender: UIButton) { // textField 값 없으면 체크 안되게
-        if userNameTextField.text!.isEmpty || pwTextField.text!.isEmpty { sender.isEnabled = false }
-        if !userNameTextField.text!.isEmpty || !pwTextField.text!.isEmpty { sender.isEnabled = true }
-        
         if sender.isSelected == true {
+            autoLogin = true
             ud.set(userNameTextField.text, forKey: "id")
             ud.set(pwTextField.text, forKey: "pw")
         } else {
+            autoLogin = false
             ud.removeObject(forKey: "id")
             ud.removeObject(forKey: "pw")
         }
