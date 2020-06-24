@@ -3,8 +3,6 @@ import UIKit
 // MARK: MainVC
 
 class MainVC: UIViewController {
-
-    let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var alertSheetBtn: UIButton!
@@ -12,32 +10,26 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.string(forKey: "token") == nil {
-            self.presentVC()
+            self.presentVC(identifier: "LoginVC")
             collectionView.delegate = self
             collectionView.dataSource = self
+            collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: "MyCell")
         }
     }
     
     @IBAction func setAlertSheet(_ sender: UIButton) {
-        
-        imagePicker.delegate = self
         let actionSheet = UIAlertController(title: "선택하세요", message: "무엇을 선택하시겠나요?", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "로그아웃", style: .default, handler: { (_) in
             UserDefaults.standard.removeObject(forKey: "token")
-            self.presentVC()
+            self.presentVC(identifier: "LoginVC")
+        }))
+        actionSheet.addAction(UIAlertAction(title: "사진 올리기", style: .default, handler: { (_) in
+            self.presentVC(identifier: "WriteVC")
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
-            self.imagePicker.sourceType = .camera
-            self.present(self.imagePicker, animated: true, completion: nil)
-        }))
         
-        actionSheet.addAction(UIAlertAction(title: "사진첩", style: .default, handler: { (_) in
-            self.imagePicker.sourceType = .photoLibrary
-            self.present(self.imagePicker, animated: true, completion: nil)
-        }))
         
-        actionSheet.addAction(UIAlertAction(title: "취소", style: .default, handler: nil ))
+        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil ))
         self.present(actionSheet, animated: true, completion: nil)
     }
 }
@@ -48,13 +40,14 @@ extension MainVC : UIImagePickerControllerDelegate, UINavigationControllerDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! CollectionViewCell
+        //cell?.configure(with: imagePicker)
         return cell
     }
     
     
-    private func presentVC() {
-        guard let vc = storyboard?.instantiateViewController(identifier: "LoginVC") else { return }
+    private func presentVC(identifier: String) {
+        guard let vc = storyboard?.instantiateViewController(identifier: identifier) else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
         

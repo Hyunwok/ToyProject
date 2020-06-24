@@ -26,10 +26,10 @@ class LoginVC: UIViewController {
             presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비었습니다.")
             return
         } else {
-            let url = "http://13.209.77.9:3000/api/auth/login"
-            let param = ["username":userNameTextField.text!, "password":pwTextField.text!]
+            let url = "http://10.156.145.141:3000/login"
+            let param = ["email":userNameTextField.text!, "password":pwTextField.text!]
             let header : HTTPHeaders = ["Content-Type":"application/json; charset=utf-8"]
-            AF.request(url, method: .post, parameters: param,encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
                 guard let value = response.value as? [String:Any] else { return }
                 guard let token = value["token"] as? String else { return }
                 self.ud.set(token, forKey: "token")
@@ -39,7 +39,9 @@ class LoginVC: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.presentVC()
                     }
-                default : self.presentAlert(title: "실패", message: "로그인 실패")
+                case 404 : self.presentAlert(title: "실패", message: "로그인 실패")
+                case 500 : self.presentAlert(title: "실패", message: "로그인 실패re")
+                default : return
                 }
             }
         }

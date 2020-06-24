@@ -19,6 +19,9 @@
 		D6C4D8352497B2640087C4B4 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8342497B2640087C4B4 /* RegisterVC.swift */; };
 		D6C4D8372497B2A40087C4B4 /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8362497B2A40087C4B4 /* FindVC.swift */; };
 		D6C4D8392497B2E30087C4B4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8382497B2E30087C4B4 /* LoginVC.swift */; };
+		D6D1FDB924A2CAB900B2010E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1FDB724A2CAB900B2010E /* CollectionViewCell.swift */; };
+		D6D1FDBA24A2CAB900B2010E /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D1FDB824A2CAB900B2010E /* CollectionViewCell.xib */; };
+		D6EC5B3A24A32F3F0016EEA6 /* WriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EC5B3924A32F3F0016EEA6 /* WriteVC.swift */; };
 		EBBBDE920391C29AC50A1B76 /* Pods_MINISNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFB111EF58628E6DE9589B6 /* Pods_MINISNS.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +56,9 @@
 		D6C4D8342497B2640087C4B4 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		D6C4D8362497B2A40087C4B4 /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
 		D6C4D8382497B2E30087C4B4 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		D6D1FDB724A2CAB900B2010E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		D6D1FDB824A2CAB900B2010E /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		D6EC5B3924A32F3F0016EEA6 /* WriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteVC.swift; sourceTree = "<group>"; };
 		DF2C2B2FD864F82BD43AE151 /* Pods-MINISNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MINISNS.release.xcconfig"; path = "Target Support Files/Pods-MINISNS/Pods-MINISNS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +158,7 @@
 			children = (
 				D6C4D8132497AA280087C4B4 /* Main.storyboard */,
 				D6C4D8182497AA290087C4B4 /* LaunchScreen.storyboard */,
+				D6D1FDB624A2CA8800B2010E /* CellXib */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -160,11 +167,21 @@
 			isa = PBXGroup;
 			children = (
 				D6C4D8112497AA280087C4B4 /* MainVC.swift */,
+				D6EC5B3924A32F3F0016EEA6 /* WriteVC.swift */,
 				D6C4D8342497B2640087C4B4 /* RegisterVC.swift */,
 				D6C4D8362497B2A40087C4B4 /* FindVC.swift */,
 				D6C4D8382497B2E30087C4B4 /* LoginVC.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		D6D1FDB624A2CA8800B2010E /* CellXib */ = {
+			isa = PBXGroup;
+			children = (
+				D6D1FDB724A2CAB900B2010E /* CollectionViewCell.swift */,
+				D6D1FDB824A2CAB900B2010E /* CollectionViewCell.xib */,
+			);
+			path = CellXib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +271,7 @@
 			files = (
 				D6C4D81A2497AA290087C4B4 /* LaunchScreen.storyboard in Resources */,
 				D6C4D8172497AA290087C4B4 /* Assets.xcassets in Resources */,
+				D6D1FDBA24A2CAB900B2010E /* CollectionViewCell.xib in Resources */,
 				D6C4D8152497AA280087C4B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +373,8 @@
 			files = (
 				D6C4D8122497AA280087C4B4 /* MainVC.swift in Sources */,
 				D6C4D80E2497AA280087C4B4 /* AppDelegate.swift in Sources */,
+				D6EC5B3A24A32F3F0016EEA6 /* WriteVC.swift in Sources */,
+				D6D1FDB924A2CAB900B2010E /* CollectionViewCell.swift in Sources */,
 				D6C4D8392497B2E30087C4B4 /* LoginVC.swift in Sources */,
 				D6C4D8102497AA280087C4B4 /* SceneDelegate.swift in Sources */,
 				D6C4D8352497B2640087C4B4 /* RegisterVC.swift in Sources */,
