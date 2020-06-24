@@ -6,7 +6,7 @@ class WriteVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.setToolbarHidden(true, animated: false)
     }
 
 //    actionSheet.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
