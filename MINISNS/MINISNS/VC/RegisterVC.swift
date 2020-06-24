@@ -19,7 +19,7 @@ class RegisterVC: UIViewController {
     
     @IBAction func getRegister(_ sender: UIButton) {
         
-        let url = "http://13.209.77.9:3000/api/auth/register"
+        let url = "http://10.156.145.141:3000/register"
         
         if nameTextField.text!.isEmpty ||
             phoneNumberTextField.text!.isEmpty ||
@@ -30,9 +30,9 @@ class RegisterVC: UIViewController {
         }
         
          let param : Parameters = [
-             "username":nameTextField.text!,
-             "password":pwTextField.text!,
+             "name":nameTextField.text!,
              "email":emailTextField.text!,
+             "password":pwTextField.text!,
              "phone":phoneNumberTextField.text!
          ]
         
@@ -45,7 +45,7 @@ class RegisterVC: UIViewController {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.navigationController?.popViewController(animated: true)
                     }
-                case 409: self.presentAlert(title: "회원가입 실패", message: "아이디가 있거나 형식에 맞지 않습니다")
+                case 500: self.presentAlert(title: "회원가입 실패", message: "아이디가 있거나 형식에 맞지 않습니다")
                 default: return
                 }
             }
