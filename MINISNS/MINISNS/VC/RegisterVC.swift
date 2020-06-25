@@ -45,12 +45,14 @@ class RegisterVC: UIViewController {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.navigationController?.popViewController(animated: true)
                     }
-                case 500: self.presentAlert(title: "회원가입 실패", message: "아이디가 있거나 형식에 맞지 않습니다")
-                default: return
+                case 409: self.presentAlert(title: "회원가입 실패", message: "아이디가 있거나 형식에 맞지 않습니다")
+                default: return 
                 }
             }
         }
     }
+    
+        
 }
 
 extension RegisterVC {

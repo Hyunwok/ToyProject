@@ -10,6 +10,8 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.string(forKey: "token") == nil {
+            guard let vc = storyboard?.instantiateViewController(identifier: "LoginVC") else {return}
+            present(vc, animated: true, completion: nil)
             self.presentVC(identifier: "LoginVC")
         }
         collectionView.delegate = self
@@ -45,7 +47,7 @@ extension MainVC : UIImagePickerControllerDelegate, UINavigationControllerDelega
     private func presentVC(identifier: String) {
         guard let vc = storyboard?.instantiateViewController(identifier: identifier) else { return }
         vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
 }
 
