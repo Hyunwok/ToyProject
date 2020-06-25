@@ -29,11 +29,12 @@ class FindVC: UIViewController {
     @IBAction func getIdOrPw(_ sender: UIButton) {
         if setIdPwSegment.selectedSegmentIndex == 0 {
             let url = "http://10.156.145.141:3000/find/email"
-            let param = ["phone":phoneNumberTextField!.text!]
+            let param : [String:Any] = ["name": nameTextField.text, "phone":phoneNumberTextField.text]
             getIdOrPw(url: url, param: param, caseNum: 0)
         } else {
             let url = "http://10.156.145.141:3000/find/password"
-            getIdOrPw(url: url, param: ["email":findEmailTextField!.text as Any], caseNum: 1)
+            let param : [String:Any] = ["name":nameTextField.text, "email":findEmailTextField.text]
+            getIdOrPw(url: url, param: param, caseNum: 1)
         }
     }
 }
