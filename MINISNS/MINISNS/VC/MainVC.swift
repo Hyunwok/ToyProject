@@ -9,11 +9,10 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.navigationController?.setNavigationBarHidden(true, animated: false)
-//        if UserDefaults.standard.string(forKey: "token") == nil {
-//            self.presentVC(identifier: "LoginVC")
-//        }
-     collectionView.delegate = self
+        if UserDefaults.standard.string(forKey: "token") == nil {
+            self.presentVC(identifier: "LoginVC")
+        }
+        collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: "MyCell")
     }
@@ -25,11 +24,8 @@ class MainVC: UIViewController {
             self.presentVC(identifier: "LoginVC")
         }))
         actionSheet.addAction(UIAlertAction(title: "사진 올리기", style: .default, handler: { (_) in
-
+            self.presentVC(identifier: "WriteVC")
         }))
-        
-        
-        
         actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil ))
         self.present(actionSheet, animated: true, completion: nil)
     }
@@ -46,12 +42,10 @@ extension MainVC : UIImagePickerControllerDelegate, UINavigationControllerDelega
         return cell
     }
     
-    
     private func presentVC(identifier: String) {
         guard let vc = storyboard?.instantiateViewController(identifier: identifier) else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
-        
     }
 }
 
