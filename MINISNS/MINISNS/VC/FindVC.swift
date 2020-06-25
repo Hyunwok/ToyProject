@@ -33,7 +33,9 @@ class FindVC: UIViewController {
             getIdOrPw(url: url, param: param, caseNum: 0)
         } else {
             let url = "http://10.156.145.141:3000/find/password"
-            let param : [String:Any] = ["name":nameTextField.text, "email":findEmailTextField.text]
+            let param : [String:Any] = ["name":nameTextField.text,
+                                        "email":findEmailTextField.text,
+                                        "phone":phoneNumberTextField.text]
             getIdOrPw(url: url, param: param, caseNum: 1)
         }
     }
