@@ -17,23 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="9g1-W9-vSO">
-                                <rect key="frame" x="90.666666666666686" y="364" width="233" height="178"/>
+                                <rect key="frame" x="40" y="364" width="334" height="178"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMm-UA-IcX">
-                                        <rect key="frame" x="0.0" y="0.0" width="233" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter pw" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGg-mR-W77">
-                                        <rect key="frame" x="0.0" y="64" width="233" height="34"/>
+                                        <rect key="frame" x="0.0" y="64" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJM-5S-YgB">
-                                        <rect key="frame" x="0.0" y="128" width="233" height="50"/>
+                                        <rect key="frame" x="50.666666666666686" y="128" width="233" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50g-TV-3CK">
-                                                <rect key="frame" x="48.999999999999986" y="8" width="19.333333333333329" height="29"/>
+                                                <rect key="frame" x="30" y="8" width="19.333333333333329" height="29"/>
                                                 <state key="normal" image="square" catalog="system"/>
                                                 <state key="selected" image="checkmark.square.fill" catalog="system"/>
                                                 <connections>
@@ -41,7 +41,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwO-jh-Vp4">
-                                                <rect key="frame" x="133" y="7" width="39" height="30"/>
+                                                <rect key="frame" x="164" y="7" width="39" height="30"/>
                                                 <state key="normal" title="로그인"/>
                                                 <connections>
                                                     <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b3O-7H-n4g"/>
@@ -52,10 +52,10 @@
                                         <constraints>
                                             <constraint firstItem="50g-TV-3CK" firstAttribute="top" secondItem="JJM-5S-YgB" secondAttribute="top" constant="8" id="5jX-jX-8x6"/>
                                             <constraint firstItem="cwO-jh-Vp4" firstAttribute="top" secondItem="JJM-5S-YgB" secondAttribute="top" constant="7" id="ahJ-5V-utS"/>
-                                            <constraint firstItem="50g-TV-3CK" firstAttribute="leading" secondItem="JJM-5S-YgB" secondAttribute="leading" constant="49" id="fEN-WY-AJE"/>
+                                            <constraint firstItem="50g-TV-3CK" firstAttribute="leading" secondItem="JJM-5S-YgB" secondAttribute="leading" constant="30" id="fEN-WY-AJE"/>
                                             <constraint firstAttribute="bottom" secondItem="50g-TV-3CK" secondAttribute="bottom" constant="13" id="oNy-Tn-NT8"/>
                                             <constraint firstAttribute="bottom" secondItem="cwO-jh-Vp4" secondAttribute="bottom" constant="13" id="okI-w8-b3U"/>
-                                            <constraint firstAttribute="trailing" secondItem="cwO-jh-Vp4" secondAttribute="trailing" constant="60.670000000000002" id="qhR-ab-XjM"/>
+                                            <constraint firstAttribute="trailing" secondItem="cwO-jh-Vp4" secondAttribute="trailing" constant="30" id="qhR-ab-XjM"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -98,6 +98,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="brk-Fv-CVV" secondAttribute="bottom" constant="13" id="FQy-ox-xGN"/>
+                            <constraint firstItem="9g1-W9-vSO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Kkb-pO-3SC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9g1-W9-vSO" secondAttribute="trailing" constant="40" id="UtA-Xg-Dgh"/>
                             <constraint firstItem="9g1-W9-vSO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hno-E1-EKe"/>
                             <constraint firstItem="brk-Fv-CVV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="t0f-4q-0jM"/>
                             <constraint firstItem="9g1-W9-vSO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ynx-Am-ZgG"/>
@@ -449,6 +451,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진이 비었습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImI-JY-kLG">
+                                <rect key="frame" x="133" y="288.33333333333331" width="148.33333333333337" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -458,8 +466,10 @@
                             <constraint firstItem="UV2-4t-MjE" firstAttribute="centerX" secondItem="3AH-mV-MTH" secondAttribute="centerX" id="P2E-jo-Ydr"/>
                             <constraint firstItem="GIC-ps-air" firstAttribute="top" secondItem="3AH-mV-MTH" secondAttribute="top" constant="10" id="Q45-MF-RLP"/>
                             <constraint firstItem="GIC-ps-air" firstAttribute="leading" secondItem="3AH-mV-MTH" secondAttribute="leading" constant="19" id="TtO-jc-8j1"/>
+                            <constraint firstItem="ImI-JY-kLG" firstAttribute="centerY" secondItem="UV2-4t-MjE" secondAttribute="centerY" id="Wtd-Kf-evC"/>
                             <constraint firstItem="IuU-cH-h72" firstAttribute="top" secondItem="99h-ZK-1AL" secondAttribute="bottom" constant="69" id="XRz-mo-bSq"/>
                             <constraint firstItem="3AH-mV-MTH" firstAttribute="trailing" secondItem="mOC-Lh-t9x" secondAttribute="trailing" constant="19" id="Z9N-Yr-qVg"/>
+                            <constraint firstItem="ImI-JY-kLG" firstAttribute="centerX" secondItem="UV2-4t-MjE" secondAttribute="centerX" id="edB-F3-1HQ"/>
                             <constraint firstItem="UV2-4t-MjE" firstAttribute="top" relation="lessThanOrEqual" secondItem="3AH-mV-MTH" secondAttribute="top" constant="112" id="hod-wK-OmT"/>
                             <constraint firstItem="99h-ZK-1AL" firstAttribute="centerX" secondItem="3AH-mV-MTH" secondAttribute="centerX" id="lhG-h4-d3S"/>
                             <constraint firstItem="3AH-mV-MTH" firstAttribute="bottom" secondItem="IuU-cH-h72" secondAttribute="bottom" constant="20" id="mtc-2L-6jT"/>
@@ -471,6 +481,7 @@
                     <connections>
                         <outlet property="goToMainBtn" destination="GIC-ps-air" id="KWA-Kh-OfL"/>
                         <outlet property="imageView" destination="UV2-4t-MjE" id="0Lf-9g-dkk"/>
+                        <outlet property="imageViewNilLbl" destination="ImI-JY-kLG" id="Wdu-dy-9H8"/>
                         <outlet property="textView" destination="99h-ZK-1AL" id="KFL-Qg-qZR"/>
                     </connections>
                 </viewController>
