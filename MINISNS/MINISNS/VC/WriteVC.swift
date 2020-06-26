@@ -1,15 +1,20 @@
 import UIKit
+import Alamofire
 
 // MARK: WriteVC
 
 class WriteVC: UIViewController {
     
+    @IBOutlet weak var imageViewNilLbl: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var goToMainBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageViewNilLbl.isHidden = false
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func addImage(_ sender: UIButton) {
@@ -17,11 +22,15 @@ class WriteVC: UIViewController {
        }
    
     @IBAction func addRead(_ sender: Any) {
-        if imageView.image == nil {
-            let alert = UIAlertController(title: "실패", message: "사진이 선택되지 않았습니다.", preferredStyle: .alert)
+        if imageView.image == nil || textView.text.isEmpty {
+            let alert = UIAlertController(title: "실패", message: "사진과 글이 준비되지 않았습니다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
+//        AF.upload(multipartFormData: { (MultipartFormData) in
+//            
+//            MultipartFormData.append(imageView.image, withName: "Image")
+//        }, to: <#T##URLConvertible#>)
         let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -46,7 +55,7 @@ class WriteVC: UIViewController {
 
 // MARK: Extension
 
-extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     func tapImageView() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -67,6 +76,7 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         imageView.image = image
+        imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -78,6 +88,23 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
         guard let vc = storyboard?.instantiateViewController(identifier: "MainVC") else { return }
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -150
+    }
+    
+    @objc func keyboardWillDisa(_ sender: Notification) {
+        self.view.frame.origin.y = 0
     }
 }
 

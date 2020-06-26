@@ -14,6 +14,8 @@ class FindVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         findEmailTextField.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func changeIdPwView(_ sender: UISegmentedControl) {
@@ -43,7 +45,7 @@ class FindVC: UIViewController {
 
 // MARK: extension
 
-extension FindVC {
+extension FindVC: UITextFieldDelegate {
     
     func getIdOrPw(url:String, param: [String:Any], caseNum: Int) {
         let name: String
@@ -67,6 +69,23 @@ extension FindVC {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -150
+    }
+    
+    @objc func keyboardWillDisa(_ sender: Notification) {
+        self.view.frame.origin.y = 0
     }
 }
 
