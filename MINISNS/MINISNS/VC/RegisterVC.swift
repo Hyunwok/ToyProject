@@ -14,12 +14,9 @@ class RegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     @IBAction func getRegister(_ sender: UIButton) {
-        
-        let url = "http://10.156.145.141:3000/register"
         
         if nameTextField.text!.isEmpty ||
             phoneNumberTextField.text!.isEmpty ||
@@ -34,10 +31,12 @@ class RegisterVC: UIViewController {
              "email":emailTextField!.text!,
              "password":pwTextField!.text!,
              "phone":phoneNumberTextField!.text!
-         ]
+        ]
         
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).responseData {
-            (response) in
+        let url = "http://10.156.145.141:3000/register"
+        
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON { (response) in
+            if let error = response.error { print(error); return }
             if let status = response.response?.statusCode {
                 switch status {
                 case 200:
@@ -51,9 +50,9 @@ class RegisterVC: UIViewController {
             }
         }
     }
-    
-        
 }
+
+//MARK: extension
 
 extension RegisterVC {
     func presentAlert(title: String, message: String) {

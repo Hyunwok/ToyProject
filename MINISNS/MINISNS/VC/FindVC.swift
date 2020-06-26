@@ -13,7 +13,6 @@ class FindVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         findEmailTextField.isHidden = true
     }
     
@@ -41,12 +40,10 @@ class FindVC: UIViewController {
     }
 }
 
+
+// MARK: extension
+
 extension FindVC {
-    func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
     
     func getIdOrPw(url:String, param: [String:Any], caseNum: Int) {
         let name: String
@@ -64,6 +61,12 @@ extension FindVC {
             default: return
             }
         }
+    }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 

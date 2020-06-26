@@ -4,8 +4,7 @@ import Alamofire
 // MARK: LoginVC
 
 class LoginVC: UIViewController {
-    
-    var autoLogin : Bool!
+
     let ud = UserDefaults.standard
 
     @IBOutlet weak var userNameTextField: UITextField!
@@ -19,6 +18,25 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @IBAction func findIdOrPw(_ sender: UIButton) {
+        self.presentVC(identifier: "FindVC")
+    }
+    
+    @IBAction func getRegister(_ sender: UIButton) {
+        self.presentVC(identifier: "RegisterVC")
+    }
+    
+    @IBAction func autoLogin(_ sender: UIButton) { // textField 값 없으면 체크 안되게
+        if sender.isSelected == true {
+            ud.set(userNameTextField.text, forKey: "id")
+            ud.set(pwTextField.text, forKey: "pw")
+        } else {
+            ud.removeObject(forKey: "id")
+            ud.removeObject(forKey: "pw")
+        }
+        sender.isSelected = !sender.isSelected
     }
     
     @IBAction func logIn(_ sender: UIButton) {
@@ -37,7 +55,7 @@ class LoginVC: UIViewController {
                 switch status {
                 case 200 : self.presentAlert(title: "성공!", message: "로그인 성공!")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.presentVC()
+                    self.presentVC(identifier:"MainVC")
                     }
                 case 404 : self.presentAlert(title: "실패", message: "존재하지 않는 유저")
                 case 500 : self.presentAlert(title: "에러", message: "에러 발생")
@@ -46,21 +64,8 @@ class LoginVC: UIViewController {
             }
         }
     }
-    
-    
-    @IBAction func autoLogin(_ sender: UIButton) { // textField 값 없으면 체크 안되게
-        if sender.isSelected == true {
-            autoLogin = true
-            ud.set(userNameTextField.text, forKey: "id")
-            ud.set(pwTextField.text, forKey: "pw")
-        } else {
-            autoLogin = false
-            ud.removeObject(forKey: "id")
-            ud.removeObject(forKey: "pw")
-        }
-        sender.isSelected = !sender.isSelected
-    }
 }
+
 
 // MARK: Extension
 
@@ -71,8 +76,8 @@ extension LoginVC : UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func presentVC() {
-        guard let vc = storyboard?.instantiateViewController(identifier: "MainVC") as? MainVC else { return }
+    func presentVC(identifier:String) {
+        guard let vc = storyboard?.instantiateViewController(identifier: "\(identifier)") else { return }
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
