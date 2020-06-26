@@ -30,13 +30,13 @@ class RegisterVC: UIViewController {
         }
         
          let param : Parameters = [
-             "name":nameTextField.text!,
-             "email":emailTextField.text!,
-             "password":pwTextField.text!,
-             "phone":phoneNumberTextField.text!
+             "name":nameTextField!.text!,
+             "email":emailTextField!.text!,
+             "password":pwTextField!.text!,
+             "phone":phoneNumberTextField!.text!
          ]
         
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON {
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).responseData {
             (response) in
             if let status = response.response?.statusCode {
                 switch status {
