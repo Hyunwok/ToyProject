@@ -9,14 +9,15 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.string(forKey: "token") == nil {
-            guard let vc = storyboard?.instantiateViewController(identifier: "LoginVC") else {return}
-            present(vc, animated: true, completion: nil)
-            self.presentVC(identifier: "LoginVC")
-        }
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: "MyCell")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.string(forKey: "token") == nil {
+            self.presentVC(identifier: "LoginVC")
+        }
     }
     
     @IBAction func setAlertSheet(_ sender: UIButton) {
@@ -32,6 +33,8 @@ class MainVC: UIViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
 }
+
+// MARK: extension
 
 extension MainVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
