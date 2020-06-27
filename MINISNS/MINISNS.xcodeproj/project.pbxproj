@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		69F26C6569210731687EFF92 /* Pods_MINISNS_MINISNSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A743B0CCC95601B1DDF1279 /* Pods_MINISNS_MINISNSUITests.framework */; };
-		D654342D249A0A1F00320FA4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654342C249A0A1F00320FA4 /* Model.swift */; };
 		D6C4D80E2497AA280087C4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D80D2497AA280087C4B4 /* AppDelegate.swift */; };
 		D6C4D8102497AA280087C4B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D80F2497AA280087C4B4 /* SceneDelegate.swift */; };
 		D6C4D8122497AA280087C4B4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8112497AA280087C4B4 /* MainVC.swift */; };
@@ -41,7 +40,6 @@
 		6A743B0CCC95601B1DDF1279 /* Pods_MINISNS_MINISNSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MINISNS_MINISNSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFB111EF58628E6DE9589B6 /* Pods_MINISNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MINISNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D245C9F102D9E6F8E7446797 /* Pods-MINISNS-MINISNSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MINISNS-MINISNSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MINISNS-MINISNSUITests/Pods-MINISNS-MINISNSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D654342C249A0A1F00320FA4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D6C4D80A2497AA270087C4B4 /* MINISNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MINISNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C4D80D2497AA280087C4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6C4D80F2497AA280087C4B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				D6C4D81B2497AA290087C4B4 /* Info.plist */,
-				D654342C249A0A1F00320FA4 /* Model.swift */,
 				D6C4D82F2497B1F80087C4B4 /* Supporting */,
 				D6C4D8312497B2320087C4B4 /* VC */,
 				D6C4D8302497B2240087C4B4 /* Base */,
@@ -379,7 +376,6 @@
 				D6C4D8102497AA280087C4B4 /* SceneDelegate.swift in Sources */,
 				D6C4D8352497B2640087C4B4 /* RegisterVC.swift in Sources */,
 				D6C4D8372497B2A40087C4B4 /* FindVC.swift in Sources */,
-				D654342D249A0A1F00320FA4 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
