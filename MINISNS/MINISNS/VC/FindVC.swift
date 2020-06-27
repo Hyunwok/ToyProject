@@ -3,7 +3,7 @@ import Alamofire
 
 // MARK: FindVC
 
-class FindVC: UIViewController {
+class FindVC: WriteVC {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -14,8 +14,6 @@ class FindVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         findEmailTextField.isHidden = true
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func changeIdPwView(_ sender: UISegmentedControl) {
@@ -30,13 +28,13 @@ class FindVC: UIViewController {
     @IBAction func getIdOrPw(_ sender: UIButton) {
         if setIdPwSegment.selectedSegmentIndex == 0 {
             let url = "http://10.156.145.141:3000/find/email"
-            let param : [String:Any] = ["name": nameTextField.text, "phone":phoneNumberTextField.text]
+            let param : [String:Any] = ["name": nameTextField.text!, "phone":phoneNumberTextField.text!]
             getIdOrPw(url: url, param: param, caseNum: 0)
         } else {
             let url = "http://10.156.145.141:3000/find/password"
-            let param : [String:Any] = ["name":nameTextField.text,
-                                        "email":findEmailTextField.text,
-                                        "phone":phoneNumberTextField.text]
+            let param : [String:Any] = ["name":nameTextField.text!,
+                                        "email":findEmailTextField.text!,
+                                        "phone":phoneNumberTextField.text!]
             getIdOrPw(url: url, param: param, caseNum: 1)
         }
     }
@@ -45,7 +43,7 @@ class FindVC: UIViewController {
 
 // MARK: extension
 
-extension FindVC: UITextFieldDelegate {
+extension FindVC {
     
     func getIdOrPw(url:String, param: [String:Any], caseNum: Int) {
         let name: String
@@ -69,23 +67,6 @@ extension FindVC: UITextFieldDelegate {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    @objc func keyboardWillShow(_ sender: Notification) {
-        self.view.frame.origin.y = -150
-    }
-    
-    @objc func keyboardWillDisa(_ sender: Notification) {
-        self.view.frame.origin.y = 0
     }
 }
 

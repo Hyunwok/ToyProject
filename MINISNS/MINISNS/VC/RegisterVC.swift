@@ -4,7 +4,7 @@ import Alamofire
 
 // MARK: RegisterVC
 
-class RegisterVC: UIViewController {
+class RegisterVC: WriteVC {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -56,27 +56,10 @@ class RegisterVC: UIViewController {
 
 //MARK: extension
 
-extension RegisterVC: UITextFieldDelegate {
+extension RegisterVC {
     func presentAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         present(alert,animated: true)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    @objc func keyboardWillShow(_ sender: Notification) {
-        self.view.frame.origin.y = -150
-    }
-    
-    @objc func keyboardWillDisa(_ sender: Notification) {
-        self.view.frame.origin.y = 0
     }
 }

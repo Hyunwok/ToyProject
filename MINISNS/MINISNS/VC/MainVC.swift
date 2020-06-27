@@ -13,12 +13,12 @@ class MainVC: UIViewController {
         collectionView.dataSource = self
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: "MyCell")
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if UserDefaults.standard.string(forKey: "token") == nil {
-            self.presentVC(identifier: "LoginVC")
-        }
-    }
+//    
+//    override func viewDidAppear(_ animated: Bool) {
+//        if UserDefaults.standard.string(forKey: "token") == nil {
+//            self.presentVC(identifier: "LoginVC")
+//        }
+//    }
     
     @IBAction func setAlertSheet(_ sender: UIButton) {
         let actionSheet = UIAlertController(title: "선택하세요", message: "무엇을 선택하시겠나요?", preferredStyle: .actionSheet)

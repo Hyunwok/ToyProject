@@ -16,8 +16,6 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func findIdOrPw(_ sender: UIButton) {
@@ -85,22 +83,5 @@ extension LoginVC : UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-        
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    @objc func keyboardWillShow(_ sender: Notification) {
-        self.view.frame.origin.y = -150
-    }
-    
-    @objc func keyboardWillDisa(_ sender: Notification) {
-        self.view.frame.origin.y = 0
     }
 }

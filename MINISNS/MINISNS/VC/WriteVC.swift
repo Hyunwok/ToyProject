@@ -6,7 +6,6 @@ import Alamofire
 class WriteVC: UIViewController {
     
     var imageData: Data!
-    var imagePath: URL!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageViewNilLbl: UILabel!
@@ -35,11 +34,11 @@ class WriteVC: UIViewController {
         AF.upload(multipartFormData: { MultipartFormData in
             MultipartFormData.append(self.imageData, withName: "\(self.titleTextField.text!)")}, to: "", method: .post, headers: ["Content-Type":"multipart/form-data"]).responseJSON { (response) in
                 let status = response.response?.statusCode
-                //                switch status {
-                //                case:
-                //                case :
-                //                default:
-                //                }
+                switch status {
+                case 200: print(1)
+                case 400: print(2)
+                default: print(3)
+                }
         }
         
         let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
@@ -67,6 +66,12 @@ class WriteVC: UIViewController {
 // MARK: Extension
 
 extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    func presentVC() {
+        guard let vc = storyboard?.instantiateViewController(identifier: "MainVC") else { return }
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
     func tapImageView() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -87,7 +92,6 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         imageData = image.jpegData(compressionQuality: 1)
-        imagePath = info[UIImagePickerController.InfoKey.imageURL] as? URL
         imageView.image = image
         imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
@@ -95,29 +99,6 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func presentVC() {
-        guard let vc = storyboard?.instantiateViewController(identifier: "MainVC") else { return }
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    @objc func keyboardWillShow(_ sender: Notification) {
-        self.view.frame.origin.y = -150
-    }
-    
-    @objc func keyboardWillDisa(_ sender: Notification) {
-        self.view.frame.origin.y = 0
     }
 }
 
