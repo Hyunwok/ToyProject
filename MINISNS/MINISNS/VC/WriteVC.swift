@@ -5,6 +5,7 @@ import Alamofire
 
 class WriteVC: UIViewController {
     
+    var imageData: Data!
     var imagePath: URL!
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -15,23 +16,30 @@ class WriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //  textView.isSelectable = false
         imageViewNilLbl.isHidden = false
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func addImage(_ sender: UIButton) {
-           tapImageView()
-       }
-   
+        tapImageView()
+    }
+    
     @IBAction func addRead(_ sender: Any) {
-        if imageView.image == nil || textView.text.isEmpty {
+        if imageView.image == nil || ((titleTextField.text?.isEmpty) != nil) {
             let alert = UIAlertController(title: "실패", message: "사진과 글이 준비되지 않았습니다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
-        AF.upload(imagePath, to: "").responseJSON { (response) in
-            
+        AF.upload(multipartFormData: { MultipartFormData in
+            MultipartFormData.append(self.imageData, withName: "\(self.titleTextField.text!)")}, to: "", method: .post, headers: ["Content-Type":"multipart/form-data"]).responseJSON { (response) in
+                let status = response.response?.statusCode
+                //                switch status {
+                //                case:
+                //                case :
+                //                default:
+                //                }
         }
         
         let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
@@ -44,7 +52,7 @@ class WriteVC: UIViewController {
     
     @IBAction func goToMainBtn(_ sender: UIButton) {
         if imageView.image != nil || textView.text != nil {
-            let alert = UIAlertController(title: "경고", message: "사진과 글이 남아있습니다, 그래도 뒤로 가시겠습니까?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "알림", message: "사진과 글이 남아있습니다, 그래도 뒤로 가시겠습니까?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
                 self.presentVC()
             }))
@@ -75,10 +83,10 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
         actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
     }
-        
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-       // print(info)
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        imageData = image.jpegData(compressionQuality: 1)
         imagePath = info[UIImagePickerController.InfoKey.imageURL] as? URL
         imageView.image = image
         imageViewNilLbl.isHidden = true
