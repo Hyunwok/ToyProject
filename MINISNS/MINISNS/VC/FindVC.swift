@@ -24,6 +24,9 @@ class FindVC: WriteVC {
             findEmailTextField.isHidden = false
         }
     }
+    @IBAction func goToLogin(_ sender: UIButton) {
+        self.presentVC(identifier: "LoginVC")
+    }
     
     @IBAction func getIdOrPw(_ sender: UIButton) {
         if setIdPwSegment.selectedSegmentIndex == 0 {
@@ -47,7 +50,17 @@ extension FindVC {
     
     func getIdOrPw(url:String, param: [String:Any], caseNum: Int) {
         let name: String
-        if caseNum == 0 { name = "email" } else { name = "password" }
+        if caseNum == 0 {
+            name = "email"
+            if ((nameTextField.text?.isEmpty) != nil) || ((phoneNumberTextField.text?.isEmpty) != nil) {
+                self.presentAlert(title: "에러", message: "빈 공간이 있습니다.")
+            }
+        } else {
+            name = "password"
+            if ((nameTextField.text?.isEmpty) != nil) || ((phoneNumberTextField.text?.isEmpty) != nil) || ((findEmailTextField.text?.isEmpty) != nil) {
+                self.presentAlert(title: "에러", message: "빈 공간이 있습니다.")
+            }
+        }
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: ["Content-Type":"application/json"]).responseJSON {(response) in
             guard let status = response.response?.statusCode else { return }
             switch status {
@@ -62,13 +75,4 @@ extension FindVC {
             }
         }
     }
-    
-    func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
 }
-
-
-
