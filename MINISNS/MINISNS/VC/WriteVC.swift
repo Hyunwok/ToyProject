@@ -5,6 +5,9 @@ import Alamofire
 
 class WriteVC: UIViewController {
     
+    var imagePath: URL!
+    
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageViewNilLbl: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var goToMainBtn: UIButton!
@@ -27,13 +30,13 @@ class WriteVC: UIViewController {
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
-//        AF.upload(multipartFormData: { (MultipartFormData) in
-//            
-//            MultipartFormData.append(imageView.image, withName: "Image")
-//        }, to: <#T##URLConvertible#>)
+        AF.upload(imagePath, to: "").responseJSON { (response) in
+            
+        }
+        
         let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.presentVC()}
         }))
         present(alert, animated: true, completion: nil)
@@ -74,7 +77,9 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     }
         
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+       // print(info)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        imagePath = info[UIImagePickerController.InfoKey.imageURL] as? URL
         imageView.image = image
         imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
