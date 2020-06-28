@@ -15,8 +15,7 @@ class WriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //  textView.isSelectable = false
-        imageViewNilLbl.isHidden = false
+        //imageViewNilLbl.isHidden = false
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -26,7 +25,7 @@ class WriteVC: UIViewController {
     }
     
     @IBAction func addRead(_ sender: Any) {
-        if imageView.image == nil || ((titleTextField.text?.isEmpty) != nil) {
+        if imageView.image == nil || ((titleTextField.text?.isEmpty) == true) {
             let alert = UIAlertController(title: "실패", message: "사진과 글이 준비되지 않았습니다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
@@ -40,25 +39,26 @@ class WriteVC: UIViewController {
                 default: print(3)
                 }
         }
-        
         let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.presentVC()}
+                self.presentVC(identifier: "MainVC")}
+                let vc = MainVC()
+            vc.data.append("")
         }))
         present(alert, animated: true, completion: nil)
     }
     
     @IBAction func goToMainBtn(_ sender: UIButton) {
-        if imageView.image != nil || textView.text != nil {
+        if imageView.image != nil || titleTextField.text?.isEmpty == false {
             let alert = UIAlertController(title: "알림", message: "사진과 글이 남아있습니다, 그래도 뒤로 가시겠습니까?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
-                self.presentVC()
+                self.presentVC(identifier: "MainVC")
             }))
             alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         } else {
-            self.presentVC()
+            self.presentVC(identifier: "MainVC")
         }
     }
 }
@@ -66,8 +66,8 @@ class WriteVC: UIViewController {
 // MARK: Extension
 
 extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-    func presentVC() {
-        guard let vc = storyboard?.instantiateViewController(identifier: "MainVC") else { return }
+    func presentVC(identifier: String) {
+        guard let vc = storyboard?.instantiateViewController(identifier: identifier) else { return }
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
@@ -99,6 +99,12 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
