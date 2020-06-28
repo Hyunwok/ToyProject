@@ -21,7 +21,6 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     static func nib() -> UINib {
-        return UINib(nibName: "MyCell", bundle: nil)
+        return UINib(nibName: "CollectionViewCell", bundle: nil)
     }
-
 }
