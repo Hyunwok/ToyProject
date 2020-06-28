@@ -1,10 +1,12 @@
 import UIKit
+import Alamofire
 
 // MARK: MainVC
 
 class MainVC: UIViewController {
     
-    public var data = [String]()
+    var receivedImage: UIImage!
+    static var data = [String]()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var alertSheetBtn: UIButton!
@@ -18,12 +20,12 @@ class MainVC: UIViewController {
         collectionView.dataSource = self
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: "CollectionViewCell")
     }
-//    
-//    override func viewDidAppear(_ animated: Bool) {
+    
+    override func viewDidAppear(_ animated: Bool) {
 //        if UserDefaults.standard.string(forKey: "token") == nil {
 //            self.presentVC(identifier: "LoginVC")
 //        }
-//    }
+    }
     
     @IBAction func setAlertSheet(_ sender: UIButton) {
         let actionSheet = UIAlertController(title: "선택하세요", message: "무엇을 선택하시겠나요?", preferredStyle: .actionSheet)
@@ -43,13 +45,22 @@ class MainVC: UIViewController {
 // MARK: extension
 
 extension MainVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return MainVC.data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        //cell?.configure(with: )
+        AF.download("").responseJSON { response in
+            switch response.response?.statusCode {
+            case 200: print(1)
+            guard let Json = response.value as? [String:Any] else { return }
+            guard let image = Json["image"] as? UIImage else { return }
+            cell.configure(with: image)
+            default: print(2)
+            }
+        }
         return cell
     }
     
