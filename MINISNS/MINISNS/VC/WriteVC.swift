@@ -5,7 +5,8 @@ import Alamofire
 
 class WriteVC: UIViewController {
     
-    var imageData: Data!
+    var imagePath: URL!
+    var image: UIImage!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageViewNilLbl: UILabel!
@@ -25,26 +26,40 @@ class WriteVC: UIViewController {
     }
     
     @IBAction func addRead(_ sender: Any) {
+        let param: [String:String] = ["access_token":"\(UserDefaults.standard.string(forKey: "token"))"]
         if imageView.image == nil || ((titleTextField.text?.isEmpty) == true) {
             let alert = UIAlertController(title: "실패", message: "사진과 글이 준비되지 않았습니다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
-        AF.upload(multipartFormData: { MultipartFormData in
-            MultipartFormData.append(self.imageData, withName: "\(self.titleTextField.text!)")}, to: "", method: .post, headers: ["Content-Type":"multipart/form-data"]).responseJSON { (response) in
-                let status = response.response?.statusCode
-                switch status {
-                case 200: print(1)
-                case 400: print(2)
-                default: print(3)
-                }
-        }
+        
+//        AF.upload(multipartFormData: { MultipartFormData in
+//            for (key, value) in param {
+//                MultipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+//            }
+//            MultipartFormData.append(self.imagePath, withName: "file", fileName: "image.jpeg", mimeType: "image/jpeg")
+//        },
+//                  to: "", method: .post, headers: ["":""]) { result in
+//                    switch result {
+//                    case .success(let upload, _, _):
+//                        upload.responseJSON { (response) in
+//                            let status = response.response.status
+//                            switch status {
+//                            case 400: print(1)
+//                            case 200: print(2)
+//                            }
+//                        }
+//                case .failure(): self.presentAlert(title: "실패", message: "글 올리기 실패")
+//                    return
+//                }
+//
+//        }
         let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.presentVC(identifier: "MainVC")}
-                let vc = MainVC()
-            vc.data.append("")
+            MainVC.data.append("")
+            self.delegate?.sendImage(input: self.image)
         }))
         present(alert, animated: true, completion: nil)
     }
@@ -90,9 +105,11 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        imageData = image.jpegData(compressionQuality: 1)
-        imageView.image = image
+        guard let pickedImage = info[.originalImage] as? UIImage else { return }
+        self.image = pickedImage
+        guard let imageURL = info[.imageURL] as? URL else { return }
+        imagePath = imageURL
+        imageView.image = pickedImage
         imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
     }
@@ -107,4 +124,3 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
         present(alert, animated: true, completion: nil)
     }
 }
-
