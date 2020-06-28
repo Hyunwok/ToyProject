@@ -4,14 +4,19 @@ import UIKit
 
 class MainVC: UIViewController {
     
+    public var data = [String]()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var alertSheetBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 120, height: 120)
+        collectionView.collectionViewLayout = layout
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: "MyCell")
+        collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: "CollectionViewCell")
     }
 //    
 //    override func viewDidAppear(_ animated: Bool) {
@@ -34,16 +39,17 @@ class MainVC: UIViewController {
     }
 }
 
+
 // MARK: extension
 
 extension MainVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! CollectionViewCell
-        //cell?.configure(with: imagePicker)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        //cell?.configure(with: )
         return cell
     }
     
