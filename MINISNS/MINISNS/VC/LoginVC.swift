@@ -3,9 +3,9 @@ import Alamofire
 
 // MARK: LoginVC
 
-class LoginVC: UIViewController {
+class LoginVC: WriteVC {
 
-    let ud = UserDefaults.standard
+    private let ud = UserDefaults.standard
 
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
@@ -53,7 +53,7 @@ class LoginVC: UIViewController {
                 switch status {
                 case 200 : self.presentAlert(title: "성공!", message: "로그인 성공!")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.presentVC(identifier:"MainVC")
+                    self.presentVC(identifier: "MainVC")
                     }
                 case 404 : self.presentAlert(title: "실패", message: "존재하지 않는 유저")
                 case 500 : self.presentAlert(title: "에러", message: "에러 발생")
@@ -61,27 +61,5 @@ class LoginVC: UIViewController {
                 }
             }
         }
-    }
-}
-
-
-// MARK: Extension
-
-extension LoginVC : UITextFieldDelegate {
-    func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func presentVC(identifier:String) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "\(identifier)") else { return }
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 }
