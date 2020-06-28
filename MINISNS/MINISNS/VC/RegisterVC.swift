@@ -14,8 +14,9 @@ class RegisterVC: WriteVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @IBAction func goToLogin(_ sender: UIButton) {
+        self.presentVC(identifier: "LoginVC")
     }
     
     @IBAction func getRegister(_ sender: UIButton) {
@@ -28,7 +29,7 @@ class RegisterVC: WriteVC {
             return
         }
         
-         let param : Parameters = [
+        let param : Parameters = [
              "name":nameTextField!.text!,
              "email":emailTextField!.text!,
              "password":pwTextField!.text!,
@@ -54,12 +55,3 @@ class RegisterVC: WriteVC {
     }
 }
 
-//MARK: extension
-
-extension RegisterVC {
-    func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        present(alert,animated: true)
-    }
-}
