@@ -36,7 +36,7 @@ class RegisterVC: WriteVC {
              "phone":phoneNumberTextField!.text!
         ]
         
-        let url = "http://10.156.145.141:3000/register"
+        let url = "http://10.156.145.141:3000/user/register"
         
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON { (response) in
             if let error = response.error { print(error); return }

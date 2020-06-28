@@ -42,7 +42,7 @@ class LoginVC: WriteVC {
             presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비었습니다.")
             return
         } else {
-            let url = "http://10.156.145.141:3000/login"
+            let url = "http://10.156.145.141:3000/user/login"
             let param = ["email":userNameTextField!.text!, "password":pwTextField!.text!]
             let header : HTTPHeaders = ["Content-Type":"application/json"]
             AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in

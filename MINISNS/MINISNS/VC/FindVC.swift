@@ -30,11 +30,11 @@ class FindVC: WriteVC {
     
     @IBAction func getIdOrPw(_ sender: UIButton) {
         if setIdPwSegment.selectedSegmentIndex == 0 {
-            let url = "http://10.156.145.141:3000/find/email"
+            let url = "http://10.156.145.141:3000/user/find/email"
             let param : [String:Any] = ["name": nameTextField.text!, "phone":phoneNumberTextField.text!]
             getIdOrPw(url: url, param: param, caseNum: 0)
         } else {
-            let url = "http://10.156.145.141:3000/find/password"
+            let url = "http://10.156.145.141:3000/user/find/password"
             let param : [String:Any] = ["name":nameTextField.text!,
                                         "email":findEmailTextField.text!,
                                         "phone":phoneNumberTextField.text!]
