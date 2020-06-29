@@ -5,8 +5,7 @@ import Alamofire
 
 class WriteVC: UIViewController {
     
-    var imagePath: URL!
-    var data: Data!
+    var imageData: URL!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageViewNilLbl: UILabel!
@@ -25,13 +24,36 @@ class WriteVC: UIViewController {
     }
     
     @IBAction func addRead(_ sender: Any) {
-        let param: [String:String] = ["file":"\(imagePath)","content":"\(textView.text)"]
+        let param: [String:String] = ["file":"\(imageData!)","content":textView.text!]
+        let header: HTTPHeaders = ["Content-Type":"multipart/form-data","access_token":"\(UserDefaults.standard.string(forKey: "token")!)"]
         if imageView.image == nil || ((titleTextField.text?.isEmpty) == true) {
             let alert = UIAlertController(title: "실패", message: "사진과 글이 준비되지 않았습니다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
-        AF.request("http://10.156.145.141:3000/post", method: .post, parameters: param, encoding: JSONEncoding.default, headers: ["Content-Type":"application/json","access_token":"\(UserDefaults.standard.string(forKey: "token")!)"], interceptor: nil, requestModifier: nil).responseJSON { response in
+//
+//        AF.upload(multipartFormData: { (MultipartFormData) in
+//            MultipartFormData.append(self.imageData, withName: self.titleTextField.text!)
+//            for (key, value) in param {
+//                MultipartFormData.append((value.data(using: .utf8))!, withName: key)
+//            }}, to: "http://10.156.145.141:3000/post", method: .post, headers: header).responseJSON { (result) in
+//                switch result.response?.statusCode {
+//                case 200: print(1)
+//                case 403: print(2)
+//                case 500: print(3)
+//                default: print(4)
+//                }
+//                debugPrint(result)
+//        }
+
+
+        
+        
+        
+        
+        
+        AF.request("http://10.156.145.141:3000/post", method: .post, parameters: param, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil).responseJSON { response in
+            debugPrint(response)
             switch response.response?.statusCode {
             case 200:
                 let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
@@ -43,7 +65,6 @@ class WriteVC: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             case 403:
                 self.presentAlert(title: "실패", message: "로그인이 되어있지 않습니다.")
-                debugPrint(response)
             case 500:
                 self.presentAlert(title: "에러", message: "작성 실패")
             default: return
@@ -94,9 +115,9 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
         imageView.image = pickedImage
-        data = pickedImage.jpegData(compressionQuality: 1)
-        guard let imageURL = info[.imageURL] as? URL else { return }
-        imagePath = imageURL
+        imageData = info[.imageURL] as? URL
+    
+
         imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
     }

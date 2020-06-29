@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		69F26C6569210731687EFF92 /* Pods_MINISNS_MINISNSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A743B0CCC95601B1DDF1279 /* Pods_MINISNS_MINISNSUITests.framework */; };
 		D68CF1AF24A7752B005AE477 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CF1AE24A7752B005AE477 /* Extension.swift */; };
+		D68CF24924AA2E16005AE477 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CF24824AA2E16005AE477 /* InfoVC.swift */; };
 		D6C4D80E2497AA280087C4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D80D2497AA280087C4B4 /* AppDelegate.swift */; };
 		D6C4D8102497AA280087C4B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D80F2497AA280087C4B4 /* SceneDelegate.swift */; };
 		D6C4D8122497AA280087C4B4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D8112497AA280087C4B4 /* MainVC.swift */; };
@@ -42,6 +43,7 @@
 		7EFB111EF58628E6DE9589B6 /* Pods_MINISNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MINISNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D245C9F102D9E6F8E7446797 /* Pods-MINISNS-MINISNSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MINISNS-MINISNSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MINISNS-MINISNSUITests/Pods-MINISNS-MINISNSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D68CF1AE24A7752B005AE477 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D68CF24824AA2E16005AE477 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		D6C4D80A2497AA270087C4B4 /* MINISNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MINISNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C4D80D2497AA280087C4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6C4D80F2497AA280087C4B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				D6C4D8112497AA280087C4B4 /* MainVC.swift */,
 				D6EC5B3924A32F3F0016EEA6 /* WriteVC.swift */,
+				D68CF24824AA2E16005AE477 /* InfoVC.swift */,
 				D6C4D8342497B2640087C4B4 /* RegisterVC.swift */,
 				D6C4D8362497B2A40087C4B4 /* FindVC.swift */,
 				D6C4D8382497B2E30087C4B4 /* LoginVC.swift */,
@@ -383,6 +386,7 @@
 				D6C4D80E2497AA280087C4B4 /* AppDelegate.swift in Sources */,
 				D6EC5B3A24A32F3F0016EEA6 /* WriteVC.swift in Sources */,
 				D6D1FDB924A2CAB900B2010E /* CollectionViewCell.swift in Sources */,
+				D68CF24924AA2E16005AE477 /* InfoVC.swift in Sources */,
 				D6C4D8392497B2E30087C4B4 /* LoginVC.swift in Sources */,
 				D6C4D8102497AA280087C4B4 /* SceneDelegate.swift in Sources */,
 				D6C4D8352497B2640087C4B4 /* RegisterVC.swift in Sources */,
