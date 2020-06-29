@@ -51,10 +51,7 @@ class LoginVC: WriteVC {
                 self.ud.set(token, forKey: "token")
                 let status = response.response?.statusCode
                 switch status {
-                case 200 : self.presentAlert(title: "성공!", message: "로그인 성공!")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.presentVC(identifier: "MainVC")
-                    }
+                case 200 :self.presentVC(identifier: "MainVC")
                 case 404 : self.presentAlert(title: "실패", message: "존재하지 않는 유저")
                 case 500 : self.presentAlert(title: "에러", message: "에러 발생")
                 default : return
