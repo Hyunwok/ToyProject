@@ -6,7 +6,7 @@ import Alamofire
 class WriteVC: UIViewController {
     
     var imagePath: URL!
-    var image: UIImage!
+    var data: Data!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageViewNilLbl: UILabel!
@@ -16,7 +16,6 @@ class WriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //imageViewNilLbl.isHidden = false
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -26,42 +25,30 @@ class WriteVC: UIViewController {
     }
     
     @IBAction func addRead(_ sender: Any) {
-        let param: [String:String] = ["access_token":"\(UserDefaults.standard.string(forKey: "token"))"]
+        let param: [String:String] = ["file":"\(imagePath)","content":"\(textView.text)"]
         if imageView.image == nil || ((titleTextField.text?.isEmpty) == true) {
             let alert = UIAlertController(title: "실패", message: "사진과 글이 준비되지 않았습니다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
-        
-//        AF.upload(multipartFormData: { MultipartFormData in
-//            for (key, value) in param {
-//                MultipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
-//            }
-//            MultipartFormData.append(self.imagePath, withName: "file", fileName: "image.jpeg", mimeType: "image/jpeg")
-//        },
-//                  to: "", method: .post, headers: ["":""]) { result in
-//                    switch result {
-//                    case .success(let upload, _, _):
-//                        upload.responseJSON { (response) in
-//                            let status = response.response.status
-//                            switch status {
-//                            case 400: print(1)
-//                            case 200: print(2)
-//                            }
-//                        }
-//                case .failure(): self.presentAlert(title: "실패", message: "글 올리기 실패")
-//                    return
-//                }
-//
-//        }
-        let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.presentVC(identifier: "MainVC")}
-            MainVC.data.append("")
-            self.delegate?.sendImage(input: self.image)
-        }))
-        present(alert, animated: true, completion: nil)
+        AF.request("http://10.156.145.141:3000/post", method: .post, parameters: param, encoding: JSONEncoding.default, headers: ["Content-Type":"application/json","access_token":"\(UserDefaults.standard.string(forKey: "token")!)"], interceptor: nil, requestModifier: nil).responseJSON { response in
+            switch response.response?.statusCode {
+            case 200:
+                let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.presentVC(identifier: "MainVC")}
+                    MainVC.data.append("")
+                }))
+                self.present(alert, animated: true, completion: nil)
+            case 403:
+                self.presentAlert(title: "실패", message: "로그인이 되어있지 않습니다.")
+                debugPrint(response)
+            case 500:
+                self.presentAlert(title: "에러", message: "작성 실패")
+            default: return
+            }
+        }
     }
     
     @IBAction func goToMainBtn(_ sender: UIButton) {
@@ -106,10 +93,10 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
-        self.image = pickedImage
+        imageView.image = pickedImage
+        data = pickedImage.jpegData(compressionQuality: 1)
         guard let imageURL = info[.imageURL] as? URL else { return }
         imagePath = imageURL
-        imageView.image = pickedImage
         imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
     }
