@@ -14,19 +14,19 @@ class InfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AF.download("", method: .get, headers: ["":""]).responseJSON { (response) in
-            switch response.response?.statusCode {
-            case 200: print(1)
-            case 300: print(2)
-                case 500: print(2)
-            default: return
-            }
-            let json = response[""] as? UIImage
-            
-            imageView.image =
-            textView.text =
-            titleLbl.text =
-        }
+//        AF.download("", method: .get).responseJSON { (response) in
+//            switch response.response?.statusCode {
+//            case 200: print(1)
+//            case 300: print(2)
+//                case 500: print(2)
+//            default: return
+//            }
+//            let json = response[""] as? UIImage
+//            
+//            imageView.image =
+//            textView.text =
+//            titleLbl.text =
+//        }
     }
     
     @IBAction func goToMain(_ sender: UIButton) {

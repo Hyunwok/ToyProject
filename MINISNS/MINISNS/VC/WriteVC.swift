@@ -5,7 +5,8 @@ import Alamofire
 
 class WriteVC: UIViewController {
     
-    var imageData: URL!
+    var imageData: Data!
+    var url:NSURL!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageViewNilLbl: UILabel!
@@ -31,12 +32,13 @@ class WriteVC: UIViewController {
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
-//
+
 //        AF.upload(multipartFormData: { (MultipartFormData) in
-//            MultipartFormData.append(self.imageData, withName: self.titleTextField.text!)
+//            MultipartFormData.append(self.imageData, withName: self.titleTextField.text!, fileName: "sample", mimeType: "image/jpeg")
 //            for (key, value) in param {
 //                MultipartFormData.append((value.data(using: .utf8))!, withName: key)
 //            }}, to: "http://10.156.145.141:3000/post", method: .post, headers: header).responseJSON { (result) in
+//                debugPrint(result)
 //                switch result.response?.statusCode {
 //                case 200: print(1)
 //                case 403: print(2)
@@ -47,10 +49,6 @@ class WriteVC: UIViewController {
 //        }
 
 
-        
-        
-        
-        
         
         AF.request("http://10.156.145.141:3000/post", method: .post, parameters: param, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil).responseJSON { response in
             debugPrint(response)
@@ -120,8 +118,11 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
+            
+        //data.write
         imageView.image = pickedImage
-        imageData = info[.imageURL] as? URL
+
+        imageData = pickedImage.jpegData(compressionQuality: 1)
         imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
     }

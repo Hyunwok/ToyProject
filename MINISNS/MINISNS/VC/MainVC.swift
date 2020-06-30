@@ -5,7 +5,6 @@ import Alamofire
 
 class MainVC: UIViewController {
     
-    var receivedImage: UIImage!
     static var data = [String]()
     
     @IBOutlet weak var collectionView: UICollectionView!
