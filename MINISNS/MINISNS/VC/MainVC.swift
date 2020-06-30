@@ -51,7 +51,10 @@ extension MainVC : UIImagePickerControllerDelegate, UINavigationControllerDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "InfoVC") as? InfoVC else { return }
+        vc.modalPresentationStyle = .fullScreen
+        vc.indexInt = indexPath.row
+        present(vc, animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

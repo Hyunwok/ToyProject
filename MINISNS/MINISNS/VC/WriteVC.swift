@@ -95,6 +95,12 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
         present(vc, animated: true, completion: nil)
     }
     
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func tapImageView() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -116,19 +122,11 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
         imageView.image = pickedImage
         imageData = info[.imageURL] as? URL
-    
-
         imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 }

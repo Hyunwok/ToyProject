@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CTy-ph-LMg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BEC-wY-GF4">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -421,7 +421,7 @@
         <!--InfoVC-->
         <scene sceneID="JoW-i2-MWO">
             <objects>
-                <viewController id="BEC-wY-GF4" customClass="InfoVC" customModule="MINISNS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoVC" modalPresentationStyle="fullScreen" id="BEC-wY-GF4" customClass="InfoVC" customModule="MINISNS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3M8-Fy-L8i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -435,6 +435,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZG-MC-1Tu">
                                 <rect key="frame" x="19" y="54" width="30" height="30"/>
                                 <state key="normal" title="뒤로"/>
+                                <connections>
+                                    <action selector="goToMain:" destination="BEC-wY-GF4" eventType="touchUpInside" id="eXK-0K-gWP"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UJx-aQ-WJ1">
                                 <rect key="frame" x="87" y="122" width="240" height="272"/>
@@ -466,10 +469,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C5d-Wr-oL6"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8UQ-eT-HB5"/>
+                    <connections>
+                        <outlet property="goToMain" destination="dZG-MC-1Tu" id="BNS-yW-BhK"/>
+                        <outlet property="imageView" destination="UJx-aQ-WJ1" id="gvh-gW-QWx"/>
+                        <outlet property="textView" destination="byI-YP-z7c" id="KvE-Hf-E3z"/>
+                        <outlet property="titleLbl" destination="SAx-0r-Ei6" id="xSX-i8-FWi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uw7-VM-ZGz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4018.8405797101454" y="-267.1875"/>
+            <point key="canvasLocation" x="4019" y="-180"/>
         </scene>
         <!--WriteVC-->
         <scene sceneID="Euj-re-LrS">
