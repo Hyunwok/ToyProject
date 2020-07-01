@@ -38,6 +38,16 @@
                ReferencedContainer = "container:MINISNS.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D64FF27824ACBE9E0009A4F6"
+               BuildableName = "MINISNSTests.xctest"
+               BlueprintName = "MINISNSTests"
+               ReferencedContainer = "container:MINISNS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

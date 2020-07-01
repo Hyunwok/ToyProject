@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		69F26C6569210731687EFF92 /* Pods_MINISNS_MINISNSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A743B0CCC95601B1DDF1279 /* Pods_MINISNS_MINISNSUITests.framework */; };
+		D64FF27C24ACBE9E0009A4F6 /* MINISNSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FF27B24ACBE9E0009A4F6 /* MINISNSTests.swift */; };
 		D68CF1AF24A7752B005AE477 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CF1AE24A7752B005AE477 /* Extension.swift */; };
 		D68CF24924AA2E16005AE477 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CF24824AA2E16005AE477 /* InfoVC.swift */; };
 		D6C4D80E2497AA280087C4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4D80D2497AA280087C4B4 /* AppDelegate.swift */; };
@@ -27,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D64FF27E24ACBE9E0009A4F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6C4D8022497AA270087C4B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6C4D8092497AA270087C4B4;
+			remoteInfo = MINISNS;
+		};
 		D6C4D8212497AA2A0087C4B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D6C4D8022497AA270087C4B4 /* Project object */;
@@ -42,6 +50,9 @@
 		6A743B0CCC95601B1DDF1279 /* Pods_MINISNS_MINISNSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MINISNS_MINISNSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFB111EF58628E6DE9589B6 /* Pods_MINISNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MINISNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D245C9F102D9E6F8E7446797 /* Pods-MINISNS-MINISNSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MINISNS-MINISNSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MINISNS-MINISNSUITests/Pods-MINISNS-MINISNSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D64FF27924ACBE9E0009A4F6 /* MINISNSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MINISNSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D64FF27B24ACBE9E0009A4F6 /* MINISNSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MINISNSTests.swift; sourceTree = "<group>"; };
+		D64FF27D24ACBE9E0009A4F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D68CF1AE24A7752B005AE477 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D68CF24824AA2E16005AE477 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		D6C4D80A2497AA270087C4B4 /* MINISNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MINISNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +76,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D64FF27624ACBE9E0009A4F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D6C4D8072497AA270087C4B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,6 +122,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D64FF27A24ACBE9E0009A4F6 /* MINISNSTests */ = {
+			isa = PBXGroup;
+			children = (
+				D64FF27B24ACBE9E0009A4F6 /* MINISNSTests.swift */,
+				D64FF27D24ACBE9E0009A4F6 /* Info.plist */,
+			);
+			path = MINISNSTests;
+			sourceTree = "<group>";
+		};
 		D68CF1AD24A7750D005AE477 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +144,7 @@
 			children = (
 				D6C4D80C2497AA280087C4B4 /* MINISNS */,
 				D6C4D8232497AA2A0087C4B4 /* MINISNSUITests */,
+				D64FF27A24ACBE9E0009A4F6 /* MINISNSTests */,
 				D6C4D80B2497AA270087C4B4 /* Products */,
 				0A6D87FA9CB98EDD859D0CB2 /* Pods */,
 				63DD128E9B9DFE611B2981C9 /* Frameworks */,
@@ -128,6 +156,7 @@
 			children = (
 				D6C4D80A2497AA270087C4B4 /* MINISNS.app */,
 				D6C4D8202497AA2A0087C4B4 /* MINISNSUITests.xctest */,
+				D64FF27924ACBE9E0009A4F6 /* MINISNSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +227,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D64FF27824ACBE9E0009A4F6 /* MINISNSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D64FF28224ACBE9E0009A4F6 /* Build configuration list for PBXNativeTarget "MINISNSTests" */;
+			buildPhases = (
+				D64FF27524ACBE9E0009A4F6 /* Sources */,
+				D64FF27624ACBE9E0009A4F6 /* Frameworks */,
+				D64FF27724ACBE9E0009A4F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D64FF27F24ACBE9E0009A4F6 /* PBXTargetDependency */,
+			);
+			name = MINISNSTests;
+			productName = MINISNSTests;
+			productReference = D64FF27924ACBE9E0009A4F6 /* MINISNSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D6C4D8092497AA270087C4B4 /* MINISNS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6C4D8292497AA2A0087C4B4 /* Build configuration list for PBXNativeTarget "MINISNS" */;
@@ -247,6 +294,10 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "이현욱";
 				TargetAttributes = {
+					D64FF27824ACBE9E0009A4F6 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = D6C4D8092497AA270087C4B4;
+					};
 					D6C4D8092497AA270087C4B4 = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -271,11 +322,19 @@
 			targets = (
 				D6C4D8092497AA270087C4B4 /* MINISNS */,
 				D6C4D81F2497AA2A0087C4B4 /* MINISNSUITests */,
+				D64FF27824ACBE9E0009A4F6 /* MINISNSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D64FF27724ACBE9E0009A4F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D6C4D8082497AA270087C4B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -378,6 +437,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D64FF27524ACBE9E0009A4F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D64FF27C24ACBE9E0009A4F6 /* MINISNSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D6C4D8062497AA270087C4B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -406,6 +473,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D64FF27F24ACBE9E0009A4F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6C4D8092497AA270087C4B4 /* MINISNS */;
+			targetProxy = D64FF27E24ACBE9E0009A4F6 /* PBXContainerItemProxy */;
+		};
 		D6C4D8222497AA2A0087C4B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D6C4D8092497AA270087C4B4 /* MINISNS */;
@@ -433,6 +505,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D64FF28024ACBE9E0009A4F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D49753ZB3N;
+				INFOPLIST_FILE = MINISNSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MINISNSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MINISNS.app/MINISNS";
+			};
+			name = Debug;
+		};
+		D64FF28124ACBE9E0009A4F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D49753ZB3N;
+				INFOPLIST_FILE = MINISNSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MINISNSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MINISNS.app/MINISNS";
+			};
+			name = Release;
+		};
 		D6C4D8272497AA2A0087C4B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -630,6 +742,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D64FF28224ACBE9E0009A4F6 /* Build configuration list for PBXNativeTarget "MINISNSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D64FF28024ACBE9E0009A4F6 /* Debug */,
+				D64FF28124ACBE9E0009A4F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D6C4D8052497AA270087C4B4 /* Build configuration list for PBXProject "MINISNS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

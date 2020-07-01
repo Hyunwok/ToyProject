@@ -540,6 +540,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ueb-OQ-bOw">
+                                <rect key="frame" x="188.66666666666666" y="434.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -555,7 +558,9 @@
                             <constraint firstItem="3AH-mV-MTH" firstAttribute="trailing" secondItem="mOC-Lh-t9x" secondAttribute="trailing" constant="19" id="Z9N-Yr-qVg"/>
                             <constraint firstItem="ImI-JY-kLG" firstAttribute="centerX" secondItem="UV2-4t-MjE" secondAttribute="centerX" id="edB-F3-1HQ"/>
                             <constraint firstItem="UV2-4t-MjE" firstAttribute="top" secondItem="3AH-mV-MTH" secondAttribute="top" constant="60" id="hod-wK-OmT"/>
+                            <constraint firstItem="ueb-OQ-bOw" firstAttribute="centerY" secondItem="3AH-mV-MTH" secondAttribute="centerY" id="i3D-EM-qPs"/>
                             <constraint firstItem="99h-ZK-1AL" firstAttribute="centerX" secondItem="3AH-mV-MTH" secondAttribute="centerX" id="lhG-h4-d3S"/>
+                            <constraint firstItem="ueb-OQ-bOw" firstAttribute="centerX" secondItem="3AH-mV-MTH" secondAttribute="centerX" id="lyF-Sw-1Xa"/>
                             <constraint firstItem="3AH-mV-MTH" firstAttribute="bottom" secondItem="IuU-cH-h72" secondAttribute="bottom" constant="20" id="mtc-2L-6jT"/>
                             <constraint firstItem="mOC-Lh-t9x" firstAttribute="top" secondItem="3AH-mV-MTH" secondAttribute="top" constant="10" id="pOs-Uc-U47"/>
                             <constraint firstItem="UV2-4t-MjE" firstAttribute="leading" secondItem="3AH-mV-MTH" secondAttribute="leading" constant="65" id="pXQ-MZ-nuf"/>
@@ -567,13 +572,14 @@
                         <outlet property="goToMainBtn" destination="GIC-ps-air" id="KWA-Kh-OfL"/>
                         <outlet property="imageView" destination="UV2-4t-MjE" id="0Lf-9g-dkk"/>
                         <outlet property="imageViewNilLbl" destination="ImI-JY-kLG" id="Wdu-dy-9H8"/>
+                        <outlet property="loadingIndicator" destination="ueb-OQ-bOw" id="mQO-vH-D2z"/>
                         <outlet property="textView" destination="99h-ZK-1AL" id="KFL-Qg-qZR"/>
                         <outlet property="titleTextField" destination="dKO-62-pE9" id="eLF-Fc-6Us"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mlf-Kc-VkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4020" y="519"/>
+            <point key="canvasLocation" x="4018.8405797101454" y="518.30357142857144"/>
         </scene>
     </scenes>
     <resources>
