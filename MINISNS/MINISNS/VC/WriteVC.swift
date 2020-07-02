@@ -6,11 +6,8 @@ import Alamofire
 class WriteVC: UIViewController {
     
     let imagePicker = UIImagePickerController()
-
-    var image: Data!
-    var content: String!
-    //var url: URL!
-    var asd: String = ""
+    var imageData: Data!
+    var image: UIImage!
     
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -21,7 +18,7 @@ class WriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loadingIndicator.isHidden = true
+        //        loadingIndicator.isHidden = true
         imagePicker.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -32,39 +29,51 @@ class WriteVC: UIViewController {
     }
     
     @IBAction func addRead(_ sender: Any) {
+        
         if imageView.image == nil || ((titleTextField.text?.isEmpty)! == true) || titleTextField.text == "" {
             self.presentAlert(title: "실패", message: "사진과 글이 준비되지 않았습니다."); return
         }
-
         self.getLoadingIndicator(value: false)
-        let header: HTTPHeaders = ["Content-Type":"application/json",
-                                   "access_token":"\(UserDefaults.standard.string(forKey: "token")!)"]
-         AF.upload(multipartFormData: { (MultipartFormData) in
-            MultipartFormData.append(self.image!, withName: "img", fileName: "img", mimeType: "img/jpeg")}, to: "http://10.156.145.141:3000/post", method: .post, headers: header).responseJSON { (result) in
-                        debugPrint(result)
+        let boundary = generateBoundary()
+        
+        let header: HTTPHeaders = [
+            "Content-Type":"multipart/form-data; boundary=\(UUID().uuidString)",
+            /*"access_token":"\(UserDefaults.standard.string(forKey: "token")!)"*/
+        ]
+        
+        AF.upload(multipartFormData: { (MultipartFormData) in
+            guard let data = self.imageData else { return }
+            MultipartFormData.append(data, withName: "file", fileName: UUID().uuidString + ".jpg", mimeType: "img/jpeg")
+            MultipartFormData.append((self.titleTextField.text?.data(using: .utf8))!, withName: "content")
+        }, to: "https://httpbin.org/post",usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON { (result) in
+                debugPrint(result)
         }
-//
-//        AF.request("http://10.156.145.141:3000/post", method: .post, parameters: param, encoding: JSONEncoding.default, headers: header).responseJSON { response in
-//            debugPrint(response)
-//            switch response.response?.statusCode {
-//            case 200:
-//                let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                        self.presentVC(identifier: "MainVC")}
-//                    self.getLoadingIndicator(value: true)
-//                    MainVC.data.append("")
-//                }))
-//                self.present(alert, animated: true, completion: nil)
-//            case 403:
-//                self.presentAlert(title: "실패", message: "로그인이 되어있지 않습니다.")
-//                self.getLoadingIndicator(value: true)
-//            case 500:
-//                self.presentAlert(title: "에러", message: "작성 실패")
-//                self.getLoadingIndicator(value: true)
-//            default: self.getLoadingIndicator(value: true); return
-//            }
-//        }
+
+        
+        
+        //        AF.request("http://10.156.145.141:3000/post", method: .post, parameters: param, headers: header).responseJSON { response in
+        //            debugPrint(response)
+        //            switch response.response?.statusCode {
+        //            case 200:
+        //                let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
+        //                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
+        //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        //                        self.presentVC(identifier: "MainVC")}
+        //                    self.getLoadingIndicator(value: true)
+        //                    MainVC.data.append("")
+        //                }))
+        //                self.present(alert, animated: true, completion: nil)
+        //            case 403:
+        //                self.presentAlert(title: "실패", message: "로그인이 되어있지 않습니다.")
+        //                self.getLoadingIndicator(value: true)
+        //            case 500:
+        //                self.presentAlert(title: "에러", message: "작성 실패")
+        //                self.getLoadingIndicator(value: true)
+        //            default: self.getLoadingIndicator(value: true); return
+        //            }
+        //        }
+        
+        
     }
     
     @IBAction func goToMainBtn(_ sender: UIButton) {
@@ -84,6 +93,10 @@ class WriteVC: UIViewController {
 // MARK: Extension
 
 extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    func generateBoundary() -> String {
+        return "Boundary-\(NSUUID().uuidString)"
+    }
+    
     func getLoadingIndicator(value: Bool) {
         switch value {
         case true:
@@ -124,10 +137,12 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
-        image = pickedImage.jpegData(compressionQuality: 0.1)!
         imageView.image = pickedImage
+        image = pickedImage
+       
+        imageData = pickedImage.jpegData(compressionQuality: 1)
+         debugPrint(imageData)
         imageViewNilLbl.isHidden = true
-        //url = info[.phAsset] as? URL
         picker.dismiss(animated: true, completion: nil)
     }
     
