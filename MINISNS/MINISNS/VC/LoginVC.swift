@@ -4,9 +4,9 @@ import Alamofire
 // MARK: LoginVC
 
 class LoginVC: WriteVC {
-
+    
     private let ud = UserDefaults.standard
-
+    
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!

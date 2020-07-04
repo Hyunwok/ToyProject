@@ -69,12 +69,6 @@ extension MainVC : UIImagePickerControllerDelegate, UINavigationControllerDelega
         }
         return cell
     }
-    
-    private func presentVC(identifier: String) {
-        guard let vc = storyboard?.instantiateViewController(identifier: identifier) else { return }
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
-    }
 }
 
 

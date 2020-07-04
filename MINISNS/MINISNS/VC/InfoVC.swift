@@ -14,25 +14,31 @@ class InfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        AF.download("", method: .get).responseJSON { (response) in
-//            switch response.response?.statusCode {
-//            case 200: print(1)
-//            case 300: print(2)
-//                case 500: print(2)
-//            default: return
-//            }
-//            let json = response[""] as? UIImage
-//            
-//            imageView.image =
-//            textView.text =
-//            titleLbl.text =
-//        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        AF.request("", method: .post).responseJSON { (response) in
+            switch response.response?.statusCode {
+            case 200:
+                let object = response.value as? [String:Any]
+                let imageValue = object?[""] as? UIImage
+                let titleValue = object?[""] as? String
+                let textValue = object?[""] as? String
+                self.imageView.image = imageValue
+                self.textView.text = textValue
+                self.titleLbl.text = titleValue
+            case 403:
+                self.presentAlert(title: "실패", message: "토큰 에러")
+                self.presentVC(identifier: "MainVC")
+            case 500:
+                self.presentAlert(title: "에러", message: "에러 발생")
+            default:
+                return
+            }
+        }
     }
     
     @IBAction func goToMain(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "MainVC") else { return }
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+        self.presentVC(identifier: "MainVC")
     }
-    
 }

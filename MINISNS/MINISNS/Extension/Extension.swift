@@ -26,3 +26,17 @@ extension WriteVC {
         self.view.frame.origin.y = 0
     }
 }
+
+extension UIViewController {
+    func presentVC(identifier: String) {
+        guard let vc = storyboard?.instantiateViewController(identifier: identifier) else { return }
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+}

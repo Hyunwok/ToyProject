@@ -82,18 +82,6 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
         }
     }
     
-    func presentVC(identifier: String) {
-        guard let vc = storyboard?.instantiateViewController(identifier: identifier) else { return }
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
-    }
-    
-    func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
     func tapImageView() {
         let actionSheet = UIAlertController(title: "선택", message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
@@ -112,7 +100,7 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
         imageView.image = pickedImage
-        imageData = pickedImage.jpegData(compressionQuality: 1)
+        imageData = pickedImage.jpegData(compressionQuality: 0.025)
         imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
     }
