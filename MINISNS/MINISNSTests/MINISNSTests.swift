@@ -8,7 +8,6 @@
 
 import XCTest
 
-
 class MINISNSTests: XCTestCase {
     
     override func setUpWithError() throws {

@@ -18,10 +18,13 @@ class WriteVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        loadingIndicator.isHidden = true
         imagePicker.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadingIndicator.isHidden = animated
     }
     
     @IBAction func addImage(_ sender: UIButton) {
@@ -34,10 +37,9 @@ class WriteVC: UIViewController {
             self.presentAlert(title: "실패", message: "사진과 글이 준비되지 않았습니다."); return
         }
         self.getLoadingIndicator(value: false)
-        let boundary = generateBoundary()
         
         let header: HTTPHeaders = [
-            "Content-Type":"multipart/form-data; boundary=\(UUID().uuidString)",
+            "Content-Type":"multipart/form-data; boundary-\(UUID().uuidString)",
             /*"access_token":"\(UserDefaults.standard.string(forKey: "token")!)"*/
         ]
         
@@ -46,34 +48,8 @@ class WriteVC: UIViewController {
             MultipartFormData.append(data, withName: "file", fileName: UUID().uuidString + ".jpg", mimeType: "img/jpeg")
             MultipartFormData.append((self.titleTextField.text?.data(using: .utf8))!, withName: "content")
         }, to: "https://httpbin.org/post",usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON { (result) in
-                debugPrint(result)
+            debugPrint(result)
         }
-
-        
-        
-        //        AF.request("http://10.156.145.141:3000/post", method: .post, parameters: param, headers: header).responseJSON { response in
-        //            debugPrint(response)
-        //            switch response.response?.statusCode {
-        //            case 200:
-        //                let alert = UIAlertController(title: "성공", message: "글이 올라갔습니다", preferredStyle: .alert)
-        //                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {(_) in
-        //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-        //                        self.presentVC(identifier: "MainVC")}
-        //                    self.getLoadingIndicator(value: true)
-        //                    MainVC.data.append("")
-        //                }))
-        //                self.present(alert, animated: true, completion: nil)
-        //            case 403:
-        //                self.presentAlert(title: "실패", message: "로그인이 되어있지 않습니다.")
-        //                self.getLoadingIndicator(value: true)
-        //            case 500:
-        //                self.presentAlert(title: "에러", message: "작성 실패")
-        //                self.getLoadingIndicator(value: true)
-        //            default: self.getLoadingIndicator(value: true); return
-        //            }
-        //        }
-        
-        
     }
     
     @IBAction func goToMainBtn(_ sender: UIButton) {
@@ -90,21 +66,19 @@ class WriteVC: UIViewController {
     }
 }
 
-// MARK: Extension
 
+// MARK: Extension
 extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-    func generateBoundary() -> String {
-        return "Boundary-\(NSUUID().uuidString)"
-    }
     
     func getLoadingIndicator(value: Bool) {
+        let indi = self.loadingIndicator
         switch value {
         case true:
-            self.loadingIndicator.stopAnimating()
-            self.loadingIndicator.isHidden = value
+            indi!.stopAnimating()
+            indi!.isHidden = value
         case false:
-            self.loadingIndicator.startAnimating()
-            self.loadingIndicator.isHidden = value
+            indi!.startAnimating()
+            indi!.isHidden = value
         }
     }
     
@@ -138,10 +112,7 @@ extension WriteVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
         imageView.image = pickedImage
-        image = pickedImage
-       
         imageData = pickedImage.jpegData(compressionQuality: 1)
-         debugPrint(imageData)
         imageViewNilLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
     }
