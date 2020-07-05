@@ -17,7 +17,7 @@ class InfoVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        AF.request("", method: .post).responseJSON { (response) in
+        AF.request("", method: .post, parameters: ["index":indexInt]).responseJSON { (response) in
             switch response.response?.statusCode {
             case 200:
                 let object = response.value as? [String:Any]
@@ -29,9 +29,14 @@ class InfoVC: UIViewController {
                 self.titleLbl.text = titleValue
             case 403:
                 self.presentAlert(title: "실패", message: "토큰 에러")
-                self.presentVC(identifier: "MainVC")
+                DispatchQueue.global().async {
+                    self.presentVC(identifier: "MainVC")
+                }
             case 500:
                 self.presentAlert(title: "에러", message: "에러 발생")
+                DispatchQueue.global().async {
+                    self.presentVC(identifier: "MainVC")
+                }
             default:
                 return
             }
