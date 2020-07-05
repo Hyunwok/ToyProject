@@ -40,7 +40,7 @@ class WriteVC: UIViewController {
         
         let header: HTTPHeaders = [
             "Content-Type":"multipart/form-data; boundary-\(UUID().uuidString)",
-            /*"access_token":"\(UserDefaults.standard.string(forKey: "token")!)"*/
+            "access_token":"\(UserDefaults.standard.string(forKey: "token")!)"
         ]
         
         AF.upload(multipartFormData: { (MultipartFormData) in

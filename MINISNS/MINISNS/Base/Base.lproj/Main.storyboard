@@ -439,14 +439,14 @@
                                     <action selector="goToMain:" destination="BEC-wY-GF4" eventType="touchUpInside" id="eXK-0K-gWP"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UJx-aQ-WJ1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UJx-aQ-WJ1">
                                 <rect key="frame" x="87" y="122" width="240" height="272"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="UJx-aQ-WJ1" secondAttribute="height" multiplier="15:17" id="Jzi-x4-Gr0"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="byI-YP-z7c">
-                                <rect key="frame" x="30" y="513" width="354" height="278"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="byI-YP-z7c">
+                                <rect key="frame" x="30" y="513" width="354" height="319"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -460,12 +460,14 @@
                             <constraint firstItem="byI-YP-z7c" firstAttribute="centerX" secondItem="C5d-Wr-oL6" secondAttribute="centerX" id="Bru-Y5-AMX"/>
                             <constraint firstItem="C5d-Wr-oL6" firstAttribute="bottom" secondItem="byI-YP-z7c" secondAttribute="bottom" constant="30" id="CCO-67-h39"/>
                             <constraint firstItem="SAx-0r-Ei6" firstAttribute="centerX" secondItem="C5d-Wr-oL6" secondAttribute="centerX" id="NUI-tT-SJH"/>
+                            <constraint firstItem="byI-YP-z7c" firstAttribute="top" secondItem="UJx-aQ-WJ1" secondAttribute="bottom" constant="119" id="O6s-zp-Jdl"/>
                             <constraint firstItem="byI-YP-z7c" firstAttribute="leading" secondItem="C5d-Wr-oL6" secondAttribute="leading" constant="30" id="OfY-Wf-Pqg"/>
+                            <constraint firstItem="UJx-aQ-WJ1" firstAttribute="centerX" secondItem="C5d-Wr-oL6" secondAttribute="centerX" id="aGq-2K-fFV"/>
                             <constraint firstItem="dZG-MC-1Tu" firstAttribute="leading" secondItem="C5d-Wr-oL6" secondAttribute="leading" constant="19" id="hfY-ZR-Dgm"/>
                             <constraint firstItem="C5d-Wr-oL6" firstAttribute="trailing" secondItem="byI-YP-z7c" secondAttribute="trailing" constant="30" id="iJH-fg-9Uc"/>
                             <constraint firstItem="SAx-0r-Ei6" firstAttribute="top" secondItem="C5d-Wr-oL6" secondAttribute="top" constant="21" id="oGd-qs-INy"/>
-                            <constraint firstItem="byI-YP-z7c" firstAttribute="top" relation="lessThanOrEqual" secondItem="UJx-aQ-WJ1" secondAttribute="bottom" constant="119" id="rNA-vX-0TX"/>
                             <constraint firstItem="dZG-MC-1Tu" firstAttribute="top" secondItem="C5d-Wr-oL6" secondAttribute="top" constant="10" id="vVQ-ie-Gi2"/>
+                            <constraint firstItem="UJx-aQ-WJ1" firstAttribute="leading" secondItem="C5d-Wr-oL6" secondAttribute="leading" constant="87" id="zuv-ut-sKf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C5d-Wr-oL6"/>
                     </view>

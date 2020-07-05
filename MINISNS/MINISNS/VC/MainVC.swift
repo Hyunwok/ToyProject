@@ -21,9 +21,9 @@ class MainVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //        if UserDefaults.standard.string(forKey: "token") == nil {
-        //            self.presentVC(identifier: "LoginVC")
-        //        }
+                if UserDefaults.standard.string(forKey: "token") == nil {
+                    self.presentVC(identifier: "LoginVC")
+                }
     }
     
     @IBAction func setAlertSheet(_ sender: UIButton) {
