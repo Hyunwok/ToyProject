@@ -1,16 +1,11 @@
-//
-//  ContentView.swift
-//  ToyUI
-//
-//  Created by 이현욱 on 2020/06/28.
-//  Copyright © 2020 이현욱. All rights reserved.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    let names = ["ASD","SADSADSA","ASDASDSA"]
     var body: some View {
-        Text("Hello, World!")
+        List {
+            ForEach(names)
+        }
     }
 }
 
