@@ -24,7 +24,7 @@ class WriteVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        loadingIndicator.isHidden = animated
+       // self.loadingIndicator.isHidden = animated
     }
     
     @IBAction func addImage(_ sender: UIButton) {
