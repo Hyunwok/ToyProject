@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D64FF28424ADF3580009A4F6 /* userNotiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FF28324ADF3580009A4F6 /* userNotiVC.swift */; };
+		D64FF28424ADF3580009A4F6 /* UserNotiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FF28324ADF3580009A4F6 /* UserNotiVC.swift */; };
 		D64FF28824B355A40009A4F6 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64FF28724B355A40009A4F6 /* MainVC.swift */; };
 		D654343B249C4A2400320FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654343A249C4A2400320FA4 /* AppDelegate.swift */; };
 		D654343D249C4A2400320FA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654343C249C4A2400320FA4 /* SceneDelegate.swift */; };
-		D654343F249C4A2400320FA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654343E249C4A2400320FA4 /* ViewController.swift */; };
+		D654343F249C4A2400320FA4 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D654343E249C4A2400320FA4 /* MapVC.swift */; };
 		D6543442249C4A2400320FA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6543440249C4A2400320FA4 /* Main.storyboard */; };
 		D6543444249C4A2700320FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6543443249C4A2700320FA4 /* Assets.xcassets */; };
 		D6543447249C4A2700320FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6543445249C4A2700320FA4 /* LaunchScreen.storyboard */; };
@@ -29,12 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D64FF28324ADF3580009A4F6 /* userNotiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userNotiVC.swift; sourceTree = "<group>"; };
+		D64FF28324ADF3580009A4F6 /* UserNotiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotiVC.swift; sourceTree = "<group>"; };
 		D64FF28724B355A40009A4F6 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		D6543437249C4A2400320FA4 /* MapAndWepKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAndWepKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654343A249C4A2400320FA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D654343C249C4A2400320FA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D654343E249C4A2400320FA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D654343E249C4A2400320FA4 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		D6543441249C4A2400320FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6543443249C4A2700320FA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6543446249C4A2700320FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,9 +65,9 @@
 		D64FF28924B36BCD0009A4F6 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				D654343E249C4A2400320FA4 /* ViewController.swift */,
+				D654343E249C4A2400320FA4 /* MapVC.swift */,
 				D64FF28724B355A40009A4F6 /* MainVC.swift */,
-				D64FF28324ADF3580009A4F6 /* userNotiVC.swift */,
+				D64FF28324ADF3580009A4F6 /* UserNotiVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -230,9 +230,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D654343F249C4A2400320FA4 /* ViewController.swift in Sources */,
+				D654343F249C4A2400320FA4 /* MapVC.swift in Sources */,
 				D64FF28824B355A40009A4F6 /* MainVC.swift in Sources */,
-				D64FF28424ADF3580009A4F6 /* userNotiVC.swift in Sources */,
+				D64FF28424ADF3580009A4F6 /* UserNotiVC.swift in Sources */,
 				D654343B249C4A2400320FA4 /* AppDelegate.swift in Sources */,
 				D654343D249C4A2400320FA4 /* SceneDelegate.swift in Sources */,
 			);

@@ -1,12 +1,15 @@
 import UIKit
+import MapKit
 
-//MARK: MainVC
+//MARK: MapVC
 
-class MainVC: UIViewController {
+class MapVC: UIViewController  {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-    
+
 }
+
