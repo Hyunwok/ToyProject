@@ -1,11 +1,13 @@
 import UIKit
 import UserNotifications
+import MapKit
 
 //MARK: UserNotiVC
 
-class UserNotiVC: UIViewController, UNUserNotificationCenterDelegate,CLLocationManagerDelegate {
+class UserNotiAndMapVC: UIViewController, UNUserNotificationCenterDelegate, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    @IBOutlet weak var map: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +59,7 @@ class UserNotiVC: UIViewController, UNUserNotificationCenterDelegate,CLLocationM
 
 //MARK: extension
 
-extension UserNotiVC {
+extension UserNotiAndMapVC {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound, .badge])
     }

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8aU-Hi-Rqs">
-                                <rect key="frame" x="44" y="197" width="283" height="315"/>
+                                <rect key="frame" x="49" y="202" width="317" height="493"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -24,6 +24,9 @@
                         <viewLayoutGuide key="safeArea" id="e6e-AI-pu3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="9rS-yP-K9L"/>
+                    <connections>
+                        <outlet property="imageView" destination="8aU-Hi-Rqs" id="aql-Zy-mC6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pe6-bh-Tiu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -32,14 +35,13 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MapVC" customModule="MapAndWepKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WebVC" customModule="MapAndWepKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KSU-H0-jPN">
-                                <rect key="frame" x="87" y="248" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSU-H0-jPN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -48,18 +50,27 @@
                             </wkWebView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KSU-H0-jPN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5qb-fQ-Ega"/>
+                            <constraint firstItem="KSU-H0-jPN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HzK-1m-fK3"/>
+                            <constraint firstItem="KSU-H0-jPN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bpp-54-a96"/>
+                            <constraint firstItem="KSU-H0-jPN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mWz-XK-sVl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="WYM-MW-TFh"/>
+                    <connections>
+                        <outlet property="web" destination="KSU-H0-jPN" id="KmY-U2-4E9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274" y="364"/>
+            <point key="canvasLocation" x="273.91304347826087" y="363.61607142857139"/>
         </scene>
         <!--Item-->
         <scene sceneID="3yy-Zz-JJr">
             <objects>
-                <viewController id="x5i-2q-zlv" customClass="UserNotiVC" customModule="MapAndWepKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x5i-2q-zlv" customClass="UserNotiAndMapVC" customModule="MapAndWepKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vjU-2v-juc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,15 +83,21 @@
                                     <action selector="btn:" destination="x5i-2q-zlv" eventType="touchUpInside" id="qEO-VH-9Rf"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VQX-rc-6l8">
-                                <rect key="frame" x="87" y="433" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VQX-rc-6l8">
+                                <rect key="frame" x="30" y="433" width="354" height="128"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6sN-7I-8sW" firstAttribute="trailing" secondItem="VQX-rc-6l8" secondAttribute="trailing" constant="30" id="NBq-wR-K8Y"/>
+                            <constraint firstItem="VQX-rc-6l8" firstAttribute="leading" secondItem="6sN-7I-8sW" secondAttribute="leading" constant="30" id="iim-0I-M1y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6sN-7I-8sW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="UJf-nu-ABs"/>
+                    <connections>
+                        <outlet property="map" destination="VQX-rc-6l8" id="Dok-vP-jeB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yaw-Tr-8Qj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
