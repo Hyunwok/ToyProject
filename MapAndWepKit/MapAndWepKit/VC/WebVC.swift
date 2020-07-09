@@ -1,7 +1,7 @@
 import UIKit
 import WebKit
 
-//MARK: MapVC
+//MARK: WebVC
 
 class WebVC: UIViewController  {
     

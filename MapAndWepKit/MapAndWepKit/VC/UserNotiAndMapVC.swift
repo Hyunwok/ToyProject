@@ -2,7 +2,7 @@ import UIKit
 import UserNotifications
 import MapKit
 
-//MARK: UserNotiVC
+//MARK: UserNotiAndMapVC
 
 class UserNotiAndMapVC: UIViewController, UNUserNotificationCenterDelegate, CLLocationManagerDelegate {
     
