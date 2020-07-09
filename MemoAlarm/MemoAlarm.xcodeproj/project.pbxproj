@@ -99,12 +99,9 @@
 		D6D0F1C524B7D65B001AE311 /* MemoAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */,
-				D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */,
 				D6D0F1CA24B7D65B001AE311 /* ViewController.swift */,
-				D6D0F1CC24B7D65B001AE311 /* Main.storyboard */,
-				D6D0F1CF24B7D65D001AE311 /* Assets.xcassets */,
-				D6D0F1D124B7D65D001AE311 /* LaunchScreen.storyboard */,
+				D6D0F1F624B7D66A001AE311 /* Base */,
+				D6D0F1F724B7D672001AE311 /* Supporting */,
 				D6D0F1D424B7D65D001AE311 /* Info.plist */,
 			);
 			path = MemoAlarm;
@@ -126,6 +123,25 @@
 				D6D0F1EA24B7D65D001AE311 /* Info.plist */,
 			);
 			path = MemoAlarmUITests;
+			sourceTree = "<group>";
+		};
+		D6D0F1F624B7D66A001AE311 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D6D0F1D124B7D65D001AE311 /* LaunchScreen.storyboard */,
+				D6D0F1CC24B7D65B001AE311 /* Main.storyboard */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D6D0F1F724B7D672001AE311 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */,
+				D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */,
+				D6D0F1CF24B7D65D001AE311 /* Assets.xcassets */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
