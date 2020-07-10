@@ -6,6 +6,9 @@ target 'MemoAlarm' do
   use_frameworks!
 
   # Pods for MemoAlarm
+    pod 'FSCalendar'
+    pod 'RxSwift', '~> 5'
+    pod 'RxCocoa', '~> 5'	
 
   target 'MemoAlarmTests' do
     inherit! :search_paths

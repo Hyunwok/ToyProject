@@ -1,0 +1,6 @@
+framework module Pods_MemoAlarm_MemoAlarmUITests {
+  umbrella header "Pods-MemoAlarm-MemoAlarmUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
