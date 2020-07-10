@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12186ECD159A495E3A8C9C66 /* Pods_MemoAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA3F3801A1F3DA11692D030 /* Pods_MemoAlarm.framework */; };
+		3C36F62CA01AEC9224108412 /* Pods_MemoAlarmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64812CB4466591B8C1325AA2 /* Pods_MemoAlarmTests.framework */; };
+		69A2759C3FDD2E96632D42BA /* Pods_MemoAlarm_MemoAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0AC1593FADFF1FDE13C1C6 /* Pods_MemoAlarm_MemoAlarmUITests.framework */; };
 		D6D0F1C724B7D65B001AE311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */; };
 		D6D0F1C924B7D65B001AE311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */; };
 		D6D0F1CB24B7D65B001AE311 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1CA24B7D65B001AE311 /* ViewController.swift */; };
@@ -35,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CA3F3801A1F3DA11692D030 /* Pods_MemoAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		186910D4CABAE18E3579E243 /* Pods-MemoAlarm-MemoAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarm-MemoAlarmUITests.debug.xcconfig"; path = "Target Support Files/Pods-MemoAlarm-MemoAlarmUITests/Pods-MemoAlarm-MemoAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		61556D0372F798996BC39A87 /* Pods-MemoAlarm-MemoAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarm-MemoAlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-MemoAlarm-MemoAlarmUITests/Pods-MemoAlarm-MemoAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
+		64812CB4466591B8C1325AA2 /* Pods_MemoAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		721744A9FD43DCDA58B11F4D /* Pods-MemoAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarm.release.xcconfig"; path = "Target Support Files/Pods-MemoAlarm/Pods-MemoAlarm.release.xcconfig"; sourceTree = "<group>"; };
+		776CE5B4A90222C6D1B2A9A9 /* Pods-MemoAlarmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarmTests.debug.xcconfig"; path = "Target Support Files/Pods-MemoAlarmTests/Pods-MemoAlarmTests.debug.xcconfig"; sourceTree = "<group>"; };
+		83D9C27981D14C9D9D2DACCE /* Pods-MemoAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarm.debug.xcconfig"; path = "Target Support Files/Pods-MemoAlarm/Pods-MemoAlarm.debug.xcconfig"; sourceTree = "<group>"; };
+		AD0AC1593FADFF1FDE13C1C6 /* Pods_MemoAlarm_MemoAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoAlarm_MemoAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D0F1C324B7D65B001AE311 /* MemoAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 		D6D0F1E424B7D65D001AE311 /* MemoAlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D0F1E824B7D65D001AE311 /* MemoAlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAlarmUITests.swift; sourceTree = "<group>"; };
 		D6D0F1EA24B7D65D001AE311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E28D417B66299697F73B6116 /* Pods-MemoAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-MemoAlarmTests/Pods-MemoAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12186ECD159A495E3A8C9C66 /* Pods_MemoAlarm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C36F62CA01AEC9224108412 /* Pods_MemoAlarmTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A2759C3FDD2E96632D42BA /* Pods_MemoAlarm_MemoAlarmUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				D6D0F1DC24B7D65D001AE311 /* MemoAlarmTests */,
 				D6D0F1E724B7D65D001AE311 /* MemoAlarmUITests */,
 				D6D0F1C424B7D65B001AE311 /* Products */,
+				D7747950749AF177996631CC /* Pods */,
+				E7D6E93261F6E573B03D73C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +161,30 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
+		D7747950749AF177996631CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83D9C27981D14C9D9D2DACCE /* Pods-MemoAlarm.debug.xcconfig */,
+				721744A9FD43DCDA58B11F4D /* Pods-MemoAlarm.release.xcconfig */,
+				186910D4CABAE18E3579E243 /* Pods-MemoAlarm-MemoAlarmUITests.debug.xcconfig */,
+				61556D0372F798996BC39A87 /* Pods-MemoAlarm-MemoAlarmUITests.release.xcconfig */,
+				776CE5B4A90222C6D1B2A9A9 /* Pods-MemoAlarmTests.debug.xcconfig */,
+				E28D417B66299697F73B6116 /* Pods-MemoAlarmTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E7D6E93261F6E573B03D73C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CA3F3801A1F3DA11692D030 /* Pods_MemoAlarm.framework */,
+				AD0AC1593FADFF1FDE13C1C6 /* Pods_MemoAlarm_MemoAlarmUITests.framework */,
+				64812CB4466591B8C1325AA2 /* Pods_MemoAlarmTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D0F1ED24B7D65D001AE311 /* Build configuration list for PBXNativeTarget "MemoAlarm" */;
 			buildPhases = (
+				A31273EB07C997515EF2CB8D /* [CP] Check Pods Manifest.lock */,
 				D6D0F1BF24B7D65B001AE311 /* Sources */,
 				D6D0F1C024B7D65B001AE311 /* Frameworks */,
 				D6D0F1C124B7D65B001AE311 /* Resources */,
+				B35AA7AADE07AF7882A0DC95 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,6 +211,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D0F1F024B7D65D001AE311 /* Build configuration list for PBXNativeTarget "MemoAlarmTests" */;
 			buildPhases = (
+				5F1BD08A8C7E4527DB6A1996 /* [CP] Check Pods Manifest.lock */,
 				D6D0F1D524B7D65D001AE311 /* Sources */,
 				D6D0F1D624B7D65D001AE311 /* Frameworks */,
 				D6D0F1D724B7D65D001AE311 /* Resources */,
@@ -186,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D0F1F324B7D65D001AE311 /* Build configuration list for PBXNativeTarget "MemoAlarmUITests" */;
 			buildPhases = (
+				12D8566404FA98C1C518DB79 /* [CP] Check Pods Manifest.lock */,
 				D6D0F1E024B7D65D001AE311 /* Sources */,
 				D6D0F1E124B7D65D001AE311 /* Frameworks */,
 				D6D0F1E224B7D65D001AE311 /* Resources */,
+				1ADECBC9C6EF9B471DF646DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -269,6 +315,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12D8566404FA98C1C518DB79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemoAlarm-MemoAlarmUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1ADECBC9C6EF9B471DF646DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemoAlarm-MemoAlarmUITests/Pods-MemoAlarm-MemoAlarmUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemoAlarm-MemoAlarmUITests/Pods-MemoAlarm-MemoAlarmUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MemoAlarm-MemoAlarmUITests/Pods-MemoAlarm-MemoAlarmUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F1BD08A8C7E4527DB6A1996 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemoAlarmTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A31273EB07C997515EF2CB8D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemoAlarm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B35AA7AADE07AF7882A0DC95 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemoAlarm/Pods-MemoAlarm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemoAlarm/Pods-MemoAlarm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MemoAlarm/Pods-MemoAlarm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D6D0F1BF24B7D65B001AE311 /* Sources */ = {
@@ -448,6 +597,7 @@
 		};
 		D6D0F1EE24B7D65D001AE311 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83D9C27981D14C9D9D2DACCE /* Pods-MemoAlarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +616,7 @@
 		};
 		D6D0F1EF24B7D65D001AE311 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 721744A9FD43DCDA58B11F4D /* Pods-MemoAlarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -484,6 +635,7 @@
 		};
 		D6D0F1F124B7D65D001AE311 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 776CE5B4A90222C6D1B2A9A9 /* Pods-MemoAlarmTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +658,7 @@
 		};
 		D6D0F1F224B7D65D001AE311 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E28D417B66299697F73B6116 /* Pods-MemoAlarmTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +681,7 @@
 		};
 		D6D0F1F424B7D65D001AE311 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 186910D4CABAE18E3579E243 /* Pods-MemoAlarm-MemoAlarmUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +702,7 @@
 		};
 		D6D0F1F524B7D65D001AE311 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61556D0372F798996BC39A87 /* Pods-MemoAlarm-MemoAlarmUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
