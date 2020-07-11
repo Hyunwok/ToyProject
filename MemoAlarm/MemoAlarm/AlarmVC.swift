@@ -3,14 +3,17 @@ import FSCalendar
 import RxSwift
 import RxCocoa
 
-class AlarmVC: UIViewController,FSCalendarDelegate, FSCalendarDataSource {
-    
+//MARK: AlarmVC
+
+class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
+
     var list = [String]()
 
     @IBOutlet weak var datePickerView: DatePickerXib!
     @IBOutlet weak var alarmPlusBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
+    @IBOutlet weak var showWhenTouchPlus: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,18 +21,23 @@ class AlarmVC: UIViewController,FSCalendarDelegate, FSCalendarDataSource {
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
         tableView.delegate = self
         tableView.dataSource = self
-        datePickerView.isHidden = true
+        self.xibAndBtnIsHidden(value: true)
     }
     
     @IBAction func piusAlarm(_ sender: UIButton) {
-        datePickerView.isHidden = false
-       
+        self.xibAndBtnIsHidden(value: false)
     }
 }
 
-//MARK: ViewController
+
+//MARK: extension
 
 extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
+    func xibAndBtnIsHidden(value: Bool) {
+        showWhenTouchPlus.isHidden = value
+        datePickerView.isHidden = value
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }

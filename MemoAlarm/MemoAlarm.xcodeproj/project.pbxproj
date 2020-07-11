@@ -12,7 +12,7 @@
 		69A2759C3FDD2E96632D42BA /* Pods_MemoAlarm_MemoAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0AC1593FADFF1FDE13C1C6 /* Pods_MemoAlarm_MemoAlarmUITests.framework */; };
 		D6D0F1C724B7D65B001AE311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */; };
 		D6D0F1C924B7D65B001AE311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */; };
-		D6D0F1CB24B7D65B001AE311 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1CA24B7D65B001AE311 /* ViewController.swift */; };
+		D6D0F1CB24B7D65B001AE311 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1CA24B7D65B001AE311 /* AlarmVC.swift */; };
 		D6D0F1CE24B7D65B001AE311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D0F1CC24B7D65B001AE311 /* Main.storyboard */; };
 		D6D0F1D024B7D65D001AE311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D0F1CF24B7D65D001AE311 /* Assets.xcassets */; };
 		D6D0F1D324B7D65D001AE311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D0F1D124B7D65D001AE311 /* LaunchScreen.storyboard */; };
@@ -51,7 +51,7 @@
 		D6D0F1C324B7D65B001AE311 /* MemoAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D6D0F1CA24B7D65B001AE311 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D6D0F1CA24B7D65B001AE311 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		D6D0F1CD24B7D65B001AE311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6D0F1CF24B7D65D001AE311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6D0F1D224B7D65D001AE311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		D6D0F1C524B7D65B001AE311 /* MemoAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				D6D0F1CA24B7D65B001AE311 /* ViewController.swift */,
+				D6D0F1CA24B7D65B001AE311 /* AlarmVC.swift */,
 				D6D0F1F624B7D66A001AE311 /* Base */,
 				D6D0F1F724B7D672001AE311 /* Supporting */,
 				D6D0F1D424B7D65D001AE311 /* Info.plist */,
@@ -438,7 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6D0F1CB24B7D65B001AE311 /* ViewController.swift in Sources */,
+				D6D0F1CB24B7D65B001AE311 /* AlarmVC.swift in Sources */,
 				D6D0F1FB24B80EC9001AE311 /* DatePickerXib.swift in Sources */,
 				D6D0F1C724B7D65B001AE311 /* AppDelegate.swift in Sources */,
 				D6D0F1C924B7D65B001AE311 /* SceneDelegate.swift in Sources */,
