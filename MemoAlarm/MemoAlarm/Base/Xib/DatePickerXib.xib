@@ -7,19 +7,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerXib" customModule="MemoAlarm" customModuleProvider="target">
             <connections>
-                <outlet property="datePicker" destination="Fnh-2w-2OP" id="naZ-wS-jUO"/>
-                <outlet property="lbl" destination="Eg0-9n-Ivy" id="658-oC-kl8"/>
+                <outlet property="datePicker" destination="Fnh-2w-2OP" id="kNn-ub-MCA"/>
+                <outlet property="lbl" destination="Eg0-9n-Ivy" id="UU8-QK-G3B"/>
+                <outlet property="okBtn" destination="ym3-fw-gpC" id="vsb-70-eBz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DatePickerXib" customModule="MemoAlarm" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="276" height="255"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="282" height="214"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Fnh-2w-2OP">
-                    <rect key="frame" x="0.0" y="45" width="276" height="210"/>
+                <datePicker contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Fnh-2w-2OP">
+                    <rect key="frame" x="0.0" y="57" width="282" height="71"/>
                     <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
                         <!--1970-01-01 11:00:00 +0000-->
                     </date>
@@ -28,28 +29,46 @@
                     </date>
                 </datePicker>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람 시간 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eg0-9n-Ivy">
-                    <rect key="frame" x="89" y="15" width="98" height="21"/>
+                    <rect key="frame" x="92" y="15" width="98" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tkH-6Z-WRT">
+                    <rect key="frame" x="33" y="138" width="216" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="216" id="zs3-f0-9Af"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ym3-fw-gpC">
+                    <rect key="frame" x="126" y="178" width="30" height="30"/>
+                    <state key="normal" title="확인"/>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="Eg0-9n-Ivy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="7rq-x4-Bi6"/>
-                <constraint firstItem="Fnh-2w-2OP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="WvT-k0-Jc4"/>
-                <constraint firstItem="Eg0-9n-Ivy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="XOM-PK-sB7"/>
-                <constraint firstItem="Fnh-2w-2OP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ilr-Hk-s1x"/>
-                <constraint firstItem="Fnh-2w-2OP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="mmN-Zf-wYB"/>
-                <constraint firstItem="Fnh-2w-2OP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="1" id="puI-xU-cHX"/>
+                <constraint firstItem="Fnh-2w-2OP" firstAttribute="top" secondItem="Eg0-9n-Ivy" secondAttribute="bottom" constant="21" id="17T-Ci-FuU"/>
+                <constraint firstItem="Fnh-2w-2OP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="97Y-Wa-0lT"/>
+                <constraint firstItem="Eg0-9n-Ivy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Zcz-GA-yWc"/>
+                <constraint firstItem="Eg0-9n-Ivy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="b88-fl-uvc"/>
+                <constraint firstItem="ym3-fw-gpC" firstAttribute="top" secondItem="tkH-6Z-WRT" secondAttribute="bottom" constant="6" id="bxr-e2-Kp6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ym3-fw-gpC" secondAttribute="bottom" constant="6" id="jXv-qN-BfF"/>
+                <constraint firstItem="tkH-6Z-WRT" firstAttribute="top" secondItem="Fnh-2w-2OP" secondAttribute="bottom" constant="10" id="pQg-wg-EfU"/>
+                <constraint firstItem="tkH-6Z-WRT" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="qRs-f2-Mdv"/>
+                <constraint firstItem="Fnh-2w-2OP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="xsf-5H-boX"/>
+                <constraint firstItem="ym3-fw-gpC" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="yYY-K7-OU8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="alarmTextField" destination="tkH-6Z-WRT" id="2oM-dX-pCx"/>
                 <outlet property="datePicker" destination="Fnh-2w-2OP" id="vxV-g8-Cgs"/>
                 <outlet property="lbl" destination="Eg0-9n-Ivy" id="SLr-dD-CdN"/>
+                <outlet property="okBtn" destination="ym3-fw-gpC" id="zTB-cQ-tws"/>
             </connections>
-            <point key="canvasLocation" x="37.681159420289859" y="-112.16517857142857"/>
+            <point key="canvasLocation" x="42.028985507246382" y="-125.89285714285714"/>
         </view>
     </objects>
 </document>
