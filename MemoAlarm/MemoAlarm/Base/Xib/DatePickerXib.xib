@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerXib" customModule="MemoAlarm" customModuleProvider="target">
             <connections>
+                <outlet property="alarmTextField" destination="tkH-6Z-WRT" id="Fyy-bU-IvG"/>
                 <outlet property="datePicker" destination="Fnh-2w-2OP" id="kNn-ub-MCA"/>
                 <outlet property="lbl" destination="Eg0-9n-Ivy" id="UU8-QK-G3B"/>
                 <outlet property="okBtn" destination="ym3-fw-gpC" id="vsb-70-eBz"/>
@@ -16,11 +17,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="249" height="208"/>
+            <rect key="frame" x="0.0" y="0.0" width="279" height="229"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <datePicker contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Fnh-2w-2OP">
-                    <rect key="frame" x="0.0" y="57" width="249" height="65"/>
+                    <rect key="frame" x="0.0" y="57" width="279" height="86"/>
                     <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
                         <!--1970-01-01 11:00:00 +0000-->
                     </date>
@@ -29,13 +30,13 @@
                     </date>
                 </datePicker>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람 시간 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eg0-9n-Ivy">
-                    <rect key="frame" x="75.5" y="15" width="98" height="21"/>
+                    <rect key="frame" x="90.5" y="15" width="98" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tkH-6Z-WRT">
-                    <rect key="frame" x="16.5" y="132" width="216" height="34"/>
+                    <rect key="frame" x="31.5" y="153" width="216" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="216" id="zs3-f0-9Af"/>
                     </constraints>
@@ -43,7 +44,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ym3-fw-gpC">
-                    <rect key="frame" x="109.5" y="172" width="30" height="30"/>
+                    <rect key="frame" x="124.5" y="193" width="30" height="30"/>
                     <state key="normal" title="확인"/>
                     <connections>
                         <action selector="getOk:" destination="-1" eventType="touchUpInside" id="AWk-QI-A7K"/>
@@ -55,9 +56,9 @@
                 <constraint firstItem="Fnh-2w-2OP" firstAttribute="top" secondItem="Eg0-9n-Ivy" secondAttribute="bottom" constant="21" id="17T-Ci-FuU"/>
                 <constraint firstItem="Fnh-2w-2OP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="97Y-Wa-0lT"/>
                 <constraint firstItem="Eg0-9n-Ivy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Zcz-GA-yWc"/>
-                <constraint firstItem="Eg0-9n-Ivy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="b88-fl-uvc"/>
                 <constraint firstItem="ym3-fw-gpC" firstAttribute="top" secondItem="tkH-6Z-WRT" secondAttribute="bottom" constant="6" id="bxr-e2-Kp6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ym3-fw-gpC" secondAttribute="bottom" constant="6" id="jXv-qN-BfF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="Eg0-9n-Ivy" secondAttribute="top" constant="29" id="oyw-lT-D7h"/>
                 <constraint firstItem="tkH-6Z-WRT" firstAttribute="top" secondItem="Fnh-2w-2OP" secondAttribute="bottom" constant="10" id="pQg-wg-EfU"/>
                 <constraint firstItem="tkH-6Z-WRT" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="qRs-f2-Mdv"/>
                 <constraint firstItem="Fnh-2w-2OP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="xsf-5H-boX"/>
@@ -71,7 +72,7 @@
                 <outlet property="lbl" destination="Eg0-9n-Ivy" id="SLr-dD-CdN"/>
                 <outlet property="okBtn" destination="ym3-fw-gpC" id="zTB-cQ-tws"/>
             </connections>
-            <point key="canvasLocation" x="18.115942028985508" y="-127.90178571428571"/>
+            <point key="canvasLocation" x="625.36231884057975" y="-283.59375"/>
         </view>
     </objects>
 </document>
