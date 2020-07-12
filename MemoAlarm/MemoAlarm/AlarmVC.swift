@@ -27,6 +27,9 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     @IBAction func piusAlarm(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: false)
     }
+    @IBAction func disMissXib(_ sender: UIButton) {
+        self.xibAndBtnIsHidden(value: true)
+    }
 }
 
 
