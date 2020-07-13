@@ -7,9 +7,9 @@ import RxCocoa
 
 class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
 
-    var list = [String]()
-
-    @IBOutlet weak var datePickerView: DatePickerXib!
+    static var list = [String]()
+    
+    @IBOutlet weak var datePickerXib: DatePickerXib!
     @IBOutlet weak var alarmPlusBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
@@ -22,6 +22,7 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         self.xibAndBtnIsHidden(value: true)
+        reloadCalender()
     }
     
     @IBAction func piusAlarm(_ sender: UIButton) {
@@ -38,15 +39,20 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
 extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
     func xibAndBtnIsHidden(value: Bool) {
         showWhenTouchPlus.isHidden = value
-        datePickerView.isHidden = value
+        datePickerXib.isHidden = value
+    }
+    
+    func reloadCalender() {
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return AlarmVC.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // DatePickerXib
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmCell", for: indexPath) as! AlarmCell
+        cell.alarmLbl.text = datePickerXib.alarmText
+        return cell
     }
 }
