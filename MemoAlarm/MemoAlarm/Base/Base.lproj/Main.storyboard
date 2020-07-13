@@ -25,15 +25,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r2r-O5-RFn" id="VR5-OA-36Q">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5h-sD-P0z">
-                                                    <rect key="frame" x="186" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -91,7 +82,7 @@
                     <connections>
                         <outlet property="alarmPlusBtn" destination="9WW-Z0-2yF" id="VbY-El-It3"/>
                         <outlet property="calendarView" destination="WVZ-m1-IB5" id="ywE-tj-ywT"/>
-                        <outlet property="datePickerView" destination="Z3r-U0-DHu" id="uWw-HB-i4K"/>
+                        <outlet property="datePickerXib" destination="Z3r-U0-DHu" id="Bec-Nn-cS4"/>
                         <outlet property="showWhenTouchPlus" destination="cSY-tM-0fe" id="Yfc-Lj-mfK"/>
                         <outlet property="tableView" destination="5o1-MT-vQY" id="ZQY-lZ-68X"/>
                     </connections>
