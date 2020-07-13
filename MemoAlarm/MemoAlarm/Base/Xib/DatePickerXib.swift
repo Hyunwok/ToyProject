@@ -2,7 +2,8 @@ import UIKit
 
 final class DatePickerXib: UIView {
     
-    private let xibName = "DatePickerView"
+    private let xibName = "DatePickerXib"
+    var alarmDate: String!
     var alarmText: String!
     
     @IBOutlet weak var alarmTextField: UITextField!
@@ -12,12 +13,12 @@ final class DatePickerXib: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.commonInit()
-        datePicker.addTarget(self, action: #selector(getTime), for: .valueChanged)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.commonInit()
+        datePicker.addTarget(self, action: #selector(getTime), for: .valueChanged)
     }
     
     private func commonInit(){
@@ -27,13 +28,14 @@ final class DatePickerXib: UIView {
     }
     
     @IBAction func getOk(_ sender: UIButton) {
-        
+        self.alarmText = alarmTextField.text
+        // 사라지게 하기 
     }
     
     @objc func getTime() {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         let date = formatter.string(from: datePicker.date)
-        alarmText = date
+        alarmDate = date
     }
 }
