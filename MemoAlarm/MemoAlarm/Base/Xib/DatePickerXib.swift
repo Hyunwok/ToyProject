@@ -29,12 +29,21 @@ final class DatePickerXib: UIView {
     
     @IBAction func getOk(_ sender: UIButton) {
         self.alarmText = alarmTextField.text
-        // 사라지게 하기 
+        AlarmVC.list.append("")
+        if let date = alarmDate {
+            for i in AlarmVC.eventList {
+                if i != date {
+                    AlarmVC.eventList.append(date)
+                }
+            }
+        }
+        // 사라지게 하기
+        print(AlarmVC.eventList)
     }
     
     @objc func getTime() {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
+        formatter.dateFormat = "yyyy-MM-dd"
         let date = formatter.string(from: datePicker.date)
         alarmDate = date
     }
