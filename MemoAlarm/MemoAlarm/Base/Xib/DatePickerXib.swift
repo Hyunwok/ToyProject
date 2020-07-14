@@ -2,11 +2,9 @@ import UIKit
 
 final class DatePickerXib: UIView {
     
-    var list = [String]()
-    static var eventList = [String]()
     private let xibName = "DatePickerXib"
     var alarmDate: String!
-    var alarmText: String!
+    var delegate: DatePickerXibDelegate?
     
     @IBOutlet weak var alarmTextField: UITextField!
     @IBOutlet weak var lbl: UILabel!
@@ -30,12 +28,8 @@ final class DatePickerXib: UIView {
     }
     
     @IBAction func getOk(_ sender: UIButton) {
-        self.alarmText = alarmTextField.text
-        self.list.append(alarmText)
-       
-        if let date = alarmDate {
-            DatePickerXib.eventList.append(date)
-        }
+        delegate?.listAppend(value: alarmTextField.text!)
+        delegate?.eventListAppend(value: alarmDate)
     }
     
     @objc func getTime() {
@@ -44,4 +38,9 @@ final class DatePickerXib: UIView {
         let date = formatter.string(from: datePicker.date)
         alarmDate = date
     }
+}
+
+protocol DatePickerXibDelegate {
+    func listAppend(value: String)
+    func eventListAppend(value: String)
 }
