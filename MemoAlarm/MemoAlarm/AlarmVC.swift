@@ -7,10 +7,10 @@ import UserNotifications
 //MARK: AlarmVC
 
 class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUserNotificationCenterDelegate {
-
+    
     static var list = [String]()
     static var eventList = [String]()
-    var today: Int!
+    static var today: String!
     
     @IBOutlet weak var datePickerXib: DatePickerXib!
     @IBOutlet weak var alarmPlusBtn: UIButton!
@@ -33,10 +33,6 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUse
                 UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
             }
         })
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        today = Int(formatter.string(from: Date()))
     }
     
     @IBAction func piusAlarm(_ sender: UIButton) {
@@ -47,7 +43,6 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUse
         self.xibAndBtnIsHidden(value: true)
         reloadCalender()
     }
-    
 }
 
 //let content = UNMutableNotificationContent()
@@ -73,25 +68,19 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .sound, .badge])
-    }
-    
     func xibAndBtnIsHidden(value: Bool) {
         showWhenTouchPlus.isHidden = value
         datePickerXib.isHidden = value
     }
     
-    func reloadCalender() {
+    func reloadCalender() { // 이벤트 추가
         var date = [String]()
-        for i in AlarmVC.eventList { if today > Int(i)! { date.append(i) } }
+        for i in AlarmVC.eventList { if AlarmVC.today > Int(i)! { date.append(i) } }
         print(date)
         func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
             
             return 0
         }
-//        calendarView.appearance
-//        datePickerXib.alarmDate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,5 +91,9 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmCell", for: indexPath) as! AlarmCell
         cell.alarmLbl.text = datePickerXib.alarmText
         return cell
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
     }
 }
