@@ -8,6 +8,8 @@ import RxCocoa
 class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
 
     static var list = [String]()
+    static var eventList = [String]()
+    var today: Int!
     
     @IBOutlet weak var datePickerXib: DatePickerXib!
     @IBOutlet weak var alarmPlusBtn: UIButton!
@@ -23,14 +25,21 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
         tableView.dataSource = self
         self.xibAndBtnIsHidden(value: true)
         reloadCalender()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        today = Int(formatter.string(from: Date()))
     }
     
     @IBAction func piusAlarm(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: false)
+        
     }
     @IBAction func disMissXib(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: true)
+        reloadCalender()
+        print(AlarmVC.eventList)
     }
+    
 }
 
 
@@ -43,7 +52,15 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func reloadCalender() {
-        
+        var date = [String]()
+        for i in AlarmVC.eventList { if today > Int(i)! { date.append(i) } }
+        print(date)
+        func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+            
+            return 0
+        }
+//        calendarView.appearance
+//        datePickerXib.alarmDate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
