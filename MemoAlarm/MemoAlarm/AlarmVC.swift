@@ -8,9 +8,7 @@ import UserNotifications
 
 class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUserNotificationCenterDelegate {
     
-    static var list = [String]()
-    static var eventList = [String]()
-    static var today: String!
+
     
     @IBOutlet weak var datePickerXib: DatePickerXib!
     @IBOutlet weak var alarmPlusBtn: UIButton!
@@ -22,9 +20,11 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUse
         super.viewDidLoad()
         calendarView.appearance.titleWeekendColor = .red
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
+        calendarView.appearance.eventDefaultColor = .red
         self.setDelegate()
         reloadCalender()
         self.xibAndBtnIsHidden(value: true)
+        tableView.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.identifier)
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
             if didAllow {
@@ -45,23 +45,21 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUse
     }
 }
 
-//let content = UNMutableNotificationContent()
-//content.badge = 1
-//content.title = "히히"
-//content.subtitle = "This is Subtitle : UserNotifications tutorial"
-//content.body = "This is Body : 블로그 글 쓰기"
-//content.summaryArgument = "Alan Walker"
-//content.summaryArgumentCount = 40
-//
-//let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
-//let request = UNNotificationRequest(identifier: "LoveYou", content: content, trigger: trigger)
-//
-//UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-
-
 //MARK: extension
 
 extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
+    func a() {
+        let content = UNMutableNotificationContent()
+        content.badge = 1
+        content.title = "알림"
+        content.body = datePickerXib.alarmText
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+        let request = UNNotificationRequest(identifier: "LoveYou", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+
+    }
+    
     func setDelegate() {
         UNUserNotificationCenter.current().delegate = self
         tableView.delegate = self
@@ -74,22 +72,31 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func reloadCalender() { // 이벤트 추가
-        var date = [String]()
-        for i in AlarmVC.eventList { if AlarmVC.today > Int(i)! { date.append(i) } }
-        print(date)
-        func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-            
-            return 0
-        }
+        
     }
     
+//    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        let dateString = formatter.string(from: date)
+//        for i in 0...AlarmVC.eventList.count {
+//            if AlarmVC.eventList[i].contains(dateString) {
+//                print(AlarmVC.eventList[i].contains(dateString))
+//                return 1
+//            }
+//        }
+//        return 0
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AlarmVC.list.count
+        print(datePickerXib.list.count)
+        return datePickerXib.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmCell", for: indexPath) as! AlarmCell
-        cell.alarmLbl.text = datePickerXib.alarmText
+        let cell = tableView.dequeueReusableCell(withIdentifier: AlarmCell.identifier, for: indexPath) as! AlarmCell
+        cell.textLabel?.text = datePickerXib!.alarmText
+        print(datePickerXib!.alarmText)
         return cell
     }
     
