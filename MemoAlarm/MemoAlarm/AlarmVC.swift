@@ -8,8 +8,6 @@ import UserNotifications
 
 class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUserNotificationCenterDelegate {
     
-
-    
     @IBOutlet weak var datePickerXib: DatePickerXib!
     @IBOutlet weak var alarmPlusBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -20,7 +18,7 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUse
         super.viewDidLoad()
         calendarView.appearance.titleWeekendColor = .red
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
-        calendarView.appearance.eventDefaultColor = .red
+        calendarView.appearance.eventSelectionColor = .green
         self.setDelegate()
         reloadCalender()
         self.xibAndBtnIsHidden(value: true)
@@ -75,6 +73,7 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    
 //    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
 //        let formatter = DateFormatter()
 //        formatter.dateFormat = "yyyy-MM-dd"
@@ -87,6 +86,11 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
 //        }
 //        return 0
 //    }
+    
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        return 3 
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(datePickerXib.list.count)
