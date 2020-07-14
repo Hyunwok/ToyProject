@@ -2,6 +2,8 @@ import UIKit
 
 final class DatePickerXib: UIView {
     
+    var list = [String]()
+    static var eventList = [String]()
     private let xibName = "DatePickerXib"
     var alarmDate: String!
     var alarmText: String!
@@ -29,16 +31,11 @@ final class DatePickerXib: UIView {
     
     @IBAction func getOk(_ sender: UIButton) {
         self.alarmText = alarmTextField.text
-        AlarmVC.list.append(alarmText)
+        self.list.append(alarmText)
+       
         if let date = alarmDate {
-            for i in AlarmVC.eventList {
-                if i != AlarmVC.eventList {
-                    AlarmVC.eventList.append(i)
-                }
-            }
+            DatePickerXib.eventList.append(date)
         }
-        // 사라지게 하기
-        print(AlarmVC.eventList)
     }
     
     @objc func getTime() {
