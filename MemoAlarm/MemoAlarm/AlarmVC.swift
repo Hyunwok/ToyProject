@@ -2,6 +2,7 @@ import UIKit
 import FSCalendar
 import RxSwift
 import RxCocoa
+import UserNotifications
 
 //MARK: AlarmVC
 
@@ -21,6 +22,16 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
         super.viewDidLoad()
         calendarView.appearance.titleWeekendColor = .red
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound], completionHandler: { (didAllow, error) in
+        })
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+            if didAllow {
+                return
+            } else {
+                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+            }
+        })
         tableView.delegate = self
         tableView.dataSource = self
         self.xibAndBtnIsHidden(value: true)
@@ -41,6 +52,19 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     }
     
 }
+
+//let content = UNMutableNotificationContent()
+//content.badge = 1
+//content.title = "히히"
+//content.subtitle = "This is Subtitle : UserNotifications tutorial"
+//content.body = "This is Body : 블로그 글 쓰기"
+//content.summaryArgument = "Alan Walker"
+//content.summaryArgumentCount = 40
+//
+//let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+//let request = UNNotificationRequest(identifier: "LoveYou", content: content, trigger: trigger)
+//
+//UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
 
 
 //MARK: extension
