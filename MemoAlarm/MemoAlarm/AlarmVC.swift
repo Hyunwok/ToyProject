@@ -6,7 +6,7 @@ import UserNotifications
 
 //MARK: AlarmVC
 
-class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUserNotificationCenterDelegate {
+class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUserNotificationCenterDelegate, FSCalendarDelegateAppearance {
     
     @IBOutlet weak var datePickerXib: DatePickerXib!
     @IBOutlet weak var alarmPlusBtn: UIButton!
@@ -18,9 +18,8 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUse
         super.viewDidLoad()
         calendarView.appearance.titleWeekendColor = .red
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
-        calendarView.appearance.eventSelectionColor = .green
+        calendarView.appearance.eventDefaultColor = .cyan
         self.setDelegate()
-        reloadCalender()
         self.xibAndBtnIsHidden(value: true)
         tableView.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.identifier)
         
@@ -39,13 +38,20 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUse
     
     @IBAction func disMissXib(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: true)
-        reloadCalender()
     }
 }
 
 //MARK: extension
 
 extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
+    func setDelegate() {
+        UNUserNotificationCenter.current().delegate = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        calendarView.delegate = self
+        calendarView.dataSource = self
+    }
+    
     func a() {
         let content = UNMutableNotificationContent()
         content.badge = 1
@@ -58,49 +64,28 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
 
     }
     
-    func setDelegate() {
-        UNUserNotificationCenter.current().delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-    
     func xibAndBtnIsHidden(value: Bool) {
         showWhenTouchPlus.isHidden = value
         datePickerXib.isHidden = value
     }
-    
-    func reloadCalender() { // 이벤트 추가
-        
-    }
-    
-    
-//    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        let dateString = formatter.string(from: date)
-//        for i in 0...AlarmVC.eventList.count {
-//            if AlarmVC.eventList[i].contains(dateString) {
-//                print(AlarmVC.eventList[i].contains(dateString))
-//                return 1
-//            }
-//        }
-//        return 0
-//    }
-    
-    
+
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return 3 
+       let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateString = formatter.string(from: date)
+        if DatePickerXib.eventList.contains(dateString) {
+            return 1
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(datePickerXib.list.count)
         return datePickerXib.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlarmCell.identifier, for: indexPath) as! AlarmCell
         cell.textLabel?.text = datePickerXib!.alarmText
-        print(datePickerXib!.alarmText)
         return cell
     }
     
