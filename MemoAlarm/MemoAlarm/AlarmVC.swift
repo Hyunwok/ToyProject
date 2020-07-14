@@ -6,7 +6,7 @@ import UserNotifications
 
 //MARK: AlarmVC
 
-class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
+class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UNUserNotificationCenterDelegate {
 
     static var list = [String]()
     static var eventList = [String]()
@@ -22,9 +22,10 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
         super.viewDidLoad()
         calendarView.appearance.titleWeekendColor = .red
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound], completionHandler: { (didAllow, error) in
-        })
-        UNUserNotificationCenter.current().delegate = self
+        self.setDelegate()
+        reloadCalender()
+        self.xibAndBtnIsHidden(value: true)
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
             if didAllow {
                 return
@@ -32,10 +33,7 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
                 UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
             }
         })
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.xibAndBtnIsHidden(value: true)
-        reloadCalender()
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         today = Int(formatter.string(from: Date()))
@@ -43,12 +41,11 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     
     @IBAction func piusAlarm(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: false)
-        
     }
+    
     @IBAction func disMissXib(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: true)
         reloadCalender()
-        print(AlarmVC.eventList)
     }
     
 }
@@ -70,6 +67,16 @@ class AlarmVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
 //MARK: extension
 
 extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
+    func setDelegate() {
+        UNUserNotificationCenter.current().delegate = self
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
+    }
+    
     func xibAndBtnIsHidden(value: Bool) {
         showWhenTouchPlus.isHidden = value
         datePickerXib.isHidden = value
