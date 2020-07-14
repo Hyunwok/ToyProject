@@ -29,11 +29,11 @@ final class DatePickerXib: UIView {
     
     @IBAction func getOk(_ sender: UIButton) {
         self.alarmText = alarmTextField.text
-        AlarmVC.list.append("")
+        AlarmVC.list.append(alarmText)
         if let date = alarmDate {
             for i in AlarmVC.eventList {
-                if i != date {
-                    AlarmVC.eventList.append(date)
+                if i != AlarmVC.eventList {
+                    AlarmVC.eventList.append(i)
                 }
             }
         }
@@ -46,6 +46,5 @@ final class DatePickerXib: UIView {
         formatter.dateFormat = "yyyy-MM-dd"
         let date = formatter.string(from: datePicker.date)
         alarmDate = date
-        AlarmVC.today = formatter.string(from: Date())
     }
 }
