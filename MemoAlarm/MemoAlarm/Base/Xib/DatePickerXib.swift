@@ -18,7 +18,7 @@ final class DatePickerXib: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.commonInit()
-        datePicker.addTarget(self, action: #selector(getTime), for: .valueChanged)
+        self.datePicker.addTarget(self, action: #selector(getTime), for: .valueChanged)
     }
     
     private func commonInit(){
@@ -46,5 +46,6 @@ final class DatePickerXib: UIView {
         formatter.dateFormat = "yyyy-MM-dd"
         let date = formatter.string(from: datePicker.date)
         alarmDate = date
+        AlarmVC.today = formatter.string(from: Date())
     }
 }
