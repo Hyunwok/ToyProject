@@ -10,6 +10,7 @@
 		12186ECD159A495E3A8C9C66 /* Pods_MemoAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA3F3801A1F3DA11692D030 /* Pods_MemoAlarm.framework */; };
 		3C36F62CA01AEC9224108412 /* Pods_MemoAlarmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64812CB4466591B8C1325AA2 /* Pods_MemoAlarmTests.framework */; };
 		69A2759C3FDD2E96632D42BA /* Pods_MemoAlarm_MemoAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0AC1593FADFF1FDE13C1C6 /* Pods_MemoAlarm_MemoAlarmUITests.framework */; };
+		D68F9B7024BE7D58008ADBFA /* UNNotiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F9B6F24BE7D58008ADBFA /* UNNotiManager.swift */; };
 		D6D0F1C724B7D65B001AE311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */; };
 		D6D0F1C924B7D65B001AE311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */; };
 		D6D0F1CB24B7D65B001AE311 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1CA24B7D65B001AE311 /* AlarmVC.swift */; };
@@ -49,6 +50,7 @@
 		776CE5B4A90222C6D1B2A9A9 /* Pods-MemoAlarmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarmTests.debug.xcconfig"; path = "Target Support Files/Pods-MemoAlarmTests/Pods-MemoAlarmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		83D9C27981D14C9D9D2DACCE /* Pods-MemoAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarm.debug.xcconfig"; path = "Target Support Files/Pods-MemoAlarm/Pods-MemoAlarm.debug.xcconfig"; sourceTree = "<group>"; };
 		AD0AC1593FADFF1FDE13C1C6 /* Pods_MemoAlarm_MemoAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoAlarm_MemoAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68F9B6F24BE7D58008ADBFA /* UNNotiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNNotiManager.swift; sourceTree = "<group>"; };
 		D6D0F1C324B7D65B001AE311 /* MemoAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,8 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				D6D0F1CA24B7D65B001AE311 /* AlarmVC.swift */,
-				D6D0F1F624B7D66A001AE311 /* Base */,
 				D6D0F1F724B7D672001AE311 /* Supporting */,
+				D6D0F1F624B7D66A001AE311 /* Base */,
 				D6D0F1D424B7D65D001AE311 /* Info.plist */,
 			);
 			path = MemoAlarm;
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */,
+				D68F9B6F24BE7D58008ADBFA /* UNNotiManager.swift */,
 				D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */,
 				D6D0F1CF24B7D65D001AE311 /* Assets.xcassets */,
 			);
@@ -445,6 +448,7 @@
 				D6D0F1CB24B7D65B001AE311 /* AlarmVC.swift in Sources */,
 				D6D0F1FB24B80EC9001AE311 /* DatePickerXib.swift in Sources */,
 				D6D0F1C724B7D65B001AE311 /* AppDelegate.swift in Sources */,
+				D68F9B7024BE7D58008ADBFA /* UNNotiManager.swift in Sources */,
 				D6D0F1C924B7D65B001AE311 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

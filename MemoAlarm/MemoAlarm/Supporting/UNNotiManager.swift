@@ -28,11 +28,14 @@ class UNNotiManager: NSObject, UNUserNotificationCenterDelegate {
         content.title = "알림"
         content.body = "챙겨야할 것이 있습니다!"
         content.sound = .default
-        
-        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 4, repeats: false)
-        let request = UNNotificationRequest(identifier: "eduNotification", content: content, trigger: trigger)
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour], from: date)
+        var dateComp = DateComponents()
+        dateComp.day = triggerDate.day
+        dateComp.year = triggerDate.year
+        dateComp.hour = 0
+        dateComp.month = triggerDate.month
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComp, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().add(request) { error in
             if let err = error {
