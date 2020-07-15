@@ -33,10 +33,11 @@ final class DatePickerXib: UIView {
     }
     
     @objc func getTime() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let date = formatter.string(from: datePicker.date)
-        alarmDate = date
+        let notiDate = UNNotiManager()
+        notiDate.showEduNotification(date: datePicker.date)
+        var formatter = DateFormatter().dateFormat
+        formatter = "yyyy-MM-dd"
+        alarmDate = DateFormatter().string(from: datePicker.date)
     }
 }
 
