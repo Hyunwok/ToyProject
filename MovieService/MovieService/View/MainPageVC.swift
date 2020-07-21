@@ -2,8 +2,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+class MainPageVC: UIViewController {
+    
     let viewModel = MovieViewModel()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     //키 : key=c16f104dccf7480daa4204c8f921d8b6
     //예시 : http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=c16f104dccf7480daa4204c8f921d8b6..&targetDt=20200720
     
