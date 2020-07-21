@@ -8,3 +8,10 @@ class MovieViewModel {
         
     }
 }
+
+class LogInViewModel {
+    let idObservable = PublishSubject<String>()
+    let pwObservable = PublishSubject<String>()
+    
+    
+}
