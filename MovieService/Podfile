@@ -7,6 +7,13 @@ target 'MovieService' do
     pod 'RxSwift', '~> 5'
     pod 'RxCocoa', '~> 5'
     pod 'RxAlamofire'
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Messaging'
+    pod 'Firebase/Auth'
+
+
+
+
   # Pods for MovieService
 
 end
