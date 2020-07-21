@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GRi-Ww-Raz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main PageVC-->
+        <scene sceneID="ede-Un-SaK">
+            <objects>
+                <viewController storyboardIdentifier="MainPageVC" id="GRi-Ww-Raz" customClass="MainPageVC" customModule="MovieService" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hkc-IV-zhk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hsR-cl-qLS">
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 영화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrD-pi-9sY">
+                                <rect key="frame" x="34" y="73" width="155" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xrD-pi-9sY" firstAttribute="leading" secondItem="kwy-bm-3CH" secondAttribute="leading" constant="34" id="0uk-Ht-xRv"/>
+                            <constraint firstAttribute="bottom" secondItem="hsR-cl-qLS" secondAttribute="bottom" id="3uD-Mm-ipC"/>
+                            <constraint firstItem="hsR-cl-qLS" firstAttribute="top" secondItem="xrD-pi-9sY" secondAttribute="bottom" constant="30" id="BB3-Yy-RLE"/>
+                            <constraint firstItem="xrD-pi-9sY" firstAttribute="top" secondItem="kwy-bm-3CH" secondAttribute="top" constant="29" id="C4D-KK-4Aw"/>
+                            <constraint firstItem="kwy-bm-3CH" firstAttribute="trailing" secondItem="hsR-cl-qLS" secondAttribute="trailing" id="UeK-nO-gqK"/>
+                            <constraint firstItem="hsR-cl-qLS" firstAttribute="leading" secondItem="kwy-bm-3CH" secondAttribute="leading" id="ZYp-8x-rJB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kwy-bm-3CH"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="hsR-cl-qLS" id="Zpd-7s-q5M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Uy-i7-FH8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="466.66666666666669" y="-304.01785714285711"/>
+        </scene>
+    </scenes>
+</document>
