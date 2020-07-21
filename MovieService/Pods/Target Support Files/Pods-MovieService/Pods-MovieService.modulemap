@@ -1,0 +1,6 @@
+framework module Pods_MovieService {
+  umbrella header "Pods-MovieService-umbrella.h"
+
+  export *
+  module * { export * }
+}
