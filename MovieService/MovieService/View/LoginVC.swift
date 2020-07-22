@@ -1,11 +1,11 @@
 import UIKit
 import Firebase
 import RxSwift
-import RxAlamofire
+import Alamofire
 
 class LoginVC: UIViewController {
     
-    let viewModel = LogInViewModel()
+    let viewModel = MovieViewModel()
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var logInIdTextField: UITextField!
@@ -15,13 +15,22 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logInIdTextField.rx.text.map { $0 ?? "" }.bind(to: viewModel.idObservable).disposed(by: disposeBag)
-        logInPwTextField.rx.text.map { $0 ?? "" }.bind(to: viewModel.idObservable).disposed(by: disposeBag)
-        
+        AF.request("http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=430156241533f1d058c603178cc3ca0e", method: .get).responseJSON { response in
+            switch response.response?.statusCode {
+            case 200: guard let value = response.value as? [String:Any] else { return }
+                let searchRes = value["movieListResult"] as? [String:Any]
+            guard let movieInfo = searchRes?["movieList"] as? [String:Any] else { return }
+            guard let movieName = movieInfo["movieNm"] as? String else { return }
+                print(movieName)
+                
+            default: return
+            }
+        }
     }
     
     
     @IBAction func getLogin(_ sender: UIButton) {
+        //  viewModel.
     }
     
     @IBAction func getRegister(_ sender: UIButton) {
@@ -29,3 +38,4 @@ class LoginVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
