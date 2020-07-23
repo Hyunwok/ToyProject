@@ -5,7 +5,6 @@ final class DatePickerXib: UIView {
     private let xibName = "DatePickerXib"
     var alarmDate: String!
     var delegate: DatePickerXibDelegate?
-    private let ud = UserDefaults.standard
     
     @IBOutlet weak var alarmTextField: UITextField!
     @IBOutlet weak var lbl: UILabel!
@@ -28,8 +27,7 @@ final class DatePickerXib: UIView {
     }
     
     @IBAction func getOk(_ sender: UIButton) {
-        delegate?.listAppend(value: alarmTextField.text!)
-        delegate?.eventListAppend(value: alarmDate)
+        delegate?.listAppend(value: List.init(dateList:alarmDate, dateListText: alarmTextField.text!))
     }
     
     @IBAction func changeDatePicker(_ sender: UIDatePicker) {
@@ -40,6 +38,5 @@ final class DatePickerXib: UIView {
 }
 
 protocol DatePickerXibDelegate {
-    func listAppend(value: String)
-    func eventListAppend(value: String)
+    func listAppend(value: List)
 }

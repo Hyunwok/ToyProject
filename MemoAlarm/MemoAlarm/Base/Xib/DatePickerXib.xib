@@ -28,6 +28,9 @@
                     <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
                         <!--2037-12-31 11:00:00 +0000-->
                     </date>
+                    <connections>
+                        <action selector="changeDatePicker:" destination="-1" eventType="valueChanged" id="bXn-kn-beB"/>
+                    </connections>
                 </datePicker>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람 시간 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckK-qh-6lj">
                     <rect key="frame" x="110.5" y="16" width="98" height="21"/>
