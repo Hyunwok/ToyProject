@@ -5,6 +5,7 @@ final class DatePickerXib: UIView {
     private let xibName = "DatePickerXib"
     var alarmDate: String!
     var delegate: DatePickerXibDelegate?
+    private let ud = UserDefaults.standard
     
     @IBOutlet weak var alarmTextField: UITextField!
     @IBOutlet weak var lbl: UILabel!
@@ -18,7 +19,6 @@ final class DatePickerXib: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.commonInit()
-        self.datePicker.addTarget(self, action: #selector(getTime), for: .valueChanged)
     }
     
     private func commonInit(){
@@ -32,12 +32,10 @@ final class DatePickerXib: UIView {
         delegate?.eventListAppend(value: alarmDate)
     }
     
-    @objc func getTime() {
-        let notiDate = UNNotiManager()
-        notiDate.showEduNotification(date: datePicker.date)
-        var formatter = DateFormatter().dateFormat
-        formatter = "yyyy-MM-dd"
-        alarmDate = DateFormatter().string(from: datePicker.date)
+    @IBAction func changeDatePicker(_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        alarmDate = formatter.string(from: sender.date)
     }
 }
 
