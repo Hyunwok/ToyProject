@@ -22,6 +22,7 @@
 		D6D0F1FB24B80EC9001AE311 /* DatePickerXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1FA24B80EC9001AE311 /* DatePickerXib.swift */; };
 		D6D0F20524BC9AE3001AE311 /* DatePickerXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D0F20424BC9AE3001AE311 /* DatePickerXib.xib */; };
 		D6D0F20D24BDBD1C001AE311 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F20C24BDBD1C001AE311 /* AlarmCell.swift */; };
+		D6FC669E24C999E500EEFC8F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC669D24C999E500EEFC8F /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D6D0F1FA24B80EC9001AE311 /* DatePickerXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerXib.swift; sourceTree = "<group>"; };
 		D6D0F20424BC9AE3001AE311 /* DatePickerXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerXib.xib; sourceTree = "<group>"; };
 		D6D0F20C24BDBD1C001AE311 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		D6FC669D24C999E500EEFC8F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E28D417B66299697F73B6116 /* Pods-MemoAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-MemoAlarmTests/Pods-MemoAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				D6D0F1CA24B7D65B001AE311 /* AlarmVC.swift */,
+				D6FC669D24C999E500EEFC8F /* Model.swift */,
 				D6D0F1F724B7D672001AE311 /* Supporting */,
 				D6D0F1F624B7D66A001AE311 /* Base */,
 				D6D0F1D424B7D65D001AE311 /* Info.plist */,
@@ -444,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6FC669E24C999E500EEFC8F /* Model.swift in Sources */,
 				D6D0F20D24BDBD1C001AE311 /* AlarmCell.swift in Sources */,
 				D6D0F1CB24B7D65B001AE311 /* AlarmVC.swift in Sources */,
 				D6D0F1FB24B80EC9001AE311 /* DatePickerXib.swift in Sources */,

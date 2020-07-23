@@ -6,10 +6,14 @@ import UserNotifications
 
 class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     
-    var eventDate: String!
+    var listDate: String!
     var listText: String?
     var list = [String]()
-    var eventList = [String]()
+    lazy var dateFormatter2: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
     
     @IBOutlet weak var datePickerXib: DatePickerXib!
     @IBOutlet weak var alarmPlusBtn: UIButton!
@@ -31,24 +35,19 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     
     @IBAction func disMissXib(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: true)
-        let manager = UNNotiManager()
     }
 }
+
 
 //MARK: extension
 
 extension AlarmVC: DatePickerXibDelegate  {
-    func listAppend(value: String) {
-        listText = value
-        list.append(value)
+    func listAppend(value: List) {
+        listDate = value.dateList
+        list.append(listDate!)
+        print(list.startIndex)
+        listText = value.dateListText
         tableView.reloadData()
-        print(eventList)
-    }
-    
-    func eventListAppend(value: String) {
-        eventList.append(value)
-        tableView.reloadData()
-        eventDate = value
     }
     
     func setDelegate() {
@@ -78,12 +77,11 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource, FSCalendarDelegat
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        guard let adate = eventDate else { return 0 }
-        print(adate)
-        if !eventList.contains(adate) || adate == nil {
-            return 0
+        let dateString = self.dateFormatter2.string(from: date)
+        if list.contains(dateString) {
+            return 1
         }
-        return 1
+        return 0
     }
 }
 
