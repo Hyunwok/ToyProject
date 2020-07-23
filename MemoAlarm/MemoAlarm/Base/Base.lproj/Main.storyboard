@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVZ-m1-IB5" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="40" width="320" height="252"/>
+                                <rect key="frame" x="18" y="40" width="284" height="252"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
@@ -61,13 +61,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" alpha="0.27000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSY-tM-0fe">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <connections>
-                                    <action selector="disMissXib:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gmf-eE-e9m"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3r-U0-DHu" customClass="DatePickerXib" customModule="MemoAlarm" customModuleProvider="target">
                                 <rect key="frame" x="30" y="177" width="260" height="214"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -75,25 +68,30 @@
                                     <constraint firstAttribute="width" secondItem="Z3r-U0-DHu" secondAttribute="height" multiplier="279:230" id="XXh-vS-JLN"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" alpha="0.27000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSY-tM-0fe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="disMissXib:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gmf-eE-e9m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9WW-Z0-2yF" secondAttribute="trailing" constant="20" id="6pK-Qk-QzM"/>
+                            <constraint firstItem="WVZ-m1-IB5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="8Tf-It-FKm"/>
                             <constraint firstItem="cSY-tM-0fe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ad7-rj-gBF"/>
                             <constraint firstItem="9WW-Z0-2yF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="CtU-aC-udd"/>
                             <constraint firstItem="5o1-MT-vQY" firstAttribute="height" secondItem="WVZ-m1-IB5" secondAttribute="height" multiplier="1.06417" id="EFN-9h-rIP"/>
                             <constraint firstItem="5o1-MT-vQY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Eg4-fh-Re7"/>
                             <constraint firstItem="cSY-tM-0fe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Epg-eI-DYw"/>
-                            <constraint firstItem="WVZ-m1-IB5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Iil-AK-sKr"/>
-                            <constraint firstItem="WVZ-m1-IB5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LNk-xE-EE7"/>
                             <constraint firstItem="Z3r-U0-DHu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LaB-XZ-U5L"/>
                             <constraint firstItem="cSY-tM-0fe" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Lnf-vC-HCN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WVZ-m1-IB5" secondAttribute="trailing" constant="18" id="MdX-LI-WgM"/>
                             <constraint firstItem="Z3r-U0-DHu" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="iXN-uG-1PU"/>
                             <constraint firstItem="Z3r-U0-DHu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="k4u-ov-L5x"/>
-                            <constraint firstItem="WVZ-m1-IB5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oXj-BI-lKh"/>
                             <constraint firstItem="5o1-MT-vQY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qct-7G-os7"/>
                             <constraint firstItem="5o1-MT-vQY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sTP-hk-GBA"/>
-                            <constraint firstItem="WVZ-m1-IB5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tnv-ue-4JT"/>
                             <constraint firstItem="cSY-tM-0fe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="u0C-NJ-HEU"/>
                             <constraint firstItem="WVZ-m1-IB5" firstAttribute="top" secondItem="9WW-Z0-2yF" secondAttribute="bottom" constant="8" id="ufj-TK-UcS"/>
                             <constraint firstItem="5o1-MT-vQY" firstAttribute="top" secondItem="WVZ-m1-IB5" secondAttribute="bottom" constant="8" id="zNU-is-6cJ"/>
@@ -110,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="135" y="136.26760563380282"/>
         </scene>
     </scenes>
     <resources>
