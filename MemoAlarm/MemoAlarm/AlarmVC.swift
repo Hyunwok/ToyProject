@@ -31,10 +31,12 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     
     @IBAction func piusAlarm(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: false)
+        calendarView.reloadData()
     }
     
     @IBAction func disMissXib(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: true)
+        calendarView.reloadData()
     }
 }
 
@@ -45,7 +47,7 @@ extension AlarmVC: DatePickerXibDelegate  {
     func listAppend(value: List) {
         listDate = value.dateList
         list.append(listDate!)
-        print(list.startIndex)
+        print(list)
         listText = value.dateListText
         tableView.reloadData()
     }
@@ -78,7 +80,7 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource, FSCalendarDelegat
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let dateString = self.dateFormatter2.string(from: date)
-        if list.contains(dateString) {
+        if self.list.contains(dateString) {
             return 1
         }
         return 0
