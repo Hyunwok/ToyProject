@@ -27,7 +27,11 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
         self.xibAndBtnIsHidden(value: true)
         tableView.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.identifier)
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
-        calendarView.appearance.eventOffset = CGPoint(x: 13, y: -33)
+        calendarView.appearance.eventOffset = CGPoint(x: 15, y: -35)
+        calendarView.appearance.caseOptions = [.headerUsesUpperCase, .weekdayUsesSingleUpperCase]
+        calendarView.appearance.headerDateFormat = "yyyy년 M월"
+        calendarView.appearance.headerTitleColor = .black
+        calendarView.appearance.weekdayTextColor =  .black
     }
     
     @IBAction func piusAlarm(_ sender: UIButton) {
