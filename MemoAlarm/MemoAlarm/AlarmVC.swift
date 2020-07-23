@@ -27,6 +27,7 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
         self.xibAndBtnIsHidden(value: true)
         tableView.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.identifier)
         calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
+        calendarView.appearance.eventOffset = CGPoint(x: 13, y: -33)
     }
     
     @IBAction func piusAlarm(_ sender: UIButton) {
