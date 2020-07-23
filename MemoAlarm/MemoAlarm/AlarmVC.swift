@@ -1,13 +1,12 @@
 import UIKit
 import FSCalendar
-import RxSwift
-import RxCocoa
 import UserNotifications
 
 //MARK: AlarmVC
 
 class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     
+    var eventDate: String!
     var listText: String?
     var list = [String]()
     var eventList = [String]()
@@ -41,11 +40,15 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
 extension AlarmVC: DatePickerXibDelegate  {
     func listAppend(value: String) {
         listText = value
-        list.append(listText!)
+        list.append(value)
+        tableView.reloadData()
+        print(eventList)
     }
     
     func eventListAppend(value: String) {
         eventList.append(value)
+        tableView.reloadData()
+        eventDate = value
     }
     
     func setDelegate() {
@@ -53,6 +56,7 @@ extension AlarmVC: DatePickerXibDelegate  {
         tableView.delegate = self
         tableView.dataSource = self
         calendarView.delegate = self
+        datePickerXib.delegate = self
         calendarView.dataSource = self
     }
     
@@ -69,18 +73,17 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource, FSCalendarDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlarmCell.identifier, for: indexPath) as! AlarmCell
-        cell.textLabel?.text = listText!
+        cell.textLabel?.text = listText
         return cell
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let dateString = formatter.string(from: date)
-        if eventList.contains(dateString) {
-            return 1
+        guard let adate = eventDate else { return 0 }
+        print(adate)
+        if !eventList.contains(adate) || adate == nil {
+            return 0
         }
-        return 0
+        return 1
     }
 }
 
