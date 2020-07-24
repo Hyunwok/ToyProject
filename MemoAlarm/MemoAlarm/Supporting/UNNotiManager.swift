@@ -21,7 +21,7 @@ class UNNotiManager: NSObject, UNUserNotificationCenterDelegate {
         content.body = "챙겨야할 것이 있습니다!"
         let triggerDate = Calendar.current.dateComponents([.year, .month, .day,.second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "전날알림", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
             if let err = error {
