@@ -15,28 +15,14 @@ class UNNotiManager: NSObject, UNUserNotificationCenterDelegate {
         })
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        if response.actionIdentifier == "addHellow" {
-            print("Say Hellow!")
-        }else{
-            print("Say Bye~")
-        }
-    }
-    
     func showEduNotification(date: Date){
         let content = UNMutableNotificationContent()
         content.title = "알림"
         content.body = "챙겨야할 것이 있습니다!"
-        content.sound = .default
-        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour], from: date)
-        var dateComp = DateComponents()
-        dateComp.day = triggerDate.day
-        dateComp.year = triggerDate.year
-        dateComp.hour = 0
-        dateComp.month = triggerDate.month
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComp, repeats: false)
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day,.second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
         UNUserNotificationCenter.current().add(request) { error in
             if let err = error {
                 print("Error:\(err.localizedDescription)")
