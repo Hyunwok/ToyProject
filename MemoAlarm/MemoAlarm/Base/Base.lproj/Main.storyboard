@@ -33,7 +33,7 @@
                                 <rect key="frame" x="282" y="10" width="18" height="22"/>
                                 <state key="normal" image="plus" catalog="system"/>
                                 <connections>
-                                    <action selector="piusAlarm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9j4-2O-XKP"/>
+                                    <action selector="presentAlarm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vwS-n1-Mhk"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" restorationIdentifier="xib" translatesAutoresizingMaskIntoConstraints="NO" id="WVZ-m1-IB5" customClass="FSCalendar">
