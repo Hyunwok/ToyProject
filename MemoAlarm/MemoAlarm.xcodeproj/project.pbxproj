@@ -23,6 +23,8 @@
 		D6D0F20524BC9AE3001AE311 /* DatePickerXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D0F20424BC9AE3001AE311 /* DatePickerXib.xib */; };
 		D6D0F20D24BDBD1C001AE311 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F20C24BDBD1C001AE311 /* AlarmCell.swift */; };
 		D6FC669E24C999E500EEFC8F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC669D24C999E500EEFC8F /* Model.swift */; };
+		D6FC66A024CA52F600EEFC8F /* SubjectXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6FC669F24CA52F600EEFC8F /* SubjectXib.xib */; };
+		D6FC66A224CA530600EEFC8F /* SubjectXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC66A124CA530600EEFC8F /* SubjectXib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		D6D0F20424BC9AE3001AE311 /* DatePickerXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerXib.xib; sourceTree = "<group>"; };
 		D6D0F20C24BDBD1C001AE311 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		D6FC669D24C999E500EEFC8F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D6FC669F24CA52F600EEFC8F /* SubjectXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubjectXib.xib; sourceTree = "<group>"; };
+		D6FC66A124CA530600EEFC8F /* SubjectXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectXib.swift; sourceTree = "<group>"; };
 		E28D417B66299697F73B6116 /* Pods-MemoAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-MemoAlarmTests/Pods-MemoAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				D6D0F1FA24B80EC9001AE311 /* DatePickerXib.swift */,
+				D6FC669F24CA52F600EEFC8F /* SubjectXib.xib */,
+				D6FC66A124CA530600EEFC8F /* SubjectXib.swift */,
 				D6D0F20424BC9AE3001AE311 /* DatePickerXib.xib */,
 				D6D0F20C24BDBD1C001AE311 /* AlarmCell.swift */,
 			);
@@ -320,6 +326,7 @@
 				D6D0F20524BC9AE3001AE311 /* DatePickerXib.xib in Resources */,
 				D6D0F1D024B7D65D001AE311 /* Assets.xcassets in Resources */,
 				D6D0F1CE24B7D65B001AE311 /* Main.storyboard in Resources */,
+				D6FC66A024CA52F600EEFC8F /* SubjectXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +460,7 @@
 				D6D0F1FB24B80EC9001AE311 /* DatePickerXib.swift in Sources */,
 				D6D0F1C724B7D65B001AE311 /* AppDelegate.swift in Sources */,
 				D68F9B7024BE7D58008ADBFA /* UNNotiManager.swift in Sources */,
+				D6FC66A224CA530600EEFC8F /* SubjectXib.swift in Sources */,
 				D6D0F1C924B7D65B001AE311 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

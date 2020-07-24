@@ -36,7 +36,7 @@
                                     <action selector="piusAlarm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9j4-2O-XKP"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVZ-m1-IB5" customClass="FSCalendar">
+                            <view contentMode="scaleToFill" restorationIdentifier="xib" translatesAutoresizingMaskIntoConstraints="NO" id="WVZ-m1-IB5" customClass="FSCalendar">
                                 <rect key="frame" x="18" y="40" width="284" height="252"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -61,12 +61,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3r-U0-DHu" customClass="DatePickerXib" customModule="MemoAlarm" customModuleProvider="target">
-                                <rect key="frame" x="30" y="177" width="260" height="214"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCk-9K-dvq">
+                                <rect key="frame" x="271" y="516" width="19" height="22"/>
+                                <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                <state key="disabled" image="square.and.arrow.up.on.square" catalog="system"/>
+                                <connections>
+                                    <action selector="changeXib:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6rZ-l8-E8c"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2P-qr-iW2" customClass="SubjectXib" customModule="MemoAlarm" customModuleProvider="target">
+                                <rect key="frame" x="16" y="31" width="284" height="261"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Z3r-U0-DHu" secondAttribute="height" multiplier="279:230" id="XXh-vS-JLN"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" alpha="0.27000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSY-tM-0fe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -75,6 +81,13 @@
                                     <action selector="disMissXib:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gmf-eE-e9m"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3r-U0-DHu" customClass="DatePickerXib" customModule="MemoAlarm" customModuleProvider="target">
+                                <rect key="frame" x="30" y="177" width="260" height="214"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Z3r-U0-DHu" secondAttribute="height" multiplier="279:230" id="XXh-vS-JLN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -85,9 +98,11 @@
                             <constraint firstItem="5o1-MT-vQY" firstAttribute="height" secondItem="WVZ-m1-IB5" secondAttribute="height" multiplier="1.06417" id="EFN-9h-rIP"/>
                             <constraint firstItem="5o1-MT-vQY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Eg4-fh-Re7"/>
                             <constraint firstItem="cSY-tM-0fe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Epg-eI-DYw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yCk-9K-dvq" secondAttribute="trailing" constant="30" id="Iqe-RJ-7GU"/>
                             <constraint firstItem="Z3r-U0-DHu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LaB-XZ-U5L"/>
                             <constraint firstItem="cSY-tM-0fe" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Lnf-vC-HCN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WVZ-m1-IB5" secondAttribute="trailing" constant="18" id="MdX-LI-WgM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yCk-9K-dvq" secondAttribute="bottom" constant="30" id="YXe-PU-i1p"/>
                             <constraint firstItem="Z3r-U0-DHu" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="iXN-uG-1PU"/>
                             <constraint firstItem="Z3r-U0-DHu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="k4u-ov-L5x"/>
                             <constraint firstItem="5o1-MT-vQY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qct-7G-os7"/>
@@ -103,6 +118,7 @@
                         <outlet property="calendarView" destination="WVZ-m1-IB5" id="ywE-tj-ywT"/>
                         <outlet property="datePickerXib" destination="Z3r-U0-DHu" id="Bec-Nn-cS4"/>
                         <outlet property="showWhenTouchPlus" destination="cSY-tM-0fe" id="Yfc-Lj-mfK"/>
+                        <outlet property="subjectXib" destination="h2P-qr-iW2" id="QgK-QJ-Yk0"/>
                         <outlet property="tableView" destination="5o1-MT-vQY" id="ZQY-lZ-68X"/>
                     </connections>
                 </viewController>
@@ -113,5 +129,7 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
     </resources>
 </document>
