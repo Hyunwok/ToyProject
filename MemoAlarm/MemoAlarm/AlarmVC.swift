@@ -7,7 +7,7 @@ import UserNotifications
 class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     
     var listDate: String!
-    var listText: String?
+    var listText = [String]()
     var list = [String]()
     lazy var dateFormatter2: DateFormatter = {
         let formatter = DateFormatter()
@@ -69,7 +69,7 @@ extension AlarmVC: DatePickerXibDelegate  {
     func listAppend(value: List) {
         listDate = value.dateList
         list.append(listDate!)
-        listText = value.dateListText
+        self.listText.append("\(value.dateListText)")
         tableView.reloadData()
     }
     
@@ -95,7 +95,7 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource, FSCalendarDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlarmCell.identifier, for: indexPath) as! AlarmCell
-        cell.textLabel?.text = listText
+        cell.textLabel?.text = self.listText[indexPath.row]
         return cell
     }
     
