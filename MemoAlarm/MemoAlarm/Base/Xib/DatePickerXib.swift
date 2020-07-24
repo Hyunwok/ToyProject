@@ -5,6 +5,14 @@ final class DatePickerXib: UIView {
     private let xibName = "DatePickerXib"
     var alarmDate: String!
     var delegate: DatePickerXibDelegate?
+    let noti = UNNotiManager()
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+    
     
     @IBOutlet weak var alarmTextField: UITextField!
     @IBOutlet weak var lbl: UILabel!
@@ -27,16 +35,17 @@ final class DatePickerXib: UIView {
     }
     
     @IBAction func getOk(_ sender: UIButton) {
-        delegate?.listAppend(value: List.init(dateList:alarmDate, dateListText: alarmTextField.text!))
+        delegate?.listAppend(value: List.init(dateList:alarmDate, dateListText: alarmTextField.text!), boolean: true)
     }
     
     @IBAction func changeDatePicker(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         alarmDate = formatter.string(from: sender.date)
+        noti.showEduNotification(date: self.datePicker!.date - 86400) // 한국 시간으로 변경하기 
     }
 }
 
 protocol DatePickerXibDelegate {
-    func listAppend(value: List)
+    func listAppend(value: List, boolean: Bool)
 }
