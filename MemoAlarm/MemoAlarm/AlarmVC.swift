@@ -6,10 +6,11 @@ import UserNotifications
 
 class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     
+    let userNoti = UNNotiManager()
     var listDate: String!
     var listText = [String]()
     var list = [String]()
-    lazy var dateFormatter2: DateFormatter = {
+    lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
@@ -26,15 +27,11 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
         super.viewDidLoad()
         self.setDelegate()
         self.xibAndBtnIsHidden(value: true)
+        self.aboutCalendar()
+        self.subjectXib.isHidden = true
         tableView.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.identifier)
-        let ca = calendarView.appearance
-        ca.headerMinimumDissolvedAlpha = 0.0;
-        ca.eventOffset = CGPoint(x: 15, y: -35)
-        ca.caseOptions = [.headerUsesUpperCase, .weekdayUsesSingleUpperCase]
-        ca.headerDateFormat = "yyyy년 M월"
-        ca.headerTitleColor = .black
-        ca.weekdayTextColor =  .black
-        subjectXib.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func changeXib(_ sender: UIButton) {
@@ -61,16 +58,18 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
 //MARK: extension
 
 extension AlarmVC: DatePickerXibDelegate  {
-    func hideXib(value: Bool) {
-        calendarView.isHidden = !value
-        subjectXib.isHidden = value
-    }
-    
-    func listAppend(value: List) {
+    func listAppend(value: List, boolean: Bool) {
         listDate = value.dateList
         list.append(listDate!)
         self.listText.append("\(value.dateListText)")
+        xibAndBtnIsHidden(value: boolean)
         tableView.reloadData()
+        calendarView.reloadData()
+    }
+    
+    func hideXib(value: Bool) {
+        calendarView.isHidden = !value
+        subjectXib.isHidden = value
     }
     
     func setDelegate() {
@@ -100,11 +99,40 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource, FSCalendarDelegat
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        let dateString = self.dateFormatter2.string(from: date)
+        let dateString = self.dateFormatter.string(from: date)
         if self.list.contains(dateString) {
             return 1
         }
         return 0
+    }
+    
+    func aboutCalendar() {
+        let ca = calendarView.appearance
+        ca.headerMinimumDissolvedAlpha = 0.0;
+        ca.eventOffset = CGPoint(x: 15, y: -35)
+        ca.caseOptions = [.headerUsesUpperCase, .weekdayUsesSingleUpperCase]
+        ca.headerDateFormat = "yyyy년 M월"
+        ca.headerTitleColor = .black
+        ca.weekdayTextColor =  .black
+    }
+}
+
+extension AlarmVC: UITextFieldDelegate {
+    @objc func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -150
+    }
+    
+    @objc func keyboardWillDisa(_ sender: Notification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
 }
 
