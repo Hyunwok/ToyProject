@@ -19,6 +19,7 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet weak var alarmPlusBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
+    @IBOutlet weak var subjectXib: SubjectXib!
     @IBOutlet weak var showWhenTouchPlus: UIButton!
     
     override func viewDidLoad() {
@@ -26,15 +27,26 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
         self.setDelegate()
         self.xibAndBtnIsHidden(value: true)
         tableView.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.identifier)
-        calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
-        calendarView.appearance.eventOffset = CGPoint(x: 15, y: -35)
-        calendarView.appearance.caseOptions = [.headerUsesUpperCase, .weekdayUsesSingleUpperCase]
-        calendarView.appearance.headerDateFormat = "yyyy년 M월"
-        calendarView.appearance.headerTitleColor = .black
-        calendarView.appearance.weekdayTextColor =  .black
+        let ca = calendarView.appearance
+        ca.headerMinimumDissolvedAlpha = 0.0;
+        ca.eventOffset = CGPoint(x: 15, y: -35)
+        ca.caseOptions = [.headerUsesUpperCase, .weekdayUsesSingleUpperCase]
+        ca.headerDateFormat = "yyyy년 M월"
+        ca.headerTitleColor = .black
+        ca.weekdayTextColor =  .black
+        subjectXib.isHidden = true
     }
     
-    @IBAction func piusAlarm(_ sender: UIButton) {
+    @IBAction func changeXib(_ sender: UIButton) {
+        if sender.isSelected {
+            hideXib(value: true)
+        } else {
+            hideXib(value: false)
+        }
+        sender.isSelected = !sender.isSelected
+    }
+    
+    @IBAction func presentAlarm(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: false)
         calendarView.reloadData()
     }
@@ -49,10 +61,14 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
 //MARK: extension
 
 extension AlarmVC: DatePickerXibDelegate  {
+    func hideXib(value: Bool) {
+        calendarView.isHidden = !value
+        subjectXib.isHidden = value
+    }
+    
     func listAppend(value: List) {
         listDate = value.dateList
         list.append(listDate!)
-        print(list)
         listText = value.dateListText
         tableView.reloadData()
     }
