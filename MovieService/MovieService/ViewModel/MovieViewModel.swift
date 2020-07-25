@@ -4,8 +4,9 @@ import RxCocoa
 import Alamofire
 
 class MovieViewModel {
-    func loadView() -> Observable<Any> {
-        let key = "c16f104dccf7480daa4204c8f921d8b6"
+    private let key = "c16f104dccf7480daa4204c8f921d8b6"
+    
+    func loadView(url: String) -> Observable<Any> {
         let url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(key)&targetDt=\(Date())"
         return Observable<Any>.create( { observer in
             AF.request(url, method: .get).responseJSON { response in

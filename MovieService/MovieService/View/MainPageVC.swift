@@ -14,6 +14,7 @@ class MainPageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.loadView("http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=430156241533f1d058c603178cc3ca0e")
         AF.request("http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=430156241533f1d058c603178cc3ca0e", method: .get).responseJSON { response in
             switch response.response?.statusCode {
             case 200: guard let value = response.value as? [String:Any] else { return }
@@ -39,7 +40,7 @@ class MainPageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        viewModel.loadView()
+        viewModel.loadView(url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=430156241533f1d058c603178cc3ca0e")
     }
 }
 

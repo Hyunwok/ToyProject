@@ -6,7 +6,6 @@ import Alamofire
 class LoginVC: UIViewController {
     
     let viewModel = MovieViewModel()
-    let disposeBag = DisposeBag()
     
     @IBOutlet weak var logInIdTextField: UITextField!
     @IBOutlet weak var logInPwTextField: UITextField!
@@ -15,7 +14,6 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBAction func getLogin(_ sender: UIButton) {
@@ -27,8 +25,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func getRegister(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterVC") else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.pushVC(identifier: "RegisterVC")
     }
 }
 
@@ -44,5 +41,10 @@ extension UIViewController {
         guard let vc = self.storyboard?.instantiateViewController(identifier: identifier) else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func pushVC(identifier: String) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: identifier) else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

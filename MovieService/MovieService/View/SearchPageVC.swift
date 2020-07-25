@@ -18,16 +18,13 @@ class SearchPageVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+//    AF.request(url, method: .get).responseJSON { response in
+//            switch response.response?.statusCode {
+//            case 200: return observer.onNext(1)
+//            case 400, 500: return observer.onError(response.error as! Error)
+//            default: return observer.onError(response.error as! Error)
+//            }
+//            observer.onCompleted()
+//            } as! Disposable
+//    })
 }
