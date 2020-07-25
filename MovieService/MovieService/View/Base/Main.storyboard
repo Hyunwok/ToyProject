@@ -15,18 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIG-9i-QRE">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIG-9i-QRE">
                                 <rect key="frame" x="30" y="352" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWi-6O-IFI">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWi-6O-IFI">
                                 <rect key="frame" x="30" y="460" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALo-h7-7eE">
-                                <rect key="frame" x="133" y="563" width="165" height="40"/>
+                                <rect key="frame" x="133" y="634" width="165" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29960745570000002" green="0.43513703349999999" blue="0.4392187595" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="회원가입">
@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILG-e9-wc5">
-                                <rect key="frame" x="133" y="625" width="165" height="40"/>
+                                <rect key="frame" x="133" y="568" width="165" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29960745570000002" green="0.43513703349999999" blue="0.4392187595" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="로그인">
@@ -53,6 +53,8 @@
                             <constraint firstItem="Dq2-MP-O32" firstAttribute="trailing" secondItem="JWi-6O-IFI" secondAttribute="trailing" constant="30" id="0XO-nx-WiV"/>
                             <constraint firstItem="BIG-9i-QRE" firstAttribute="leading" secondItem="Dq2-MP-O32" secondAttribute="leading" constant="30" id="1gb-mU-DAl"/>
                             <constraint firstItem="Dq2-MP-O32" firstAttribute="trailing" secondItem="BIG-9i-QRE" secondAttribute="trailing" constant="30" id="MDt-Lu-oP5"/>
+                            <constraint firstItem="JWi-6O-IFI" firstAttribute="top" secondItem="BIG-9i-QRE" secondAttribute="bottom" constant="74" id="O1W-0r-mL5"/>
+                            <constraint firstItem="BIG-9i-QRE" firstAttribute="top" secondItem="Dq2-MP-O32" secondAttribute="top" constant="308" id="gOH-8z-DSq"/>
                             <constraint firstItem="JWi-6O-IFI" firstAttribute="leading" secondItem="Dq2-MP-O32" secondAttribute="leading" constant="30" id="lF7-uF-8t8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dq2-MP-O32"/>
