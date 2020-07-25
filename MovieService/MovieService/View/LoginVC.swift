@@ -15,22 +15,15 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AF.request("http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=430156241533f1d058c603178cc3ca0e", method: .get).responseJSON { response in
-            switch response.response?.statusCode {
-            case 200: guard let value = response.value as? [String:Any] else { return }
-                let searchRes = value["movieListResult"] as? [String:Any]
-            guard let movieInfo = searchRes?["movieList"] as? [String:Any] else { return }
-            guard let movieName = movieInfo["movieNm"] as? String else { return }
-                print(movieName)
-                
-            default: return
-            }
-        }
+        
     }
     
-    
     @IBAction func getLogin(_ sender: UIButton) {
-        //  viewModel.
+        if ((logInPwTextField.text?.isEmpty) != nil || ((logInIdTextField.text?.isEmpty) != nil)) {
+            Auth.auth().signIn(withEmail: logInIdTextField!.text!, password: logInPwTextField!.text!)
+            self.presentVC(identifier: "MainPageVC")
+        }
+        self.presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비어있습니다.")
     }
     
     @IBAction func getRegister(_ sender: UIButton) {
@@ -39,3 +32,17 @@ class LoginVC: UIViewController {
     }
 }
 
+
+extension UIViewController {
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func presentVC(identifier: String) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: identifier) else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+}
