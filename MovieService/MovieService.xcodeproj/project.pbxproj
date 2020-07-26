@@ -23,6 +23,8 @@
 		D69A9A8124C6C59000378B81 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69A9A8024C6C59000378B81 /* MyPageVC.swift */; };
 		D69A9A8324C6D93A00378B81 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69A9A8224C6D93A00378B81 /* LoginVC.swift */; };
 		D69A9A8524C71C7200378B81 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69A9A8424C71C7200378B81 /* RegisterVC.swift */; };
+		D6FC669C24C91B2D00EEFC8F /* MovieTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC669B24C91B2D00EEFC8F /* MovieTableCell.swift */; };
+		D6FC66A424CAD38E00EEFC8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6FC66A324CAD38D00EEFC8F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		D69A9A8024C6C59000378B81 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		D69A9A8224C6D93A00378B81 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D69A9A8424C71C7200378B81 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		D6FC669B24C91B2D00EEFC8F /* MovieTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableCell.swift; sourceTree = "<group>"; };
+		D6FC66A324CAD38D00EEFC8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E06F307A21342DFC4936FB1B /* Pods_MovieService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				D69A9A6624C6A7C400378B81 /* Info.plist */,
+				D6FC66A324CAD38D00EEFC8F /* GoogleService-Info.plist */,
 				D69A9A5824C6A7C300378B81 /* AppDelegate.swift */,
 				D69A9A5A24C6A7C300378B81 /* SceneDelegate.swift */,
 				D69A9A6124C6A7C400378B81 /* Assets.xcassets */,
@@ -133,6 +138,7 @@
 				D69A9A8224C6D93A00378B81 /* LoginVC.swift */,
 				D69A9A8424C71C7200378B81 /* RegisterVC.swift */,
 				D69A9A7E24C6C53F00378B81 /* SearchPageVC.swift */,
+				D6FC669B24C91B2D00EEFC8F /* MovieTableCell.swift */,
 				D69A9A7324C6B49600378B81 /* Base */,
 			);
 			path = View;
@@ -216,6 +222,7 @@
 				D69A9A7D24C6C42D00378B81 /* SearchPage.storyboard in Resources */,
 				D69A9A7524C6B50200378B81 /* Main.storyboard in Resources */,
 				D69A9A7924C6C40100378B81 /* MyPage.storyboard in Resources */,
+				D6FC66A424CAD38E00EEFC8F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +280,7 @@
 				D69A9A8324C6D93A00378B81 /* LoginVC.swift in Sources */,
 				D69A9A5D24C6A7C300378B81 /* MainPageVC.swift in Sources */,
 				D69A9A5924C6A7C300378B81 /* AppDelegate.swift in Sources */,
+				D6FC669C24C91B2D00EEFC8F /* MovieTableCell.swift in Sources */,
 				D69A9A8124C6C59000378B81 /* MyPageVC.swift in Sources */,
 				D69A9A8524C71C7200378B81 /* RegisterVC.swift in Sources */,
 				D69A9A5B24C6A7C300378B81 /* SceneDelegate.swift in Sources */,
