@@ -85,6 +85,10 @@ extension AlarmVC: DatePickerXibDelegate  {
         showWhenTouchPlus.isHidden = value
         datePickerXib.isHidden = value
     }
+    
+    func reloadUserDefaults() {
+        
+    }
 }
 
 extension AlarmVC: UITableViewDelegate, UITableViewDataSource, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
