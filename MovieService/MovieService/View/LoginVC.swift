@@ -17,34 +17,16 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func getLogin(_ sender: UIButton) {
-        if ((logInPwTextField.text?.isEmpty) != nil || ((logInIdTextField.text?.isEmpty) != nil)) {
+        if (logInPwTextField.text!.isEmpty || logInIdTextField.text!.isEmpty) {
+            self.presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비어있습니다.")
+        } else {
             Auth.auth().signIn(withEmail: logInIdTextField!.text!, password: logInPwTextField!.text!)
-            self.presentVC(identifier: "MainPageVC")
+            self.presentVC(identifier: "TabBarVC")
         }
-        self.presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비어있습니다.")
     }
     
     @IBAction func getRegister(_ sender: UIButton) {
         self.pushVC(identifier: "RegisterVC")
-    }
-}
-
-
-extension UIViewController {
-    func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func presentVC(identifier: String) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: identifier) else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-    }
-    
-    func pushVC(identifier: String) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: identifier) else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+        //self.presentVC(identifier: "RegisterVC")
     }
 }
