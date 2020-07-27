@@ -1,18 +1,23 @@
-//
-//  RegisterVC.swift
-//  MovieService
-//
-//  Created by 이현욱 on 2020/07/21.
-//  Copyright © 2020 이현욱. All rights reserved.
-//
-
 import UIKit
+import Firebase
 
 class RegisterVC: UIViewController {
-
+    
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func getRegister(_ sender: Any) {
+        Auth.auth().createUser(withEmail: idTextField.text!,
+                               password: pwTextField.text!) { authResult, error in
+                                guard let _ = authResult?.user, error == nil else {
+                                    self.presentAlert(title: "회원가입 실패", message: "에러가 있습니다.")
+                                    return
+                                }
+                                self.presentVC(identifier: "")
+        }
     }
 }
