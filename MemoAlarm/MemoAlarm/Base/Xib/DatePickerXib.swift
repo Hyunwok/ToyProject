@@ -1,15 +1,15 @@
 import UIKit
 
 final class DatePickerXib: UIView {
-    
-    private let xibName = "DatePickerXib"
+
     var alarmDate: String!
     var delegate: DatePickerXibDelegate?
-    let noti = UNNotiManager()
+    private let noti = UNNotiManager()
+    private let xibName = "DatePickerXib"
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
     
@@ -39,9 +39,12 @@ final class DatePickerXib: UIView {
     }
     
     @objc func changeDatePicker(_ sender: UIDatePicker) {
+        var list = [Date]()
         self.alarmDate = self.dateFormatter.string(from: sender.date)
-        let koreaBeforeDate = self.dateFormatter.date(from: alarmDate!)
-        noti.showEduNotification(date: koreaBeforeDate! + 3600 * 9 - 86400) // 한국 시간으로 변경하기
+        let koreaBeforeDate = self.dateFormatter.date(from: alarmDate)
+        noti.showEduNotification(date: koreaBeforeDate! + 3600 * 9 - 86400)
+        list.append(koreaBeforeDate!)
+        UserDefaults.standard.set(list, forKey: "dayList")
     }
 }
 
