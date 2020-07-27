@@ -28,6 +28,7 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
         self.setDelegate()
         self.xibAndBtnIsHidden(value: true)
         self.aboutCalendar()
+        self.reloadUserDefault()
         self.subjectXib.isHidden = true
         tableView.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.identifier)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -43,7 +44,7 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
         sender.isSelected = !sender.isSelected
     }
     
-    @IBAction func presentAlarm(_ sender: UIButton) {
+    @IBAction func presentXib(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: false)
         calendarView.reloadData()
     }
@@ -51,6 +52,21 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     @IBAction func disMissXib(_ sender: UIButton) {
         self.xibAndBtnIsHidden(value: true)
         calendarView.reloadData()
+        reloadUserDefault()
+    }
+    
+    func reloadUserDefault() {
+        let date = Date()
+        var strings = UserDefaults.standard.object(forKey: "dayList") as? [Date]
+        if strings == nil { return }
+        for i in 0..<strings!.count {
+            if strings?.count == 0 || strings?.count == nil || strings![i] == nil{
+                return
+            } else if date > strings![i] {
+                strings!.remove(at: i)
+            }
+        }
+        UserDefaults.standard.set(strings, forKey: "dayList")
     }
 }
 
@@ -65,6 +81,7 @@ extension AlarmVC: DatePickerXibDelegate  {
         xibAndBtnIsHidden(value: boolean)
         tableView.reloadData()
         calendarView.reloadData()
+        reloadUserDefault()
     }
     
     func hideXib(value: Bool) {
@@ -84,10 +101,6 @@ extension AlarmVC: DatePickerXibDelegate  {
     func xibAndBtnIsHidden(value: Bool) {
         showWhenTouchPlus.isHidden = value
         datePickerXib.isHidden = value
-    }
-    
-    func reloadUserDefaults() {
-        
     }
 }
 
@@ -139,4 +152,4 @@ extension AlarmVC: UITextFieldDelegate {
         self.view.endEditing(true)
     }
 }
-
+// ud 저장, 텍스트 없는 것에 대한 처리, 
