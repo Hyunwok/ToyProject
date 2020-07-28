@@ -10,6 +10,10 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func getBackToLoginVC(_ sender: Any) {
+        self.presentVC(identifier: "LoginVC")
+    }
+    
     @IBAction func getRegister(_ sender: Any) {
         Auth.auth().createUser(withEmail: idTextField.text!,
                                password: pwTextField.text!) { authResult, error in
@@ -17,7 +21,7 @@ class RegisterVC: UIViewController {
                                     self.presentAlert(title: "회원가입 실패", message: "에러가 있습니다.")
                                     return
                                 }
-                                self.presentVC(identifier: "")
+                                self.presentVC(identifier: "LoginVC")
         }
     }
 }
