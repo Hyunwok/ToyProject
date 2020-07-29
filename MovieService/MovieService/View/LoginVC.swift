@@ -5,7 +5,7 @@ import Alamofire
 
 class LoginVC: UIViewController {
     
-    let viewModel = MovieViewModel()
+    let viewModel = MovieReloadViewModel()
     
     @IBOutlet weak var logInIdTextField: UITextField!
     @IBOutlet weak var logInPwTextField: UITextField!
@@ -14,6 +14,7 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.loadView(url: "")
     }
     
     @IBAction func getLogin(_ sender: UIButton) {
@@ -26,7 +27,6 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func getRegister(_ sender: UIButton) {
-        self.pushVC(identifier: "RegisterVC")
-        //self.presentVC(identifier: "RegisterVC")
+        self.presentVC(identifier: "RegisterVC")
     }
 }
