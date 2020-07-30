@@ -1,14 +1,14 @@
 import Foundation
 
-struct Result: Decodable {
+struct Result: Codable {
     let boxOfficeResult: ResultList
 }
 
-struct ResultList: Decodable {
+struct ResultList: Codable {
     let dailyBoxOfficeList: [List]
 }
 
-struct List: Decodable {
+struct List: Codable {
     let openDt: String
     let audiAcc: String
     let rank: String
