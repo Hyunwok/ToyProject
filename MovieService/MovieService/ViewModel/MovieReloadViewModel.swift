@@ -13,20 +13,31 @@ class MovieReloadViewModel {
         return Observable<Result>.create { observer in
             let url = URL(string: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt=20120101")!
               //  http://www.kobis.or.kr/kobisopenapi/webservice/rest/" + newUrl)!
-            AF.request(url, method: .get)
-                .responseData { response in
-                print(response.result)
+            
+//            AF.request(url, method: .get).responseJSON { response in
+//                guard let data = response.data else { return }
+//                do {
+//                    let model = try JSONDecoder().decode(Result.self, from: data)
+//                    observer.onNext(model)
+//                } catch let error {
+//                    observer.onError(error)
+//                }
+//                observer.onCompleted()
+//            }
+//
+//            return Disposables.create {
+//                AF.cancelAllRequests()
+//            }
+            AF.request(url, method: .get).responseData { response in
                 switch response.result {
                 case .success(let json):
-                    print(json)
                     do {
-                        let model = try? JSONDecoder().decode(Result.self, from: json)
-                        observer.
-                        single(.success(model!))
-                        print(model)
+                        let model = try JSONDecoder().decode(Result.self, from: json)
+
+                        observer.onNext(model)
+                        //self.places.accept(model!)
                     } catch let error {
-                        print(error.localizedDescription)
-                        single(.error(let error))
+                        observer.onError(error)
                     }
                 case .failure(let error) :
                     print(error.localizedDescription)
