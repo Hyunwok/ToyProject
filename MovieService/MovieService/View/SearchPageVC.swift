@@ -1,30 +1,35 @@
-//
-//  SearchVC.swift
-//  MovieService
-//
-//  Created by 이현욱 on 2020/07/21.
-//  Copyright © 2020 이현욱. All rights reserved.
-//
-
 import UIKit
+import RxSwift
 
 class SearchPageVC: UIViewController {
-
+    
+    let viewModel = MovieReloadViewModel()
+    let disposeBag = DisposeBag()
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-//    AF.request(url, method: .get).responseJSON { response in
-//            switch response.response?.statusCode {
-//            case 200: return observer.onNext(1)
-//            case 400, 500: return observer.onError(response.error as! Error)
-//            default: return observer.onError(response.error as! Error)
+        searchBar.rx.text
+//        self.searchBar.rx.text.asObservable()
+//            .map { ($0 ?? "").lowercased() }
+//            .map { UniversityRequest(name: $0) }
+//            .flatMap { request -> Observable<[Result]> in
+//                return self.apiClient.send(apiRequest: request) }.bind(to: tableView.rx.items(cellIdentifier: "MyCell")) { index, model, cell in
+//                    cell.textLabel?.text = model.name
+//        }.disposed(by: disposeBag)
+//
+//        tableView.rx.items(cellIdentifier: "MyCell") { index, movie, cell in
+//            if let cellToUse = cell {
+//                cellToUse.textLabel.text = mo
 //            }
-//            observer.onCompleted()
-//            } as! Disposable
-//    })
+//        }
+        
+    }
 }
+
+//observable.bind(to: tableView.rx.items(cellIdentifier: "MyCell")) { index, movie, cell in
+//if let cellToUse = cell as? MovieTableCell {
+//    cellToUse.movieName.text =
+//}
