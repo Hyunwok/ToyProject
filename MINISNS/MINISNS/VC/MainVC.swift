@@ -13,6 +13,7 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
+        reloadData()
         layout.itemSize = CGSize(width: 120, height: 120)
         collectionView.collectionViewLayout = layout
         collectionView.delegate = self
@@ -21,9 +22,9 @@ class MainVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//                if UserDefaults.standard.string(forKey: "token") == nil {
-//                    self.presentVC(identifier: "LoginVC")
-//                }
+        if UserDefaults.standard.string(forKey: "token") == nil {
+            self.presentVC(identifier: "LoginVC")
+        }
     }
     
     @IBAction func setAlertSheet(_ sender: UIButton) {
@@ -37,6 +38,15 @@ class MainVC: UIViewController {
         }))
         actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil ))
         self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func reloadData() {
+        AF.request("").responseData { (response) in
+            let image = UIImage(data: response.data!)
+            let cell = CollectionViewCell()
+            cell.configure(with: image!)
+        }
+        
     }
 }
 
