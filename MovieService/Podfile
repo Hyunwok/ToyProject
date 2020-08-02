@@ -8,7 +8,6 @@ target 'MovieService' do
     pod 'RxCocoa', '~> 5'
     pod 'Alamofire'
     pod 'Firebase/Analytics'
-    pod 'Firebase/Messaging'
     pod 'Firebase/Auth'
 
 
