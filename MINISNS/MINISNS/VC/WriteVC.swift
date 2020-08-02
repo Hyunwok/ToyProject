@@ -24,7 +24,7 @@ class WriteVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       // self.loadingIndicator.isHidden = animated
+        self.loadingIndicator.isHidden = animated
     }
     
     @IBAction func addImage(_ sender: UIButton) {
@@ -47,8 +47,11 @@ class WriteVC: UIViewController {
             guard let data = self.imageData else { return }
             MultipartFormData.append(data, withName: "file", fileName: UUID().uuidString + ".jpg", mimeType: "img/jpeg")
             MultipartFormData.append((self.titleTextField.text?.data(using: .utf8))!, withName: "content")
-        }, to: "https://httpbin.org/post",usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON { (result) in
-            debugPrint(result)
+        }, to: "https://httpbin.org/post", method: .post, headers: header).responseJSON { (result) in
+            switch result.result {
+            case .success(_): self.presentVC(identifier: "MainVC")
+            case .failure(let error): self.presentAlert(title: "실패", message: "사진 업로드 실패 with \(error.localizedDescription)")
+            }
         }
     }
     
