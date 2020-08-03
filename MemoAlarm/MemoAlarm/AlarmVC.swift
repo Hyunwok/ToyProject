@@ -104,7 +104,7 @@ extension AlarmVC: DatePickerXibDelegate  {
     }
 }
 
-extension AlarmVC: UITableViewDelegate, UITableViewDataSource, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
@@ -114,7 +114,9 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource, FSCalendarDelegat
         cell.textLabel?.text = self.listText[indexPath.row]
         return cell
     }
-    
+}
+
+extension AlarmVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let dateString = self.dateFormatter.string(from: date)
         if self.list.contains(dateString) {
@@ -131,6 +133,10 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource, FSCalendarDelegat
         ca.headerDateFormat = "yyyy년 M월"
         ca.headerTitleColor = .black
         ca.weekdayTextColor =  .black
+    }
+    
+    func calendar(_ calendar: FSCalendar, didselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        dateFormatter.string(from: date)
     }
 }
 
@@ -152,4 +158,5 @@ extension AlarmVC: UITextFieldDelegate {
         self.view.endEditing(true)
     }
 }
+
 // ud 저장, 텍스트 없는 것에 대한 처리, 
