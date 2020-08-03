@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA8204640E2882F110DBDC1D /* Pods_MovieService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06F307A21342DFC4936FB1B /* Pods_MovieService.framework */; };
 		D65740C724D3FAC800AB74EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65740C624D3FAC800AB74EA /* APIService.swift */; };
+		D65740CE24D84D9A00AB74EA /* Pods_MovieService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06F307A21342DFC4936FB1B /* Pods_MovieService.framework */; };
+		D65740CF24D84D9A00AB74EA /* Pods_MovieService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E06F307A21342DFC4936FB1B /* Pods_MovieService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D69A9A5924C6A7C300378B81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69A9A5824C6A7C300378B81 /* AppDelegate.swift */; };
 		D69A9A5B24C6A7C300378B81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69A9A5A24C6A7C300378B81 /* SceneDelegate.swift */; };
 		D69A9A5D24C6A7C300378B81 /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69A9A5C24C6A7C300378B81 /* MainPageVC.swift */; };
@@ -29,6 +30,20 @@
 		D6FC669C24C91B2D00EEFC8F /* MovieTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC669B24C91B2D00EEFC8F /* MovieTableCell.swift */; };
 		D6FC66A424CAD38E00EEFC8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6FC66A324CAD38D00EEFC8F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D65740D024D84D9A00AB74EA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D65740CF24D84D9A00AB74EA /* Pods_MovieService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		62A3DD56AA6370F42A637553 /* Pods-MovieService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieService.release.xcconfig"; path = "Target Support Files/Pods-MovieService/Pods-MovieService.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8204640E2882F110DBDC1D /* Pods_MovieService.framework in Frameworks */,
+				D65740CE24D84D9A00AB74EA /* Pods_MovieService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +192,7 @@
 				D69A9A5224C6A7C300378B81 /* Frameworks */,
 				D69A9A5324C6A7C300378B81 /* Resources */,
 				C173C219DD0C2C0688BE9E68 /* [CP] Embed Pods Frameworks */,
+				D65740D024D84D9A00AB74EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

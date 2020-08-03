@@ -8,7 +8,7 @@ class MovieReloadViewModel {
     private let disposeBag = DisposeBag()
     private let key = "c16f104dccf7480daa4204c8f921d8b6"
     
-    func loadView(url: String) -> Observable<Result> {
+    func loadView(url: String) -> Observable<[Result]> {
         
         return Observable<Result>.create { observer in
             let url = URL(string: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt=20120101")!
@@ -32,9 +32,9 @@ class MovieReloadViewModel {
                 switch response.result {
                 case .success(let json):
                     do {
-                        let model = try JSONDecoder().decode(Result.self, from: json)
+                        let model = try JSONDecoder().decode([Result].self, from: json)
 
-                        observer.onNext(model)
+                        observer.onNext(model!)
                         //self.places.accept(model!)
                     } catch let error {
                         observer.onError(error)
