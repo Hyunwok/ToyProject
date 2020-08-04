@@ -1,6 +1,8 @@
 import UIKit
 
-class MovieTableCell: UITableViewCell {
+class MoiveTableViewCell: UITableViewCell {
+    
+    static let xibName = "MyCell"
 
     @IBOutlet weak var movieOpenDate: UILabel!
     @IBOutlet weak var movieName: UILabel!
@@ -10,9 +12,4 @@ class MovieTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
 }
