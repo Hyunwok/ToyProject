@@ -30,7 +30,7 @@ extension APIRequest {
 
 class APIService {
     func loadView<T: Codable>(url: String) -> Observable<T> {
-        let baseURL:URL = URL(string: "http://www.kobis.or.kr/kobisopenapi/webservice")!
+        let baseURL: URL = URL(string: "http://www.kobis.or.kr/kobisopenapi/webservice")!
         
         return Observable<T>.create { observer in
             let url = URL(string: "/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt=20120101")!

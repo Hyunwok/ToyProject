@@ -1,7 +1,6 @@
 import UIKit
-import Firebase
+import FirebaseAuth
 import RxSwift
-import Alamofire
 
 class LoginVC: UIViewController {
     
