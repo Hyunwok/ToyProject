@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import Alamofire
 
-class MainPageVC: UIViewController, UITableViewDelegate {
+class MainPageVC: UIViewController {
     
     private let key = "430156241533f1d058c603178cc3ca0e"
     let viewModel = MovieReloadViewModel()
@@ -14,33 +14,39 @@ class MainPageVC: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.register(UINib(nibName: "MoiveTableViewCell", bundle: nil), forCellReuseIdentifier: "MyCell")
-        //        tableView.rx.setDataSource(self).dispose
-        tableView.rx.setDelegate(self).disposed(by: disposeBag)
-//        let nibName = UINib(nibName: MoiveTableViewCell.xibName, bundle: nil)
+        self.navigationController?.isNavigationBarHidden = true
         
-//        viewModel.loadView(url: "").map { [$0] }
-//            .bind(to: tableView.rx.items(cellIdentifier: "MyCell")) { index, movie, cell in
-//                if let cellToUse = cell as? MoiveTableViewCell {
-//                    let movieIndex = movie.boxOfficeResult.dailyBoxOfficeList[index]
-//                    cellToUse.movieName.text = movieIndex.movieNm
-//                    cellToUse.movieOpenDate.text = movieIndex.openDt
-//                    cellToUse.cumulativeAudience.text = movieIndex.audiAcc
-//                    cellToUse.rank.text = movieIndex.rank
-//                }
-//        }.disposed(by: disposeBag)
-        
-        viewModel.loadView(url: "").map { [$0] }
-            .bind(to: tableView.rx.items(cellIdentifier: "MyCell", cellType: MoiveTableViewCell.self)) { index, movie, cell in
-                    let movieIndex = movie.boxOfficeResult.dailyBoxOfficeList[index]
-                    cell.movieName.text = movieIndex.movieNm
-                    cell.movieOpenDate.text = movieIndex.openDt
-                    cell.cumulativeAudience.text = movieIndex.audiAcc
-                    cell.rank.text = movieIndex.rank
+        viewModel.loadView(url: "")
+            .bind(to: tableView.rx.items(cellIdentifier: MovieCell.xibName, cellType: MovieCell.self)) { index, movie, cell in
+                cell.movie = movie
         }.disposed(by: disposeBag)
+        
+        tableView.rowHeight = 120
+        
+        Observable.zip(self.tableView.rx.itemSelected, self.tableView.rx.modelSelected(List.self))
+            .bind { [unowned self] indexPath, model in
+//                let storyboard = UIStoryboard(name: "MainPage", bundle: nil)
+//
+//                guard let vc:DetailVC = storyboard.instantiateViewController(identifier: "DetailVC") as? DetailVC else { return }
+                
+                guard let vc1:DetailVC = self.controller(name: .detail) else { return }
+//                guard let vc:DetailVC = self.pushVC(identifier: "DetailVC") as? DetailVC else { return }
+                vc1.item = model
+                
+                self.navigationController?.pushViewController(vc1, animated: true)
+        }.disposed(by: self.disposeBag)
+        
+//        self.tableView.rx.modelSelected(List.self)
+//            .subscribe(onNext: { [weak self] indexPath -> List in
+//                return [List].indexpath
+//            }).disposed(by: disposeBag)
+        
+//        self.tableView.rx.itemSelected.subscribe(onNext: { indexPath in
+//
+//            }).disposed(by: disposeBag)
     }
 }
 
-
-
+struct ViewModel {
+    var items: Observable<[Result]>
+}
