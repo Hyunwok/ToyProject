@@ -18,7 +18,7 @@ protocol APIRequest {
 
 extension APIRequest {
     func request(with baseURL: URL) -> URLRequest {
-        var request : URLRequest = {
+        let request : URLRequest = {
             var request = URLRequest(url: baseURL)
             request.httpMethod = HTTPMethod.get.rawValue
             request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -39,8 +39,8 @@ class APIService {
                 switch response.result {
                 case .success(let json):
                     do {
-                        let model = try? JSONDecoder().decode(T.self, from: json)
-                        observer.onNext(model!)
+                        let model = try JSONDecoder().decode(T.self, from: json)
+                        observer.onNext(model)
                     } catch let error {
                         observer.onError(error)
                     }

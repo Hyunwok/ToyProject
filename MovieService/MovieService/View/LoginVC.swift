@@ -18,7 +18,8 @@ class LoginVC: UIViewController {
             self.presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비어있습니다.")
         } else {
             Auth.auth().signIn(withEmail: logInIdTextField!.text!, password: logInPwTextField!.text!)
-            self.presentVC(identifier: "TabBarVC")
+//            self.presentVC(identifier: "TabBarVC")
+            self.pushVC(identifier: "TabBarVC")
         }
     }
     
