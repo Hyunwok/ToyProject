@@ -11,6 +11,7 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func getLogin(_ sender: UIButton) {
@@ -19,7 +20,8 @@ class LoginVC: UIViewController {
         } else {
             Auth.auth().signIn(withEmail: logInIdTextField!.text!, password: logInPwTextField!.text!)
 //            self.presentVC(identifier: "TabBarVC")
-            self.pushVC(identifier: "TabBarVC")
+            guard let vc:MainPageVC = self.controller(name: StorybardName(rawValue: StorybardName.main.rawValue)!) else { return }
+            self.present(vc, animated: true, completion: nil)
         }
     }
     

@@ -2,13 +2,16 @@ import UIKit
 
 enum StorybardName: String {
     case detail = "DetailVC"
+    case main = "MainPageVC"
+    case login = "LoginVC"
+    case register = "RegisterVC"
+    case tabbar = "TabBarVC"
 }
 
 extension UIViewController {
 
     func controller<T>(modal:Bool = false, name: StorybardName) -> T? {
         guard let vc:T = self.storyboard?.instantiateViewController(identifier: name.rawValue) as? T else { return nil }
-        
         return vc
     }
     
@@ -20,13 +23,7 @@ extension UIViewController {
     
     func presentVC(identifier: String) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: identifier) else { return }
-        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
-    }
-    
-    func pushVC(identifier: String) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: identifier) else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){

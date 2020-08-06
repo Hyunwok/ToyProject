@@ -30,12 +30,13 @@ extension APIRequest {
 
 class APIService {
     func loadView<T: Codable>(url: String) -> Observable<T> {
-        let baseURL: URL = URL(string: "http://www.kobis.or.kr/kobisopenapi/webservice")!
-        
         return Observable<T>.create { observer in
-            let url = URL(string: "/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt=20120101")!
-           // let newUrl = URL(string: url)
-             AF.request(url, method: .get).responseData { response in
+            
+            let baseURL = "https://openapi.naver.com/v1/search/movie.json"
+            
+            let newUrl = URL(string: baseURL + url)!
+            
+            AF.request(newUrl, method: .get).responseData { response in
                 switch response.result {
                 case .success(let json):
                     do {

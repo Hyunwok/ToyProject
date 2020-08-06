@@ -1,20 +1,19 @@
-//
-//  DetailVC.swift
-//  MovieService
-//
-//  Created by 이현욱 on 2020/08/05.
-//  Copyright © 2020 이현욱. All rights reserved.
-//
-
 import UIKit
 
 class DetailVC: UIViewController {
 
     var item:List?
-
+    @IBOutlet weak var rank: UILabel!
+    @IBOutlet weak var movieNm: UILabel!
+    @IBOutlet weak var audiuenceCnt: UILabel!
+    @IBOutlet weak var openDt: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(self.item?.movieNm)
+        self.navigationController?.isNavigationBarHidden = false
+        audiuenceCnt.text = item?.audiAcc
+        rank.text = item?.rank
+        openDt.text = item?.openDt
+        movieNm.text = item?.movieNm
     }
 }
