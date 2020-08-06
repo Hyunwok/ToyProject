@@ -1,11 +1,15 @@
 import UIKit
 import FSCalendar
 import UserNotifications
+import RxCocoa
+import RxSwift
 
 //MARK: AlarmVC
 
 class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     
+    var calendarDataSource: [String:String] = ["2020-08-07":"잉기모띠"]
+    let commentString = BehaviorRelay<String>(value: "")
     let userNoti = UNNotiManager()
     var listDate: String!
     var listText = [String]()
@@ -111,7 +115,8 @@ extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlarmCell.identifier, for: indexPath) as! AlarmCell
-        cell.textLabel?.text = self.listText[indexPath.row]
+        commentString.bind(to: cell.alarmText.rx.text).dispose()
+        //cell.textLabel?.text = self.listText[indexPath.row]
         return cell
     }
 }
@@ -136,7 +141,10 @@ extension AlarmVC: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateA
     }
     
     func calendar(_ calendar: FSCalendar, didselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        dateFormatter.string(from: date)
+        let date = dateFormatter.string(from: date)
+        if let comment = calendarDataSource[date] {
+            commentString.accept(comment)
+        }
     }
 }
 
