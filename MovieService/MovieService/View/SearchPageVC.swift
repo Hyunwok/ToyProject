@@ -11,7 +11,13 @@ class SearchPageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.rx.text
+        self.searchBar.rx.text
+            .flatMap { _ in
+                return self.viewModel.loadView(url: "")
+                    .bind(to: tableView.rx.items(cellIdentifier: "SearchCell")) { index, movie, cell in
+                        cell.textLabel?.text = movie.movieNm
+                }
+        }
 //        self.searchBar.rx.text.asObservable()
 //            .map { ($0 ?? "").lowercased() }
 //            .map { UniversityRequest(name: $0) }
@@ -28,8 +34,3 @@ class SearchPageVC: UIViewController {
         
     }
 }
-
-//observable.bind(to: tableView.rx.items(cellIdentifier: "MyCell")) { index, movie, cell in
-//if let cellToUse = cell as? MovieTableCell {
-//    cellToUse.movieName.text =
-//}
