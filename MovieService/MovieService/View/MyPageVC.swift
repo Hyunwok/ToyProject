@@ -10,6 +10,7 @@ class MyPageVC: UIViewController {
     }
     
     @IBAction func getLogOut(_ sender: Any) {
-        self.presentVC(identifier: "LoginVC")
+        guard let vc: LoginVC = self.controller(storyBoardName: "Main", name: .login) else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
