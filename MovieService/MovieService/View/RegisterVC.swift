@@ -1,18 +1,15 @@
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class RegisterVC: UIViewController {
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
-    @IBOutlet weak var getBackToLoginVC: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    @IBAction func getBackToLoginVC(_ sender: Any) {
-        self.presentVC(identifier: "LoginVC")
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     @IBAction func getRegister(_ sender: Any) {
@@ -23,8 +20,8 @@ class RegisterVC: UIViewController {
                                     return
                                 }
                                 self.presentAlert(title: "회원가입 성공", message: "축하합니다!")
-                                DispatchQueue.global().async {
-                                    self.presentVC(identifier: "LoginVC")
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    self.navigationController?.popViewController(animated: true)
                                 }
         }
     }
