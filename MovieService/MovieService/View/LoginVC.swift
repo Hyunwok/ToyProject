@@ -11,21 +11,26 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = animated
     }
     
     @IBAction func getLogin(_ sender: UIButton) {
         if (logInPwTextField.text!.isEmpty || logInIdTextField.text!.isEmpty) {
             self.presentAlert(title: "로그인 실패", message: "아이디 혹은 비밀번호가 비어있습니다.")
         } else {
-            Auth.auth().signIn(withEmail: logInIdTextField!.text!, password: logInPwTextField!.text!)
-//            self.presentVC(identifier: "TabBarVC")
-            guard let vc:MainPageVC = self.controller(name: StorybardName(rawValue: StorybardName.main.rawValue)!) else { return }
-            self.present(vc, animated: true, completion: nil)
+            Auth.auth().signIn(withEmail: logInIdTextField!.text!, password: logInPwTextField!.text!) { [weak self] authResult, error in
+                guard self != nil else { return }
+                if error == nil { self?.presentAlert(title: "로그인 실패", message: "에러가 발생함"); return }
+            }
         }
     }
     
     @IBAction func getRegister(_ sender: UIButton) {
-        self.presentVC(identifier: "RegisterVC")
+        guard let vc: RegisterVC = self.controller(storyBoardName: "Main", name: .register) else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
