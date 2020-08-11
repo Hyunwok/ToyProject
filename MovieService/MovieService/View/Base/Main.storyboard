@@ -33,6 +33,7 @@
                                 </state>
                                 <connections>
                                     <action selector="getLogin:" destination="TYL-be-f7h" eventType="touchUpInside" id="mPg-Ex-Bty"/>
+                                    <segue destination="aFs-Db-Wf9" kind="show" identifier="loginToTab" id="Ph0-yE-tIi"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIG-9i-QRE">
@@ -119,34 +120,26 @@
                                     <action selector="getRegister:" destination="sWt-UM-h7p" eventType="touchUpInside" id="qe6-CD-YKU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5f-bm-PAn">
-                                <rect key="frame" x="20" y="31" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="getBackToLoginVC:" destination="sWt-UM-h7p" eventType="touchUpInside" id="OUM-6H-ZT3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="JDs-ZF-v3O"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="getBackToLoginVC" destination="E5f-bm-PAn" id="XDq-FN-oo8"/>
                         <outlet property="idTextField" destination="YkM-ia-uMP" id="BsJ-is-vKZ"/>
                         <outlet property="pwTextField" destination="Wbm-ND-YAZ" id="f4N-sv-MEt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkY-I5-bZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="752.17391304347836" y="-358.25892857142856"/>
+            <point key="canvasLocation" x="661" y="-700"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4h9-59-fim">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="aFs-Db-Wf9" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="k5r-ry-lXH"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vz6-1J-ixe">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -160,7 +153,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIy-CQ-3VA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2060.8695652173915" y="-358.25892857142856"/>
+            <point key="canvasLocation" x="661" y="78"/>
         </scene>
         <!--MyPageVC-->
         <scene sceneID="5U6-4M-iki">
@@ -171,7 +164,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjm-Ov-FIz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3103.6231884057975" y="-631.47321428571422"/>
+            <point key="canvasLocation" x="1773" y="-183"/>
         </scene>
         <!--MainPageVC-->
         <scene sceneID="1lO-DX-i0D">
@@ -182,7 +175,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjG-Lc-a7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3085.507246376812" y="-368.30357142857139"/>
+            <point key="canvasLocation" x="1788" y="80"/>
         </scene>
         <!--SearchPageVC-->
         <scene sceneID="bGy-oo-BcF">
@@ -192,7 +185,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvy-7J-aaJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3089.130434782609" y="-99.107142857142847"/>
+            <point key="canvasLocation" x="1791" y="350"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LQI-OP-2Tf">
