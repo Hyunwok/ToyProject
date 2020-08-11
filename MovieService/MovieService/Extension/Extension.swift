@@ -10,8 +10,9 @@ enum StorybardName: String {
 
 extension UIViewController {
 
-    func controller<T>(modal:Bool = false, name: StorybardName) -> T? {
-        guard let vc:T = self.storyboard?.instantiateViewController(identifier: name.rawValue) as? T else { return nil }
+    func controller<T>(modal:Bool = false, storyBoardName: String, name: StorybardName) -> T? {
+        let storyboard = UIStoryboard.init(name: storyBoardName, bundle: Bundle.main)
+        guard let vc:T = storyboard.instantiateViewController(identifier: name.rawValue) as? T else { return nil }
         return vc
     }
     
@@ -19,11 +20,6 @@ extension UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
-    }
-    
-    func presentVC(identifier: String) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: identifier) else { return }
-        self.present(vc, animated: true, completion: nil)
     }
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
