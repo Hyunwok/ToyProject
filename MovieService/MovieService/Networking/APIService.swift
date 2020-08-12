@@ -9,18 +9,19 @@ protocol APIRequest {
 }
 
 enum APIUrl: String {
-    case kobis = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=asdasdasd"
-    case naver = " "
+    case kobis = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?"
+    case naver = "https://openapi.naver.com/v1/search/movie.json?"
 }
 
 extension APIRequest {
-    func request(with baseURL: URL, type: APIUrl) -> URLRequest {
-        guard var components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
+    func request(type: APIUrl) -> URLRequest {
+        guard let baseUrl = URL(string: type.rawValue) else { fatalError() }
+        guard var components = URLComponents(url: baseUrl.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
             fatalError("Unable to create URL components")
         }
         
         components.queryItems = parameters.map {
-            URLQueryItem(name: String($0), value: String($1))
+            URLQueryItem(name: $0, value: $1)
         }
         
         guard let url = components.url else {
@@ -40,39 +41,15 @@ extension APIRequest {
                 request.addValue(pw, forHTTPHeaderField: "C2asfzQ7jY")
             }
         }
-        
         return request
     }
 }
 
-class ChartMovieRequest: APIRequest {
-    var path = ""
-    var parameters = [String : String]()
-    
-    init(date: String) {
-        parameters["targetDt"] = date
-    }
-}
-
-class SearchMovieRequest: APIRequest {
-    var path = "String"
-    var parameters = [String : String]()
-    
-    init(query: String) {
-        parameters["query"] = query
-    }
-}
-
-
-class ApiService {
-    func get<T: Codable>(apiRequest: APIRequest, url: APIUrl = .kobis) -> Observable<T> {
-        //url 수정 
+class APIService {
+    func loadMovie<T: Codable>(apiRequest: APIRequest, url: APIUrl = .kobis) -> Observable<T> {
         return Observable<T>.create { observer in
-            let baseURL = URL(string: url.rawValue)!
-            let request = apiRequest.request(with: baseURL, type: url)
-            
-            let dataRequest = AF.request(request).responseData{
-                response in
+            let request = apiRequest.request(type: url)
+            let dataRequest = AF.request(request).responseData{ response in
                 switch response.result {
                 case .success(let data) :
                     do {
@@ -82,7 +59,6 @@ class ApiService {
                         observer.onError(error)
                     }
                 case .failure(let error):
-                    
                     observer.onError(error)
                 }
                 observer.onCompleted()
@@ -94,3 +70,29 @@ class ApiService {
     }
 }
 
+//self.searchBar.rx.text.orEmpty
+//            .asObservable()
+//            .map { $0.lowercased() }
+//            .map { SearchMovieRequest(query: $0) }
+//            .flatMap { request -> Observable<[SearchMovieInfo]> in
+////                return self.apiService.get(apiRequest: request, headers: ["Content-Type" : "application/json","":""], url: url.naver)
+//                return self.apiService.loadMovie(apiRequest: request, url: .naver)
+//        }
+//        .bind(to: tableView.rx.items(cellIdentifier: "searchCell")) { index, model, cell in
+//            cell.textLabel?.text = model.title
+//        }
+//        .disposed(by: disposeBag)
+//    }
+//}
+
+/*
+ class SearchMovieRequest: APIRequest {
+     var path = ""
+     var parameters = [String : String]()
+     
+     init(query: String) {
+         let newQuery = query.data(using: .utf8)
+         parameters["query"] = query
+     }
+ }
+ */
