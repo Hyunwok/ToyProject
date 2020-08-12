@@ -1,11 +1,13 @@
 import UIKit
 import RxSwift
 
+
+//MARK: SearchPageVC
 class SearchPageVC: UIViewController {
     
     private let baseUrl = ""
     
-    let apiService = ApiService()
+    let apiService = APIService()
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -18,12 +20,22 @@ class SearchPageVC: UIViewController {
             .map { $0.lowercased() }
             .map { SearchMovieRequest(query: $0) }
             .flatMap { request -> Observable<[SearchMovieInfo]> in
-//                return self.apiService.get(apiRequest: request, headers: ["Content-Type" : "application/json","":""], url: url.naver)
-                return self.apiService.get(apiRequest: request, url: .naver)
+                return self.apiService.loadMovie(apiRequest: request, url: .naver)
         }
         .bind(to: tableView.rx.items(cellIdentifier: "searchCell")) { index, model, cell in
             cell.textLabel?.text = model.title
         }
         .disposed(by: disposeBag)
+    }
+}
+
+
+// MARK: SearchMovieRequest
+class SearchMovieRequest: APIRequest {
+    var parameters = [String : String]()
+    var path = ""
+    
+    init(query: String) {
+        parameters["query"] = query
     }
 }
