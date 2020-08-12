@@ -8,12 +8,21 @@ enum StorybardName: String {
     case tabbar = "TabBarVC"
 }
 
+
+
 extension UIViewController {
 
     func controller<T>(modal:Bool = false, storyBoardName: String, name: StorybardName) -> T? {
         let storyboard = UIStoryboard.init(name: storyBoardName, bundle: Bundle.main)
         guard let vc:T = storyboard.instantiateViewController(identifier: name.rawValue) as? T else { return nil }
         return vc
+    }
+    
+    func getDateString(format: String, date: Date) -> String {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.locale = .init(identifier: "ko_KR")
+        formatter.dateFormat = format
+        return formatter.string(from: date)
     }
     
     func presentAlert(title: String, message: String) {
