@@ -6,6 +6,6 @@ struct SearchMovieInfo: Codable {
     let image: String
     let pubDate: Date
     let director: String
-    let actors: String
+    let actor: String
     let userRating: Int
 }
