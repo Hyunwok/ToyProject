@@ -16,24 +16,12 @@ class MainPageVC: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         let dateString = getDateString(format: "yyyyMMdd", date: Date())
         
-//        self.apiService.loadMovie(apiRequest: ChartMovieRequest(date: ""))
-//            .map{ [$0]}
-//            .bind(to: tableView.rx.items(cellIdentifier: MovieCell.xibName, cellType: MovieCell.self) { index, movie, cell in
-//                cell.movie = movie
-//            }
-//            .disposed(by: disposeBag)
-//        )
-        
-//        self.apiService
-//            .loadMovie(apiRequest: ChartMovieRequest(date: dateString)).flatMap { request -> Observable<ChartMovieRequest> in
-//                return self.apiService
-//                    .bind(to: tableView.rx.items(cellIdentifier: MovieCell.xibName, cellType: MovieCell.self)) { index, movie, cell in
-//                        cell.movie = movie
-//                }.disposed(by: disposeBag)
-//                //.flatMap { request -> Observable<[SearchMovieInfo]> in
-//                //                return self.apiService.get(apiRequest: request, headers: ["Content-Type" : "application/json","":""], url: url.naver)
-//                return self.apiService.loadMovie(apiRequest: request, url: .naver)
-//        }
+        self.apiService.loadMovie(apiRequest: ChartMovieRequest(date: dateString))
+            .map{ [$0] }
+            .bind(to: tableView.rx.items(cellIdentifier: MovieCell.xibName, cellType: MovieCell.self) { index, movie, cell in
+                cell.movie = movie
+            }.disposed(by: disposeBag)
+        )
         
         Observable.zip(self.tableView.rx.itemSelected, self.tableView.rx.modelSelected(List.self))
             .bind { [unowned self] indexPath, model in
