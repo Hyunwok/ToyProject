@@ -4,12 +4,17 @@ import Firebase
 
 class RegisterVC: UIViewController {
     
+    let viewModel = RegisterViewModel()
+    let disposeBag = DisposeBag()
+    
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
+        viewModel.emailObservable.bind(to: idTextField.rx.text).disposed(by: disposeBag)
+        viewModel.pwObservable.bind(to: pwTextField.rx.text).disposed(by: disposeBag)
     }
     
     @IBAction func getRegister(_ sender: Any) {
