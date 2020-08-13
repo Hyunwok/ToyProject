@@ -1,10 +1,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Alamofire
 
-class LogInViewModel {
-    let idObservable = PublishSubject<String>()
+class RegisterViewModel {
+    let emailObservable = PublishSubject<String>()
     let pwObservable = PublishSubject<String>()
 }
 
