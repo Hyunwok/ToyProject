@@ -53,7 +53,7 @@ class APIService {
                 switch response.result {
                 case .success(let data) :
                     do {
-                        let model : T = try JSONDecoder().decode(T.self, from: data)
+                        let model: T = try JSONDecoder().decode(T.self, from: data)
                         observer.onNext(model)
                     } catch let error {
                         observer.onError(error)
@@ -69,30 +69,3 @@ class APIService {
         }
     }
 }
-
-//self.searchBar.rx.text.orEmpty
-//            .asObservable()
-//            .map { $0.lowercased() }
-//            .map { SearchMovieRequest(query: $0) }
-//            .flatMap { request -> Observable<[SearchMovieInfo]> in
-////                return self.apiService.get(apiRequest: request, headers: ["Content-Type" : "application/json","":""], url: url.naver)
-//                return self.apiService.loadMovie(apiRequest: request, url: .naver)
-//        }
-//        .bind(to: tableView.rx.items(cellIdentifier: "searchCell")) { index, model, cell in
-//            cell.textLabel?.text = model.title
-//        }
-//        .disposed(by: disposeBag)
-//    }
-//}
-
-/*
- class SearchMovieRequest: APIRequest {
-     var path = ""
-     var parameters = [String : String]()
-     
-     init(query: String) {
-         let newQuery = query.data(using: .utf8)
-         parameters["query"] = query
-     }
- }
- */
