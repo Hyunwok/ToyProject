@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 import FirebaseAuth
 import Firebase
 
@@ -14,7 +15,7 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
         viewModel.emailObservable.bind(to: idTextField.rx.text).disposed(by: disposeBag)
-        viewModel.pwObservable.bind(to: pwTextField.rx.text).disposed(by: disposeBag)
+        viewModel.pwObservable.bind(to: pwTextField .rx.text).disposed(by: disposeBag)
     }
     
     @IBAction func getRegister(_ sender: Any) {
