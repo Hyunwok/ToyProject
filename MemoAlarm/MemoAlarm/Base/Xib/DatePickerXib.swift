@@ -1,7 +1,8 @@
 import UIKit
+import RxSwift
 
 final class DatePickerXib: UIView {
-
+    
     var alarmDate: String!
     var delegate: DatePickerXibDelegate?
     private let noti = UNNotiManager()
@@ -35,7 +36,12 @@ final class DatePickerXib: UIView {
     }
     
     @IBAction func getOk(_ sender: UIButton) {
-        delegate?.listAppend(value: List.init(dateList:alarmDate, dateListText: alarmTextField.text!), boolean: true)
+        if alarmTextField.text!.isEmpty {
+            delegate?.listAppend(value: List.init(dateList:"", dateListText: ""), boolean: false)
+            return
+        } else {
+            delegate?.listAppend(value: List.init(dateList:alarmDate, dateListText: alarmTextField.text!), boolean: true)
+        }
     }
     
     @objc func changeDatePicker(_ sender: UIDatePicker) {
