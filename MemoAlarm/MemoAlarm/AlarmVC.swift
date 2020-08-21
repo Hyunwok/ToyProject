@@ -82,10 +82,16 @@ extension AlarmVC: DatePickerXibDelegate  {
         listDate = value.dateList
         list.append(listDate!)
         self.listText.append("\(value.dateListText)")
-        xibAndBtnIsHidden(value: boolean)
+        
         tableView.reloadData()
         calendarView.reloadData()
         reloadUserDefault()
+        if boolean {
+            xibAndBtnIsHidden(value: boolean)
+            return
+        } else {
+            self.showToast(text: "텍스트가 비었습니다")
+        }
     }
     
     func hideXib(value: Bool) {
@@ -105,6 +111,26 @@ extension AlarmVC: DatePickerXibDelegate  {
     func xibAndBtnIsHidden(value: Bool) {
         showWhenTouchPlus.isHidden = value
         datePickerXib.isHidden = value
+    }
+    
+    func showToast(text: String) {
+        let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 150, y: view.frame.size.height - 500, width: 300,  height : 35))
+        toastLabel.backgroundColor = UIColor.black
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        view.addSubview(toastLabel)
+        toastLabel.text = text
+        toastLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        toastLabel.alpha = 0.8
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {
+            (isBool) -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
 }
 
@@ -166,5 +192,3 @@ extension AlarmVC: UITextFieldDelegate {
         self.view.endEditing(true)
     }
 }
-
-// ud 저장, 텍스트 없는 것에 대한 처리, 
