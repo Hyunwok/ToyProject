@@ -1,11 +1,3 @@
-//
-//  AlarmCell.swift
-//  MemoAlarm
-//
-//  Created by 이현욱 on 2020/07/13.
-//  Copyright © 2020 이현욱. All rights reserved.
-//
-
 import UIKit
 
 class AlarmCell: UITableViewCell {
@@ -14,13 +6,9 @@ class AlarmCell: UITableViewCell {
     static let identifier = "AlarmCell"
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }
