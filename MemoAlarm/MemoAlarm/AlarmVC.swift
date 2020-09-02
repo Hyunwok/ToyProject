@@ -9,7 +9,7 @@ import RxSwift
 class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
     
     var calendarDataSource: [String:String] = ["2020-08-07":"잉기모띠"]
-    let commentString = BehaviorRelay<String>(value: "")
+    let commentString = BehaviorRelay<[String]>(value: [])
     let userNoti = UNNotiManager()
     var listDate: String!
     var listText = [String]()
@@ -37,6 +37,12 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
         tableView.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.identifier)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        commentString.bind(to: tableView.rx.items(cellIdentifier: "")) { index, comment, cell in
+            if let newCell = cell as? AlarmCell {
+                newCell.alarmText.text = comment
+            }
+        }
     }
     
     @IBAction func changeXib(_ sender: UIButton) {
@@ -131,19 +137,6 @@ extension AlarmVC: DatePickerXibDelegate  {
             (isBool) -> Void in
             self.dismiss(animated: true, completion: nil)
         })
-    }
-}
-
-extension AlarmVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AlarmCell.identifier, for: indexPath) as! AlarmCell
-        commentString.bind(to: cell.alarmText.rx.text).dispose()
-        //cell.textLabel?.text = self.listText[indexPath.row]
-        return cell
     }
 }
 
