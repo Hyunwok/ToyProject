@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>23718171352-3ehe8ekav29kvp0iv05e3g3v5t608c1u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.23718171352-3ehe8ekav29kvp0iv05e3g3v5t608c1u</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCksRJMix31FsPU3STnJhGweaKHfe2AQOw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>23718171352</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>personal.MovieService</string>
+	<key>PROJECT_ID</key>
+	<string>movieservice-cfc40</string>
+	<key>STORAGE_BUCKET</key>
+	<string>movieservice-cfc40.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:23718171352:ios:731f6a7f8fa108e0cfbdad</string>
+	<key>DATABASE_URL</key>
+	<string>https://movieservice-cfc40.firebaseio.com</string>
+</dict>
+</plist>

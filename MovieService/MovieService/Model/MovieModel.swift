@@ -1,6 +1,6 @@
 import Foundation
 
-struct Result: Codable {
+struct MovieModel: Codable {
     let boxOfficeResult: ResultList
 }
 

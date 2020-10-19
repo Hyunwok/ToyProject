@@ -1,6 +1,6 @@
 import UIKit
 
-struct SearchMovieInfo: Codable {
+struct SearchModel: Codable {
     let title: String
     let link: String
     let image: String

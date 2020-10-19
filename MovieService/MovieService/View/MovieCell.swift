@@ -2,6 +2,8 @@ import UIKit
 
 class MovieCell: UITableViewCell {
     
+    static let xibName = "MyCell"
+    
     // MARK: - Properties
     var movie:List? {
         didSet {
@@ -12,8 +14,6 @@ class MovieCell: UITableViewCell {
             self.rank.text = movie.rank
         }
     }
-    
-    static let xibName = "MyCell"
 
     @IBOutlet weak var cumulativeAudience: UILabel!
     @IBOutlet weak var rank: UILabel!
