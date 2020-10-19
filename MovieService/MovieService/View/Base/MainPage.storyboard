@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GRi-Ww-Raz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GRi-Ww-Raz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main PageVC-->
+        <!--Main-->
         <scene sceneID="ede-Un-SaK">
             <objects>
                 <viewController storyboardIdentifier="MainPageVC" id="GRi-Ww-Raz" customClass="MainPageVC" customModule="MovieService" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hsR-cl-qLS">
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="118" id="SzM-QR-Clf" customClass="MovieCell" customModule="MovieService" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="118"/>
@@ -72,7 +74,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="kwy-bm-3CH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xrD-pi-9sY" firstAttribute="leading" secondItem="kwy-bm-3CH" secondAttribute="leading" constant="34" id="0uk-Ht-xRv"/>
                             <constraint firstAttribute="bottom" secondItem="hsR-cl-qLS" secondAttribute="bottom" id="3uD-Mm-ipC"/>
@@ -81,9 +84,10 @@
                             <constraint firstItem="kwy-bm-3CH" firstAttribute="trailing" secondItem="hsR-cl-qLS" secondAttribute="trailing" id="UeK-nO-gqK"/>
                             <constraint firstItem="hsR-cl-qLS" firstAttribute="leading" secondItem="kwy-bm-3CH" secondAttribute="leading" id="ZYp-8x-rJB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="kwy-bm-3CH"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Main" image="newspaper" catalog="system" id="bFl-aI-INe"/>
                     <navigationItem key="navigationItem" id="hv8-yU-pYX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="hsR-cl-qLS" id="Zpd-7s-q5M"/>
                     </connections>
@@ -129,8 +133,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="P3Y-7s-7ID"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="audiuenceCnt" destination="P52-LZ-TRe" id="kFL-Io-fTA"/>
@@ -144,4 +148,10 @@
             <point key="canvasLocation" x="2210.144927536232" y="-304.01785714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="newspaper" catalog="system" width="128" height="108"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

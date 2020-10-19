@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jo2-e6-Ihz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jo2-e6-Ihz">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search PageVC-->
+        <!--Search-->
         <scene sceneID="GQF-Tr-GUr">
             <objects>
                 <viewController storyboardIdentifier="SearchPageVC" id="jo2-e6-Ihz" customClass="SearchPageVC" customModule="MovieService" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,8 +22,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SearchCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cwk-4G-5iS">
-                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" id="uUV-3b-0mR">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
@@ -34,7 +36,8 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="7Es-vY-Ne0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cwk-4G-5iS" firstAttribute="trailing" secondItem="7Es-vY-Ne0" secondAttribute="trailing" id="7SL-o4-cai"/>
                             <constraint firstItem="cwk-4G-5iS" firstAttribute="leading" secondItem="7Es-vY-Ne0" secondAttribute="leading" id="CtK-Ed-kDh"/>
@@ -44,8 +47,9 @@
                             <constraint firstItem="ese-2c-sYO" firstAttribute="top" secondItem="7Es-vY-Ne0" secondAttribute="top" id="r1e-nE-L3g"/>
                             <constraint firstItem="cwk-4G-5iS" firstAttribute="top" secondItem="ese-2c-sYO" secondAttribute="bottom" id="yBU-Qc-Xst"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="7Es-vY-Ne0"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="XFX-Bn-9Wi"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="ese-2c-sYO" id="bx0-ts-dnw"/>
                         <outlet property="tableView" destination="cwk-4G-5iS" id="8Lr-Ib-nuh"/>
@@ -56,4 +60,10 @@
             <point key="canvasLocation" x="13.043478260869566" y="22.767857142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
