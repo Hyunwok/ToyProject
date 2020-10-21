@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="frK-Zx-FY5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="frK-Zx-FY5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALo-h7-7eE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALo-h7-7eE">
                                 <rect key="frame" x="124.5" y="644" width="165" height="30"/>
                                 <color key="backgroundColor" red="0.29960745570000002" green="0.43513703349999999" blue="0.4392187595" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="회원가입">
@@ -25,7 +27,7 @@
                                     <action selector="getRegister:" destination="TYL-be-f7h" eventType="touchUpInside" id="QgC-jX-Yuo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILG-e9-wc5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILG-e9-wc5">
                                 <rect key="frame" x="124.5" y="588" width="165" height="30"/>
                                 <color key="backgroundColor" red="0.29803921568627451" green="0.43529411764705883" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="로그인">
@@ -37,17 +39,18 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIG-9i-QRE">
-                                <rect key="frame" x="30" y="252" width="354" height="34"/>
+                                <rect key="frame" x="30" y="208" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWi-6O-IFI">
-                                <rect key="frame" x="30" y="360" width="354" height="34"/>
+                                <rect key="frame" x="30" y="316" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Dq2-MP-O32"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dq2-MP-O32" firstAttribute="trailing" secondItem="JWi-6O-IFI" secondAttribute="trailing" constant="30" id="0XO-nx-WiV"/>
                             <constraint firstItem="BIG-9i-QRE" firstAttribute="top" secondItem="Dq2-MP-O32" secondAttribute="top" constant="164" id="0ew-Ue-dXw"/>
@@ -64,9 +67,9 @@
                             <constraint firstItem="ALo-h7-7eE" firstAttribute="leading" secondItem="Dq2-MP-O32" secondAttribute="leading" constant="124.5" id="q0j-wH-ytc"/>
                             <constraint firstItem="Dq2-MP-O32" firstAttribute="trailing" secondItem="ALo-h7-7eE" secondAttribute="trailing" constant="124.5" id="w2q-oT-GEx"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Dq2-MP-O32"/>
                     </view>
                     <navigationItem key="navigationItem" id="nXh-7z-kpk"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="logInBtn" destination="ILG-e9-wc5" id="Ein-8Q-BLG"/>
                         <outlet property="logInIdTextField" destination="BIG-9i-QRE" id="N8O-Y9-cOj"/>
@@ -110,7 +113,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSf-NQ-7B4">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSf-NQ-7B4">
                                 <rect key="frame" x="166" y="678" width="82" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="회원가입 하기">
@@ -121,8 +124,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="JDs-ZF-v3O"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
@@ -140,31 +143,20 @@
                 <tabBarController storyboardIdentifier="TabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="aFs-Db-Wf9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="k5r-ry-lXH"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vz6-1J-ixe">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="SdE-q9-7lt" kind="relationship" relationship="viewControllers" id="Prc-3f-xIh"/>
                         <segue destination="SWq-fj-TeE" kind="relationship" relationship="viewControllers" id="AuT-U9-bQU"/>
-                        <segue destination="TQA-Cg-BnQ" kind="relationship" relationship="viewControllers" id="9Mc-zs-cJx"/>
+                        <segue destination="mqk-nJ-xKm" kind="relationship" relationship="viewControllers" id="1Ag-7i-qbV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIy-CQ-3VA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="661" y="78"/>
-        </scene>
-        <!--MyPageVC-->
-        <scene sceneID="5U6-4M-iki">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MyPage" referencedIdentifier="MyPageVC" id="TQA-Cg-BnQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="1I7-AG-AiG"/>
-                    <navigationItem key="navigationItem" id="6AM-QH-j7d"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zjm-Ov-FIz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1773" y="-183"/>
         </scene>
         <!--MainPageVC-->
         <scene sceneID="1lO-DX-i0D">
@@ -177,15 +169,16 @@
             </objects>
             <point key="canvasLocation" x="1788" y="80"/>
         </scene>
-        <!--SearchPageVC-->
-        <scene sceneID="bGy-oo-BcF">
+        <!--SearchPage-->
+        <scene sceneID="sdY-c6-F4l">
             <objects>
-                <viewControllerPlaceholder storyboardName="SearchPage" referencedIdentifier="SearchPageVC" id="SdE-q9-7lt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="Fe7-xc-48j"/>
+                <viewControllerPlaceholder storyboardName="SearchPage" id="mqk-nJ-xKm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="syT-YA-rSt"/>
+                    <navigationItem key="navigationItem" id="0fy-Jy-Ohx"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pvy-7J-aaJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oDP-Pi-f1N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="350"/>
+            <point key="canvasLocation" x="1794" y="255"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LQI-OP-2Tf">
@@ -208,7 +201,8 @@
     </scenes>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

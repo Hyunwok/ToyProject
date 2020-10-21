@@ -13,7 +13,7 @@ struct List: Codable {
     let audiAcc: String
     let rank: String
     let movieNm: String
-    
+
     init(json: [String:Any]) {
         openDt = json["openDt"] as? String ?? ""
         audiAcc = json["audiAcc"] as? String ?? ""
