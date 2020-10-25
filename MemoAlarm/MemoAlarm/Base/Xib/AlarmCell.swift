@@ -2,8 +2,10 @@ import UIKit
 
 class AlarmCell: UITableViewCell {
     
-    @IBOutlet weak var alarmText: UILabel!
     static let identifier = "AlarmCell"
+    
+    @IBOutlet weak var alarmText: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

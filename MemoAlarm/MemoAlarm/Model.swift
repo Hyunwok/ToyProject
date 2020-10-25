@@ -9,6 +9,6 @@
 import Foundation
 
 struct List {
-    let dateList: String
+    let date: Date
     let dateListText: String
 }

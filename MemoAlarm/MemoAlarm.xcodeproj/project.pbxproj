@@ -12,7 +12,6 @@
 		69A2759C3FDD2E96632D42BA /* Pods_MemoAlarm_MemoAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0AC1593FADFF1FDE13C1C6 /* Pods_MemoAlarm_MemoAlarmUITests.framework */; };
 		D68F9B7024BE7D58008ADBFA /* UNNotiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F9B6F24BE7D58008ADBFA /* UNNotiManager.swift */; };
 		D6D0F1C724B7D65B001AE311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */; };
-		D6D0F1C924B7D65B001AE311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */; };
 		D6D0F1CB24B7D65B001AE311 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1CA24B7D65B001AE311 /* AlarmVC.swift */; };
 		D6D0F1CE24B7D65B001AE311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D0F1CC24B7D65B001AE311 /* Main.storyboard */; };
 		D6D0F1D024B7D65D001AE311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D0F1CF24B7D65D001AE311 /* Assets.xcassets */; };
@@ -22,9 +21,8 @@
 		D6D0F1FB24B80EC9001AE311 /* DatePickerXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F1FA24B80EC9001AE311 /* DatePickerXib.swift */; };
 		D6D0F20524BC9AE3001AE311 /* DatePickerXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D0F20424BC9AE3001AE311 /* DatePickerXib.xib */; };
 		D6D0F20D24BDBD1C001AE311 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0F20C24BDBD1C001AE311 /* AlarmCell.swift */; };
+		D6F14FB32542DCA6006AC16C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F14FB22542DCA6006AC16C /* Extension.swift */; };
 		D6FC669E24C999E500EEFC8F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC669D24C999E500EEFC8F /* Model.swift */; };
-		D6FC66A024CA52F600EEFC8F /* SubjectXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6FC669F24CA52F600EEFC8F /* SubjectXib.xib */; };
-		D6FC66A224CA530600EEFC8F /* SubjectXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC66A124CA530600EEFC8F /* SubjectXib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +54,6 @@
 		D68F9B6F24BE7D58008ADBFA /* UNNotiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNNotiManager.swift; sourceTree = "<group>"; };
 		D6D0F1C324B7D65B001AE311 /* MemoAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D6D0F1CA24B7D65B001AE311 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		D6D0F1CD24B7D65B001AE311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6D0F1CF24B7D65D001AE311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,9 +68,8 @@
 		D6D0F1FA24B80EC9001AE311 /* DatePickerXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerXib.swift; sourceTree = "<group>"; };
 		D6D0F20424BC9AE3001AE311 /* DatePickerXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerXib.xib; sourceTree = "<group>"; };
 		D6D0F20C24BDBD1C001AE311 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		D6F14FB22542DCA6006AC16C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D6FC669D24C999E500EEFC8F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		D6FC669F24CA52F600EEFC8F /* SubjectXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubjectXib.xib; sourceTree = "<group>"; };
-		D6FC66A124CA530600EEFC8F /* SubjectXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectXib.swift; sourceTree = "<group>"; };
 		E28D417B66299697F73B6116 /* Pods-MemoAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoAlarmTests.release.xcconfig"; path = "Target Support Files/Pods-MemoAlarmTests/Pods-MemoAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +131,7 @@
 				D6D0F1F724B7D672001AE311 /* Supporting */,
 				D6D0F1F624B7D66A001AE311 /* Base */,
 				D6D0F1D424B7D65D001AE311 /* Info.plist */,
+				D6F14FB72542DCAB006AC16C /* Extension */,
 			);
 			path = MemoAlarm;
 			sourceTree = "<group>";
@@ -172,7 +169,6 @@
 			children = (
 				D6D0F1C624B7D65B001AE311 /* AppDelegate.swift */,
 				D68F9B6F24BE7D58008ADBFA /* UNNotiManager.swift */,
-				D6D0F1C824B7D65B001AE311 /* SceneDelegate.swift */,
 				D6D0F1CF24B7D65D001AE311 /* Assets.xcassets */,
 			);
 			path = Supporting;
@@ -182,12 +178,18 @@
 			isa = PBXGroup;
 			children = (
 				D6D0F1FA24B80EC9001AE311 /* DatePickerXib.swift */,
-				D6FC669F24CA52F600EEFC8F /* SubjectXib.xib */,
-				D6FC66A124CA530600EEFC8F /* SubjectXib.swift */,
 				D6D0F20424BC9AE3001AE311 /* DatePickerXib.xib */,
 				D6D0F20C24BDBD1C001AE311 /* AlarmCell.swift */,
 			);
 			path = Xib;
+			sourceTree = "<group>";
+		};
+		D6F14FB72542DCAB006AC16C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D6F14FB22542DCA6006AC16C /* Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D7747950749AF177996631CC /* Pods */ = {
@@ -326,7 +328,6 @@
 				D6D0F20524BC9AE3001AE311 /* DatePickerXib.xib in Resources */,
 				D6D0F1D024B7D65D001AE311 /* Assets.xcassets in Resources */,
 				D6D0F1CE24B7D65B001AE311 /* Main.storyboard in Resources */,
-				D6FC66A024CA52F600EEFC8F /* SubjectXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,12 +457,11 @@
 			files = (
 				D6FC669E24C999E500EEFC8F /* Model.swift in Sources */,
 				D6D0F20D24BDBD1C001AE311 /* AlarmCell.swift in Sources */,
+				D6F14FB32542DCA6006AC16C /* Extension.swift in Sources */,
 				D6D0F1CB24B7D65B001AE311 /* AlarmVC.swift in Sources */,
 				D6D0F1FB24B80EC9001AE311 /* DatePickerXib.swift in Sources */,
 				D6D0F1C724B7D65B001AE311 /* AppDelegate.swift in Sources */,
 				D68F9B7024BE7D58008ADBFA /* UNNotiManager.swift in Sources */,
-				D6FC66A224CA530600EEFC8F /* SubjectXib.swift in Sources */,
-				D6D0F1C924B7D65B001AE311 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
