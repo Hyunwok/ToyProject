@@ -4,10 +4,9 @@ import RxSwift
 
 final class DatePickerXib: UIView {
     
-    var delegate: DatePickerXibDelegate?
+    static var alarmList: [List]?
     private let noti = UNNotiManager()
     private let xibName = "DatePickerXib"
-    
     
     @IBOutlet weak var alarmTextField: UITextField!
     @IBOutlet weak var lbl: UILabel!
@@ -32,18 +31,11 @@ final class DatePickerXib: UIView {
     
     @IBAction func getOk(_ sender: UIButton) {
         if !(alarmTextField.text?.isEmpty ?? false) {
-            delegate?.listAppend(value: List.init(dateList: alarmTextField.text ?? "", dateListText: alarmTextField.text!), boolean: true)
+            DatePickerXib.alarmList?.append(List(date: datePicker.date, dateListText: alarmTextField.text ?? ""))
         }
     }
     
     @objc func changeDatePicker(_ sender: UIDatePicker) {
         noti.showEduNotification(date: sender.date + 3600 * 9 - 86400)
-        obs?.subscribe(onNext: {_ in
-            [sender.date]
-        }).dispose()
     }
-}
-
-protocol DatePickerXibDelegate {
-    func listAppend(value: List, boolean: Bool)
 }
