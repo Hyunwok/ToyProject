@@ -1,10 +1,11 @@
 import UIKit
 
 import RxSwift
+import RxCocoa
 
 final class DatePickerXib: UIView {
     
-    static var alarmList: [List]?
+    var alarmList: PublishSubject<List>?
     private let noti = UNNotiManager()
     private let xibName = "DatePickerXib"
     
@@ -20,6 +21,7 @@ final class DatePickerXib: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.commonInit()
+        bindAction()
         self.datePicker.addTarget(self, action: #selector(changeDatePicker(_:)), for: .valueChanged)
     }
     
@@ -29,13 +31,21 @@ final class DatePickerXib: UIView {
         self.addSubview(view)
     }
     
-    @IBAction func getOk(_ sender: UIButton) {
-        if !(alarmTextField.text?.isEmpty ?? false) {
-            DatePickerXib.alarmList?.append(List(date: datePicker.date, dateListText: alarmTextField.text ?? ""))
-        }
-    }
-    
     @objc func changeDatePicker(_ sender: UIDatePicker) {
         noti.showEduNotification(date: sender.date + 3600 * 9 - 86400)
     }
 }
+
+extension DatePickerXib {
+    func bindAction() {
+        okBtn.rx.tap
+            .map { (self.alarmTextField.text?.isEmpty ?? false) }
+            .map {
+                if $0 {
+                    self.alarmList?.onNext(List(date: self.datePicker.date, dateListText: self.alarmTextField.text!))
+                }
+            }.subscribe()
+            .dispose()
+    }
+}
+
