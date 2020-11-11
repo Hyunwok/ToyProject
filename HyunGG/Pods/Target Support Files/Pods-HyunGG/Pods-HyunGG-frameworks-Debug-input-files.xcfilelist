@@ -1,12 +1,8 @@
 ${PODS_ROOT}/Target Support Files/Pods-HyunGG/Pods-HyunGG-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework
-${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework
-${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework
-${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework
 ${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
-${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework
 ${BUILT_PRODUCTS_DIR}/WeakMapTable/WeakMapTable.framework

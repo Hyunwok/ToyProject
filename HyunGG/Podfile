@@ -8,7 +8,6 @@ target 'HyunGG' do
   # Pods for HyunGG
     pod 'Alamofire', '~> 5.2'
     pod 'ObjectMapper', '~> 3.5'
-    pod "Texture"
     pod 'ReactorKit'
     pod "RxCocoa"
 

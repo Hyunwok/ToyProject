@@ -1,21 +1,6 @@
 PODS:
   - Alamofire (5.2.2)
   - ObjectMapper (3.5.3)
-  - PINCache (3.0.3):
-    - PINCache/Arc-exception-safe (= 3.0.3)
-    - PINCache/Core (= 3.0.3)
-  - PINCache/Arc-exception-safe (3.0.3):
-    - PINCache/Core
-  - PINCache/Core (3.0.3):
-    - PINOperation (~> 1.2.1)
-  - PINOperation (1.2.1)
-  - PINRemoteImage/Core (3.0.3):
-    - PINOperation
-  - PINRemoteImage/iOS (3.0.3):
-    - PINRemoteImage/Core
-  - PINRemoteImage/PINCache (3.0.3):
-    - PINCache (~> 3.0.3)
-    - PINRemoteImage/Core
   - ReactorKit (2.1.0):
     - RxSwift (~> 5.0)
     - WeakMapTable (~> 1.1)
@@ -25,26 +10,6 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
-  - Texture (3.0.0):
-    - Texture/AssetsLibrary (= 3.0.0)
-    - Texture/Core (= 3.0.0)
-    - Texture/MapKit (= 3.0.0)
-    - Texture/Photos (= 3.0.0)
-    - Texture/PINRemoteImage (= 3.0.0)
-    - Texture/Video (= 3.0.0)
-  - Texture/AssetsLibrary (3.0.0):
-    - Texture/Core
-  - Texture/Core (3.0.0)
-  - Texture/MapKit (3.0.0):
-    - Texture/Core
-  - Texture/Photos (3.0.0):
-    - Texture/Core
-  - Texture/PINRemoteImage (3.0.0):
-    - PINRemoteImage/iOS (~> 3.0.0)
-    - PINRemoteImage/PINCache
-    - Texture/Core
-  - Texture/Video (3.0.0):
-    - Texture/Core
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
@@ -52,35 +17,26 @@ DEPENDENCIES:
   - ObjectMapper (~> 3.5)
   - ReactorKit
   - RxCocoa
-  - Texture
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - ObjectMapper
-    - PINCache
-    - PINOperation
-    - PINRemoteImage
     - ReactorKit
     - RxCocoa
     - RxRelay
     - RxSwift
-    - Texture
     - WeakMapTable
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
-  PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
-  PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
-  PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
   ReactorKit: 12a93358c554bb3f167b16b14c40374fa9cd5acd
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 85ca6a8a414e9ed8e579d95c50c0e0331fa39693
+PODFILE CHECKSUM: 113f9b9f14f59304115ef795b05e6bfbc31f91a2
 
 COCOAPODS: 1.9.3
