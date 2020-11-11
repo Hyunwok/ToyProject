@@ -1,0 +1,6 @@
+framework module Pods_HyunGG {
+  umbrella header "Pods-HyunGG-umbrella.h"
+
+  export *
+  module * { export * }
+}

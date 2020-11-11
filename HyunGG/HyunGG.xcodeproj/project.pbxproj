@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AECDC7FAF6B5E4B07AE18C4 /* Pods_HyunGG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A920A9350C6CB762F339608 /* Pods_HyunGG.framework */; };
 		D6044C2E255BCF13007AE5DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6044C2D255BCF13007AE5DD /* AppDelegate.swift */; };
 		D6044C32255BCF13007AE5DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6044C31255BCF13007AE5DD /* ViewController.swift */; };
 		D6044C35255BCF13007AE5DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6044C33255BCF13007AE5DD /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3AB4255807A30F1A170B118A /* Pods-HyunGG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyunGG.release.xcconfig"; path = "Target Support Files/Pods-HyunGG/Pods-HyunGG.release.xcconfig"; sourceTree = "<group>"; };
+		4A920A9350C6CB762F339608 /* Pods_HyunGG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HyunGG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6044C2A255BCF13007AE5DD /* HyunGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyunGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6044C2D255BCF13007AE5DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6044C31255BCF13007AE5DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		D6044C36255BCF13007AE5DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6044C39255BCF13007AE5DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6044C3B255BCF13007AE5DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCFB1061E22C9A20C974F45F /* Pods-HyunGG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyunGG.debug.xcconfig"; path = "Target Support Files/Pods-HyunGG/Pods-HyunGG.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AECDC7FAF6B5E4B07AE18C4 /* Pods_HyunGG.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		292ECAE1ACCD2A74CE4CCC4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCFB1061E22C9A20C974F45F /* Pods-HyunGG.debug.xcconfig */,
+				3AB4255807A30F1A170B118A /* Pods-HyunGG.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7198500EDE1F8232399C4257 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A920A9350C6CB762F339608 /* Pods_HyunGG.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D6044C21255BCF12007AE5DD = {
 			isa = PBXGroup;
 			children = (
 				D6044C2C255BCF13007AE5DD /* HyunGG */,
 				D6044C2B255BCF13007AE5DD /* Products */,
+				292ECAE1ACCD2A74CE4CCC4E /* Pods */,
+				7198500EDE1F8232399C4257 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6044C3E255BCF13007AE5DD /* Build configuration list for PBXNativeTarget "HyunGG" */;
 			buildPhases = (
+				0B465C66C8E481FA2B0AFBA8 /* [CP] Check Pods Manifest.lock */,
 				D6044C26255BCF13007AE5DD /* Sources */,
 				D6044C27255BCF13007AE5DD /* Frameworks */,
 				D6044C28255BCF13007AE5DD /* Resources */,
+				133CD9BE99406DC6BB261AA5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,6 +155,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B465C66C8E481FA2B0AFBA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HyunGG-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		133CD9BE99406DC6BB261AA5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HyunGG/Pods-HyunGG-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HyunGG/Pods-HyunGG-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HyunGG/Pods-HyunGG-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D6044C26255BCF13007AE5DD /* Sources */ = {
@@ -279,6 +348,7 @@
 		};
 		D6044C3F255BCF13007AE5DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCFB1061E22C9A20C974F45F /* Pods-HyunGG.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -298,6 +368,7 @@
 		};
 		D6044C40255BCF13007AE5DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AB4255807A30F1A170B118A /* Pods-HyunGG.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
