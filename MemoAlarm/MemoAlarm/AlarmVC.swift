@@ -22,6 +22,10 @@ class AlarmVC: UIViewController, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().delegate = self
         self.calendarSetting()
         bindAction()
+<<<<<<< Updated upstream
+=======
+        bindUI()
+>>>>>>> Stashed changes
         tableView.register(AlarmCell.self, forCellReuseIdentifier: AlarmCell.identifier)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisa(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -39,6 +43,7 @@ extension AlarmVC {
             })
             .disposed(by: disposeBag)
         
+<<<<<<< Updated upstream
         datePickerXib.okBtn.rx.tap
             .map { self.tableView.reloadData() }
             .map { self.datePickerXib.alarmTextField.text?.isEmpty ?? false }
@@ -47,13 +52,28 @@ extension AlarmVC {
                     self.datePickerXib.isHidden = true
                 }
             }).disposed(by: disposeBag)
+=======
+//        datePickerXib.okBtn.rx.tap
+//            .map { self.tableView.reloadData() }
+//            .map { self.datePickerXib.alarmTextField.text?.isEmpty ?? false }
+//            .subscribe(onNext: { b in
+//                if !b {
+//                    self.datePickerXib.isHidden = true
+//                }
+//            }).disposed(by: disposeBag)
+>>>>>>> Stashed changes
     }
     
     func bindUI() {
         datePickerXib.alarmList?
             .asObservable()
+<<<<<<< Updated upstream
             .map { [$0] }
             .bind(to: tableView.rx.items(cellIdentifier: AlarmCell.identifier, cellType: AlarmCell.self)) { _, list, cell in
+=======
+            .bind(to: tableView.rx.items(cellIdentifier: AlarmCell.identifier, cellType: AlarmCell.self)) { _, list, cell in
+                cell.alarmDate.text = dateFormatter.string(from: list.date)
+>>>>>>> Stashed changes
                 cell.alarmText.text = list.dateListText
                 self.tableView.reloadData()
             }.disposed(by: disposeBag)

@@ -48,6 +48,12 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwC-hJ-tbZ">
                     <rect key="frame" x="144.5" y="190" width="30" height="30"/>
                     <state key="normal" title="확인"/>
+<<<<<<< Updated upstream
+=======
+                    <connections>
+                        <action selector="getOK:" destination="-1" eventType="touchUpInside" id="DZt-yQ-Fr3"/>
+                    </connections>
+>>>>>>> Stashed changes
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

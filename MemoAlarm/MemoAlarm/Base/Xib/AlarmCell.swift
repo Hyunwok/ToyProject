@@ -5,6 +5,7 @@ class AlarmCell: UITableViewCell {
     static let identifier = "AlarmCell"
     
     @IBOutlet weak var alarmText: UILabel!
+    @IBOutlet weak var alarmDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

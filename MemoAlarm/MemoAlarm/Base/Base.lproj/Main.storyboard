@@ -28,17 +28,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7z-C8-8fb">
-                                                    <rect key="frame" x="139" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wc4-8I-Hh6">
+                                                    <rect key="frame" x="20" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl8-Hm-dqz">
+                                                    <rect key="frame" x="102" y="11.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nl8-Hm-dqz" firstAttribute="leading" secondItem="wc4-8I-Hh6" secondAttribute="trailing" constant="40" id="IGk-w7-9FA"/>
+                                                <constraint firstItem="wc4-8I-Hh6" firstAttribute="centerY" secondItem="VR5-OA-36Q" secondAttribute="centerY" id="JeB-RN-qtc"/>
+                                                <constraint firstItem="wc4-8I-Hh6" firstAttribute="leading" secondItem="VR5-OA-36Q" secondAttribute="leading" constant="20" id="S27-mQ-eBf"/>
+                                                <constraint firstItem="nl8-Hm-dqz" firstAttribute="centerY" secondItem="VR5-OA-36Q" secondAttribute="centerY" id="jTz-Fm-hgC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="alarmText" destination="v7z-C8-8fb" id="Fme-0h-p3J"/>
+                                            <outlet property="alarmDate" destination="nl8-Hm-dqz" id="xmd-fh-MjO"/>
+                                            <outlet property="alarmText" destination="wc4-8I-Hh6" id="zUY-AI-djh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -72,8 +84,8 @@
                                 <rect key="frame" x="282" y="10" width="18" height="22"/>
                                 <state key="normal" image="plus" catalog="system"/>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3r-U0-DHu" customClass="DatePickerXib" customModule="MemoAlarm" customModuleProvider="target">
-                                <rect key="frame" x="30" y="177" width="260" height="214"/>
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z3r-U0-DHu" customClass="DatePickerXib" customModule="MemoAlarm" customModuleProvider="target">
+                                <rect key="frame" x="-86" y="-189" width="260" height="214"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Z3r-U0-DHu" secondAttribute="height" multiplier="279:230" id="XXh-vS-JLN"/>
@@ -106,6 +118,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v7z-C8-8fb">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </objects>
             <point key="canvasLocation" x="135" y="136.26760563380282"/>
         </scene>
